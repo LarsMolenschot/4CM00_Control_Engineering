@@ -48,7 +48,7 @@ function [fig, H_tile, Coh_tile] = mybode(f,H,C,fig_title)
     Coh_tile = nexttile;
     size_c = size(C);
     for i = 1 : size_c(2)
-        semilogx(f(:,i),C(:,i)); hold on;
+        semilogx(f(:,ceil(i/2)),C(:,i)); hold on;
     end
     grid on;
     title('Coherence');
