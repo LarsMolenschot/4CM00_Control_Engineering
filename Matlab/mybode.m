@@ -1,4 +1,4 @@
-function [fig, H_tile, Coh_tile] = mybode(f,H,C,fig_title)
+function [fig, H_tile, P_tile, Coh_tile] = mybode(f,H,C,fig_title)
     fig = figure;
     t = tiledlayout(3,1,"TileSpacing","tight");
     title(t,'Bode: ' + fig_title);
@@ -27,7 +27,7 @@ function [fig, H_tile, Coh_tile] = mybode(f,H,C,fig_title)
     legend(arrayfun(@(i) sprintf('H_%d',i),1:size_h(2),'UniformOutput',false));
     
     %Phase
-    nexttile;
+    P_tile = nexttile;
     
     for i = 1 : size_h(2)
         plot(f(:,i),rad2deg(angle(H(:,i)))); hold on;    
@@ -38,7 +38,8 @@ function [fig, H_tile, Coh_tile] = mybode(f,H,C,fig_title)
     title('Phase');
     %legend(arrayfun(@(i) sprintf('H_%d',i),1:size_h(2),'UniformOutput',false));
 
-    if(~size(C))
+    size_c = size(C);
+    if(~size_c(2))
         xlabel('Frequency [Hz]');
         Coh_tile = 0;
         return;
@@ -46,7 +47,6 @@ function [fig, H_tile, Coh_tile] = mybode(f,H,C,fig_title)
     
     %Coherance
     Coh_tile = nexttile;
-    size_c = size(C);
     for i = 1 : size_c(2)
         semilogx(f(:,ceil(i/2)),C(:,i)); hold on;
     end
