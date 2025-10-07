@@ -1,4 +1,4 @@
-function [f, H, S, L, Coh] = twoPoint(d,u,r,C_tf,window,noverlap,nfft,fs)
+function [f, H, S, L, Coh, C_resp] = twoPoint(d,u,r,C_tf,window,noverlap,nfft,fs)
 %This function takes as input signals d, u and r with C_resp being the
 %controller response over the desired frequency range f.
 
@@ -14,5 +14,5 @@ C_resp = squeeze(freqresp(C_tf, 2*pi*f));
 
 S = (Sud./Sdd);
 H = (1./C_resp).*((1./S)-1);
-L = (1./(Sud./Sdd))-1;
+L = (1./S)-1;
 end
