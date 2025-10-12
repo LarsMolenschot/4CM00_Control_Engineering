@@ -1,7 +1,7 @@
 function [fig, H_tile, Coh_tile] = PlotProcessedData(data,title)
-    w = length(data);    
+    w = size(data);    
     l = 0;
-    for i = 1:w
+    for i = 1:w(2)
         %data exists of struct{processedData, tf_to_plot}
         tf_to_plot = cell2mat(data(2,i));
         cell_data = cell2mat(data(1,i));
@@ -24,17 +24,17 @@ function [fig, H_tile, Coh_tile] = PlotProcessedData(data,title)
 
 
     %build data vectors
-    F = zeros(l,w);
-    tf_data = zeros(l,w);
+    F = zeros(l,w(2));
+    tf_data = zeros(l,w(2));
     c_w = 0;
-    for i = 1:w
+    for i = 1:w(2)
         cell_data = cell2mat(data(1,i));
         size_C = size(cell_data.C);
         c_w = c_w + size_C(2);
     end
     C = zeros(l,c_w);
     j = 0;
-    for i = 1 : length(data)
+    for i = 1 : w(2)
         tf_to_plot = cell2mat(data(2,i));
         cell_data = cell2mat(data(1,i));
 
