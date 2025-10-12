@@ -1,4 +1,4 @@
-function foundData = GetData(Folder, Number)
+function foundData = GetData(Number,Folder)
     files = dir(fullfile(Folder, '*_*'));  % only files with underscore
     files = files(~[files.isdir]);          % remove any folders
     

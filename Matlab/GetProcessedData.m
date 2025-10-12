@@ -1,6 +1,6 @@
-function processedData = GetProcessedData(Path, processedType, MeasurementNumber)
+function [processedData]= GetProcessedData(Path, processedType, MeasurementNumber)
     folder = Path + "/processed_signals/" + processedType + "/MeasurementOrder";
-    found = GetData(folder,MeasurementNumber);
+    found = GetData(MeasurementNumber,folder);
     
     if(isempty(found))
         processedData = [];

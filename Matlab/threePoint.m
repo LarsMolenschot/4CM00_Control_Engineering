@@ -1,6 +1,6 @@
-function [f, H, S, Coh] = threePoint(d,e,u,window,noverlap,nfft,fs)
-Coh = zeros(nfft/2+1,2);
-S = zeros(nfft/2+1,2);
+function [f, H, S, Coh, C, L] = threePoint(d,e,u,window,noverlap,nfft,fs)
+Coh = zeros(floor(nfft/2)+1,2);
+S = zeros(floor(nfft/2+1),2);
 
 %-PS e/d
 [PS_est,f_est] = tfestimate(d,-e,window,noverlap,nfft,fs);
@@ -17,4 +17,10 @@ Coh(:,2) = Cs;
 H_est = PS_est./S_est;
 H = H_est;
 f = f_est;
+
+
+T_est = S_est - 1;
+C = T_est./-PS_est;
+L = C.*H;
+
 end
