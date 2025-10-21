@@ -7,9 +7,9 @@
  *
  * Code generation for model "Hardware_Performance_run".
  *
- * Model version              : 14.19
+ * Model version              : 14.22
  * Simulink Coder version : 25.1 (R2025a) 21-Nov-2024
- * C source code generated on : Tue Oct 21 11:14:12 2025
+ * C source code generated on : Tue Oct 21 12:46:58 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -288,7 +288,7 @@ void Hardware_Performance_run_step(void)
   emxArray_char_T_Hardware_Perf_T *str;
   emxArray_char_T_Hardware_Perf_T *str_0;
   real_T rtb_Gain6;
-  real_T rtb_Quantizer1;
+  real_T rtb_Quantizer3;
   real_T rtb_Sum;
   real_T rtb_Sum2;
   real_T tmp;
@@ -380,10 +380,10 @@ void Hardware_Performance_run_step(void)
     Hardware_Performance_run_P.Quantizer2_Interval) *
     Hardware_Performance_run_P.Quantizer2_Interval;
 
-  /* Quantizer: '<Root>/Quantizer1' */
-  rtb_Quantizer1 = rt_roundd_snf(Hardware_Performance_run_B.SFunction_c[2] /
-    Hardware_Performance_run_P.Quantizer1_Interval) *
-    Hardware_Performance_run_P.Quantizer1_Interval;
+  /* Quantizer: '<Root>/Quantizer3' */
+  rtb_Quantizer3 = rt_roundd_snf(Hardware_Performance_run_B.SFunction_c[0] /
+    Hardware_Performance_run_P.Quantizer3_Interval) *
+    Hardware_Performance_run_P.Quantizer3_Interval;
 
   /* Gain: '<Root>/Gain6' incorporates:
    *  Gain: '<S1>/count2rad'
@@ -392,8 +392,12 @@ void Hardware_Performance_run_step(void)
     Hardware_Performance_run_B.ec_Ebox_o2[1] *
     Hardware_Performance_run_P.Gain6_Gain;
 
-  /* Sum: '<Root>/Sum' */
-  rtb_Sum = rtb_Quantizer1 - rtb_Gain6;
+  /* Sum: '<Root>/Sum' incorporates:
+   *  Quantizer: '<Root>/Quantizer1'
+   */
+  rtb_Sum = rt_roundd_snf(Hardware_Performance_run_B.SFunction_c[2] /
+    Hardware_Performance_run_P.Quantizer1_Interval) *
+    Hardware_Performance_run_P.Quantizer1_Interval - rtb_Gain6;
 
   /* Gain: '<S2>/Gain1' */
   Hardware_Performance_run_B.Gain1 = Hardware_Performance_run_P.Gain1_Gain_n *
@@ -444,16 +448,12 @@ void Hardware_Performance_run_step(void)
    *  Gain: '<Root>/Gain'
    *  Gain: '<Root>/Gain1'
    *  Gain: '<Root>/Gain2'
-   *  Quantizer: '<Root>/Quantizer3'
    *  Signum: '<Root>/Sign'
    *  Sum: '<Root>/Sum3'
    *  Sum: '<Root>/Sum4'
    */
-  rtb_Sum2 = ((rt_roundd_snf(Hardware_Performance_run_B.SFunction_c[0] /
-    Hardware_Performance_run_P.Quantizer3_Interval) *
-               Hardware_Performance_run_P.Quantizer3_Interval *
-               Hardware_Performance_run_P.Gain2_Gain +
-               Hardware_Performance_run_P.Gain1_Gain * rtb_Sum2) +
+  rtb_Sum2 = ((Hardware_Performance_run_P.Gain1_Gain * rtb_Sum2 +
+               Hardware_Performance_run_P.Gain2_Gain * rtb_Quantizer3) +
               Hardware_Performance_run_P.Gain_Gain_h * tmp) +
     Hardware_Performance_run_B.Dct1lowpass5;
 
@@ -588,7 +588,7 @@ void Hardware_Performance_run_step(void)
       if (!(f == NULL)) {
         xout[0] = (real32_T)rtb_Gain6;
         xout[1] = (real32_T)rtb_Sum;
-        xout[2] = (real32_T)rtb_Quantizer1;
+        xout[2] = (real32_T)rtb_Quantizer3;
         bytesOutSizet = fwrite(&xout[0], sizeof(real32_T), (size_t)3, f);
         if (((real_T)bytesOutSizet > 0.0) && autoflush) {
           fflush(f);
@@ -727,10 +727,10 @@ void Hardware_Performance_run_initialize(void)
   Hardware_Performance_run_M->Timing.stepSize1 = 0.00025;
 
   /* External mode info */
-  Hardware_Performance_run_M->Sizes.checksums[0] = (2594316378U);
-  Hardware_Performance_run_M->Sizes.checksums[1] = (157637255U);
-  Hardware_Performance_run_M->Sizes.checksums[2] = (1871097258U);
-  Hardware_Performance_run_M->Sizes.checksums[3] = (810154728U);
+  Hardware_Performance_run_M->Sizes.checksums[0] = (1412557036U);
+  Hardware_Performance_run_M->Sizes.checksums[1] = (1467421388U);
+  Hardware_Performance_run_M->Sizes.checksums[2] = (2002760481U);
+  Hardware_Performance_run_M->Sizes.checksums[3] = (2641520463U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
