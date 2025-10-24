@@ -9,7 +9,7 @@
  *
  * Model version              : 14.22
  * Simulink Coder version : 25.1 (R2025a) 21-Nov-2024
- * C source code generated on : Tue Oct 21 12:46:58 2025
+ * C source code generated on : Fri Oct 24 08:58:16 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -727,10 +727,10 @@ void Hardware_Performance_run_initialize(void)
   Hardware_Performance_run_M->Timing.stepSize1 = 0.00025;
 
   /* External mode info */
-  Hardware_Performance_run_M->Sizes.checksums[0] = (1412557036U);
-  Hardware_Performance_run_M->Sizes.checksums[1] = (1467421388U);
-  Hardware_Performance_run_M->Sizes.checksums[2] = (2002760481U);
-  Hardware_Performance_run_M->Sizes.checksums[3] = (2641520463U);
+  Hardware_Performance_run_M->Sizes.checksums[0] = (650792294U);
+  Hardware_Performance_run_M->Sizes.checksums[1] = (170401062U);
+  Hardware_Performance_run_M->Sizes.checksums[2] = (1451289843U);
+  Hardware_Performance_run_M->Sizes.checksums[3] = (2109100933U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;

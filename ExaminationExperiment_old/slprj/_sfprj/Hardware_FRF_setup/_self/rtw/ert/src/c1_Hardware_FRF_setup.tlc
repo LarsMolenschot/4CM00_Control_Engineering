@@ -1,0 +1,118 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   14 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "sfEvent"\
+      Description  "ActiveChartEvent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "doneDoubleBufferReInit"\
+      Description  "DoubleBufferInitCheck"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "fileID"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Hardware_FRF_setup:96:134-140"\
+    }\
+    ChartData {\
+      Name         "fileID_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Hardware_FRF_setup:96:134-140"\
+    }\
+    ChartData {\
+      Name         "NF"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Hardware_FRF_setup:96:141-143"\
+    }\
+    ChartData {\
+      Name         "NF_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Hardware_FRF_setup:96:141-143"\
+    }\
+    ChartData {\
+      Name         "busy"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Hardware_FRF_setup:96:144-148"\
+    }\
+    ChartData {\
+      Name         "busy_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Hardware_FRF_setup:96:144-148"\
+    }\
+    ChartData {\
+      Name         "NS"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Hardware_FRF_setup:96:149-151"\
+    }\
+    ChartData {\
+      Name         "NS_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "Hardware_FRF_setup:96:149-151"\
+    }\
+    ChartData {\
+      Name         "eml_openfiles"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "C:\Program Files\MATLAB\R2025a\toolbox\eml\eml\+coder\+internal\fileManager.m:8331-8344"\
+      Dimensions   [20]\
+    }\
+    ChartData {\
+      Name         "eml_openfiles_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "C:\Program Files\MATLAB\R2025a\toolbox\eml\eml\+coder\+internal\fileManager.m:8331-8344"\
+    }\
+    ChartData {\
+      Name         "eml_autoflush"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "C:\Program Files\MATLAB\R2025a\toolbox\eml\eml\+coder\+internal\fileManager.m:8345-8358"\
+      Dimensions   [20]\
+    }\
+    ChartData {\
+      Name         "eml_autoflush_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "C:\Program Files\MATLAB\R2025a\toolbox\eml\eml\+coder\+internal\fileManager.m:8345-8358"\
+    }\
+  }
+  %return ChartDataElements
+%endfunction
