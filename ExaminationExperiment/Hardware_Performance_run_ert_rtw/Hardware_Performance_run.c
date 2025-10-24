@@ -7,9 +7,9 @@
  *
  * Code generation for model "Hardware_Performance_run".
  *
- * Model version              : 14.23
+ * Model version              : 14.24
  * Simulink Coder version : 25.1 (R2025a) 21-Nov-2024
- * C source code generated on : Fri Oct 24 16:37:13 2025
+ * C source code generated on : Fri Oct 24 16:57:23 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -413,6 +413,14 @@ void Hardware_Performance_run_step(void)
     sfcnOutputs(rts,0);
   }
 
+  /* S-Function (dnotch): '<S1>/Dctnotch5' */
+
+  /* Level2 S-Function Block: '<S1>/Dctnotch5' (dnotch) */
+  {
+    SimStruct *rts = Hardware_Performance_run_M->childSfunctions[7];
+    sfcnOutputs(rts,0);
+  }
+
   /* Quantizer: '<Root>/Quantizer2' */
   rtb_Sum2 = rt_roundd_snf(Hardware_Performance_run_B.SFunction[1] /
     Hardware_Performance_run_P.Quantizer2_Interval) *
@@ -443,7 +451,7 @@ void Hardware_Performance_run_step(void)
   rtb_Sum2 = ((Hardware_Performance_run_P.Gain1_Gain_j * rtb_Sum2 +
                Hardware_Performance_run_P.Gain2_Gain * rtb_Quantizer3) +
               Hardware_Performance_run_P.Gain_Gain_h * tmp) +
-    Hardware_Performance_run_B.Dct1lowpass4;
+    Hardware_Performance_run_B.Dctnotch5;
 
   /* Saturate: '<S2>/Saturation' */
   if (rtb_Sum2 > Hardware_Performance_run_P.Saturation_UpperSat) {
@@ -721,10 +729,10 @@ void Hardware_Performance_run_initialize(void)
   Hardware_Performance_run_M->Timing.stepSize1 = 0.00025;
 
   /* External mode info */
-  Hardware_Performance_run_M->Sizes.checksums[0] = (3443633822U);
-  Hardware_Performance_run_M->Sizes.checksums[1] = (3238084869U);
-  Hardware_Performance_run_M->Sizes.checksums[2] = (4037155449U);
-  Hardware_Performance_run_M->Sizes.checksums[3] = (2526776022U);
+  Hardware_Performance_run_M->Sizes.checksums[0] = (2094339609U);
+  Hardware_Performance_run_M->Sizes.checksums[1] = (4262530311U);
+  Hardware_Performance_run_M->Sizes.checksums[2] = (1916625485U);
+  Hardware_Performance_run_M->Sizes.checksums[3] = (1714667550U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
@@ -794,20 +802,20 @@ void Hardware_Performance_run_initialize(void)
     rtssSetSolverInfoPtr(sfcnInfo, &Hardware_Performance_run_M->solverInfoPtr);
   }
 
-  Hardware_Performance_run_M->Sizes.numSFcns = (7);
+  Hardware_Performance_run_M->Sizes.numSFcns = (8);
 
   /* register each child */
   {
     (void) memset((void *)
                   &Hardware_Performance_run_M->NonInlinedSFcns.childSFunctions[0],
                   0,
-                  7*sizeof(SimStruct));
+                  8*sizeof(SimStruct));
     Hardware_Performance_run_M->childSfunctions =
       (&Hardware_Performance_run_M->NonInlinedSFcns.childSFunctionPtrs[0]);
 
     {
       int_T i;
-      for (i = 0; i < 7; i++) {
+      for (i = 0; i < 8; i++) {
         Hardware_Performance_run_M->childSfunctions[i] =
           (&Hardware_Performance_run_M->NonInlinedSFcns.childSFunctions[i]);
       }
@@ -1589,7 +1597,7 @@ void Hardware_Performance_run_initialize(void)
       /* path info */
       ssSetModelName(rts, "Dctnotch2");
       ssSetPath(rts,
-                "Hardware_Performance_run/Controller_V2_R1_13p5Hz/Dctnotch2");
+                "Hardware_Performance_run/Controller_12p8_N_52p9_LL_LPF_N3p7_I/Dctnotch2");
       ssSetRTModel(rts,Hardware_Performance_run_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -1767,7 +1775,7 @@ void Hardware_Performance_run_initialize(void)
       /* path info */
       ssSetModelName(rts, "Dctleadlag3");
       ssSetPath(rts,
-                "Hardware_Performance_run/Controller_V2_R1_13p5Hz/Dctleadlag3");
+                "Hardware_Performance_run/Controller_12p8_N_52p9_LL_LPF_N3p7_I/Dctleadlag3");
       ssSetRTModel(rts,Hardware_Performance_run_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -1942,7 +1950,7 @@ void Hardware_Performance_run_initialize(void)
       /* path info */
       ssSetModelName(rts, "Dct1lowpass4");
       ssSetPath(rts,
-                "Hardware_Performance_run/Controller_V2_R1_13p5Hz/Dct1lowpass4");
+                "Hardware_Performance_run/Controller_12p8_N_52p9_LL_LPF_N3p7_I/Dct1lowpass4");
       ssSetRTModel(rts,Hardware_Performance_run_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -1982,6 +1990,184 @@ void Hardware_Performance_run_initialize(void)
 
       /* registration */
       dlowpass1(rts);
+      sfcnInitializeSizes(rts);
+      sfcnInitializeSampleTimes(rts);
+
+      /* adjust sample time */
+      ssSetSampleTime(rts, 0, 0.00025);
+      ssSetOffsetTime(rts, 0, 0.0);
+      sfcnTsMap[0] = 1;
+
+      /* set compiled values of dynamic vector attributes */
+      ssSetNumNonsampledZCsAsInt(rts, 0);
+
+      /* Update connectivity flags for each port */
+      _ssSetInputPortConnected(rts, 0, 1);
+      _ssSetOutputPortConnected(rts, 0, 1);
+      _ssSetOutputPortBeingMerged(rts, 0, 0);
+
+      /* Update the BufferDstPort flags for each input port */
+      ssSetInputPortBufferDstPort(rts, 0, -1);
+    }
+
+    /* Level2 S-Function Block: Hardware_Performance_run/<S1>/Dctnotch5 (dnotch) */
+    {
+      SimStruct *rts = Hardware_Performance_run_M->childSfunctions[7];
+
+      /* timing info */
+      time_T *sfcnPeriod =
+        Hardware_Performance_run_M->NonInlinedSFcns.Sfcn7.sfcnPeriod;
+      time_T *sfcnOffset =
+        Hardware_Performance_run_M->NonInlinedSFcns.Sfcn7.sfcnOffset;
+      int_T *sfcnTsMap =
+        Hardware_Performance_run_M->NonInlinedSFcns.Sfcn7.sfcnTsMap;
+      (void) memset((void*)sfcnPeriod, 0,
+                    sizeof(time_T)*1);
+      (void) memset((void*)sfcnOffset, 0,
+                    sizeof(time_T)*1);
+      ssSetSampleTimePtr(rts, &sfcnPeriod[0]);
+      ssSetOffsetTimePtr(rts, &sfcnOffset[0]);
+      ssSetSampleTimeTaskIDPtr(rts, sfcnTsMap);
+
+      {
+        ssSetBlkInfo2Ptr(rts,
+                         &Hardware_Performance_run_M->NonInlinedSFcns.blkInfo2[7]);
+      }
+
+      _ssSetBlkInfo2PortInfo2Ptr(rts,
+        &Hardware_Performance_run_M->NonInlinedSFcns.inputOutputPortInfo2[7]);
+
+      /* Set up the mdlInfo pointer */
+      ssSetRTWSfcnInfo(rts, Hardware_Performance_run_M->sfcnInfo);
+
+      /* Allocate memory of model methods 2 */
+      {
+        ssSetModelMethods2(rts,
+                           &Hardware_Performance_run_M->
+                           NonInlinedSFcns.methods2[7]);
+      }
+
+      /* Allocate memory of model methods 3 */
+      {
+        ssSetModelMethods3(rts,
+                           &Hardware_Performance_run_M->
+                           NonInlinedSFcns.methods3[7]);
+      }
+
+      /* Allocate memory of model methods 4 */
+      {
+        ssSetModelMethods4(rts,
+                           &Hardware_Performance_run_M->
+                           NonInlinedSFcns.methods4[7]);
+      }
+
+      /* Allocate memory for states auxilliary information */
+      {
+        ssSetStatesInfo2(rts,
+                         &Hardware_Performance_run_M->NonInlinedSFcns.statesInfo2
+                         [7]);
+        ssSetPeriodicStatesInfo(rts,
+          &Hardware_Performance_run_M->NonInlinedSFcns.periodicStatesInfo[7]);
+      }
+
+      /* inputs */
+      {
+        _ssSetNumInputPorts(rts, 1);
+        ssSetPortInfoForInputs(rts,
+          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn7.inputPortInfo[0]);
+        ssSetPortInfoForInputs(rts,
+          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn7.inputPortInfo[0]);
+        _ssSetPortInfo2ForInputUnits(rts,
+          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn7.inputPortUnits[0]);
+        ssSetInputPortUnit(rts, 0, 0);
+        _ssSetPortInfo2ForInputCoSimAttribute(rts,
+          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn7.inputPortCoSimAttribute
+          [0]);
+        ssSetInputPortIsContinuousQuantity(rts, 0, 0);
+
+        /* port 0 */
+        {
+          real_T const **sfcnUPtrs = (real_T const **)
+            &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn7.UPtrs0;
+          sfcnUPtrs[0] = &Hardware_Performance_run_B.Dct1lowpass4;
+          ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
+          _ssSetInputPortNumDimensions(rts, 0, 1);
+          ssSetInputPortWidthAsInt(rts, 0, 1);
+        }
+      }
+
+      /* outputs */
+      {
+        ssSetPortInfoForOutputs(rts,
+          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn7.outputPortInfo[0]);
+        ssSetPortInfoForOutputs(rts,
+          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn7.outputPortInfo[0]);
+        _ssSetNumOutputPorts(rts, 1);
+        _ssSetPortInfo2ForOutputUnits(rts,
+          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn7.outputPortUnits[0]);
+        ssSetOutputPortUnit(rts, 0, 0);
+        _ssSetPortInfo2ForOutputCoSimAttribute(rts,
+          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn7.outputPortCoSimAttribute
+          [0]);
+        ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
+
+        /* port 0 */
+        {
+          _ssSetOutputPortNumDimensions(rts, 0, 1);
+          ssSetOutputPortWidthAsInt(rts, 0, 1);
+          ssSetOutputPortSignal(rts, 0, ((real_T *)
+            &Hardware_Performance_run_B.Dctnotch5));
+        }
+      }
+
+      /* path info */
+      ssSetModelName(rts, "Dctnotch5");
+      ssSetPath(rts,
+                "Hardware_Performance_run/Controller_12p8_N_52p9_LL_LPF_N3p7_I/Dctnotch5");
+      ssSetRTModel(rts,Hardware_Performance_run_M);
+      ssSetParentSS(rts, (NULL));
+      ssSetRootSS(rts, rts);
+      ssSetVersion(rts, SIMSTRUCT_VERSION_LEVEL2);
+
+      /* parameters */
+      {
+        mxArray **sfcnParams = (mxArray **)
+          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn7.params;
+        ssSetSFcnParamsCount(rts, 5);
+        ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
+        ssSetSFcnParam(rts, 0, (mxArray*)
+                       Hardware_Performance_run_P.Dctnotch5_P1_Size);
+        ssSetSFcnParam(rts, 1, (mxArray*)
+                       Hardware_Performance_run_P.Dctnotch5_P2_Size);
+        ssSetSFcnParam(rts, 2, (mxArray*)
+                       Hardware_Performance_run_P.Dctnotch5_P3_Size);
+        ssSetSFcnParam(rts, 3, (mxArray*)
+                       Hardware_Performance_run_P.Dctnotch5_P4_Size);
+        ssSetSFcnParam(rts, 4, (mxArray*)
+                       Hardware_Performance_run_P.Dctnotch5_P5_Size);
+      }
+
+      /* work vectors */
+      ssSetRWork(rts, (real_T *) &Hardware_Performance_run_DW.Dctnotch5_RWORK[0]);
+
+      {
+        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
+          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn7.dWork;
+        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
+          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn7.dWorkAux;
+        ssSetSFcnDWork(rts, dWorkRecord);
+        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
+        ssSetNumDWorkAsInt(rts, 1);
+
+        /* RWORK */
+        ssSetDWorkWidthAsInt(rts, 0, 4);
+        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
+        ssSetDWorkComplexSignal(rts, 0, 0);
+        ssSetDWork(rts, 0, &Hardware_Performance_run_DW.Dctnotch5_RWORK[0]);
+      }
+
+      /* registration */
+      dnotch(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -2069,6 +2255,15 @@ void Hardware_Performance_run_initialize(void)
   /* Level2 S-Function Block: '<S1>/Dct1lowpass4' (dlowpass1) */
   {
     SimStruct *rts = Hardware_Performance_run_M->childSfunctions[6];
+    sfcnStart(rts);
+    if (ssGetErrorStatus(rts) != (NULL))
+      return;
+  }
+
+  /* Start for S-Function (dnotch): '<S1>/Dctnotch5' */
+  /* Level2 S-Function Block: '<S1>/Dctnotch5' (dnotch) */
+  {
+    SimStruct *rts = Hardware_Performance_run_M->childSfunctions[7];
     sfcnStart(rts);
     if (ssGetErrorStatus(rts) != (NULL))
       return;
@@ -2197,6 +2392,13 @@ void Hardware_Performance_run_terminate(void)
   /* Level2 S-Function Block: '<S1>/Dct1lowpass4' (dlowpass1) */
   {
     SimStruct *rts = Hardware_Performance_run_M->childSfunctions[6];
+    sfcnTerminate(rts);
+  }
+
+  /* Terminate for S-Function (dnotch): '<S1>/Dctnotch5' */
+  /* Level2 S-Function Block: '<S1>/Dctnotch5' (dnotch) */
+  {
+    SimStruct *rts = Hardware_Performance_run_M->childSfunctions[7];
     sfcnTerminate(rts);
   }
 }

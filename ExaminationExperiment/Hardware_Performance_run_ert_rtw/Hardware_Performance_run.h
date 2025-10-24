@@ -7,9 +7,9 @@
  *
  * Code generation for model "Hardware_Performance_run".
  *
- * Model version              : 14.23
+ * Model version              : 14.24
  * Simulink Coder version : 25.1 (R2025a) 21-Nov-2024
- * C source code generated on : Fri Oct 24 16:37:13 2025
+ * C source code generated on : Fri Oct 24 16:57:23 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -134,6 +134,7 @@ typedef struct {
   real_T Dctnotch2;                    /* '<S1>/Dctnotch2' */
   real_T Dctleadlag3;                  /* '<S1>/Dctleadlag3' */
   real_T Dct1lowpass4;                 /* '<S1>/Dct1lowpass4' */
+  real_T Dctnotch5;                    /* '<S1>/Dctnotch5' */
   real_T Saturation[2];                /* '<S6>/Saturation' */
   real_T Constant1[8];                 /* '<S2>/Constant1' */
 } B_Hardware_Performance_run_T;
@@ -146,6 +147,7 @@ typedef struct {
   real_T Dctnotch2_RWORK[4];           /* '<S1>/Dctnotch2' */
   real_T Dctleadlag3_RWORK[2];         /* '<S1>/Dctleadlag3' */
   real_T Dct1lowpass4_RWORK[2];        /* '<S1>/Dct1lowpass4' */
+  real_T Dctnotch5_RWORK[4];           /* '<S1>/Dctnotch5' */
   void *SFunction1_PWORK;              /* '<S7>/S-Function1' */
   struct {
     void *FilePtr;
@@ -300,6 +302,36 @@ struct P_Hardware_Performance_run_T_ {
   real_T Dct1lowpass4_P2;              /* Expression: 0.001
                                         * Referenced by: '<S1>/Dct1lowpass4'
                                         */
+  real_T Dctnotch5_P1_Size[2];         /* Computed Parameter: Dctnotch5_P1_Size
+                                        * Referenced by: '<S1>/Dctnotch5'
+                                        */
+  real_T Dctnotch5_P1;                 /* Expression: f_num
+                                        * Referenced by: '<S1>/Dctnotch5'
+                                        */
+  real_T Dctnotch5_P2_Size[2];         /* Computed Parameter: Dctnotch5_P2_Size
+                                        * Referenced by: '<S1>/Dctnotch5'
+                                        */
+  real_T Dctnotch5_P2;                 /* Expression: b_num
+                                        * Referenced by: '<S1>/Dctnotch5'
+                                        */
+  real_T Dctnotch5_P3_Size[2];         /* Computed Parameter: Dctnotch5_P3_Size
+                                        * Referenced by: '<S1>/Dctnotch5'
+                                        */
+  real_T Dctnotch5_P3;                 /* Expression: f_den
+                                        * Referenced by: '<S1>/Dctnotch5'
+                                        */
+  real_T Dctnotch5_P4_Size[2];         /* Computed Parameter: Dctnotch5_P4_Size
+                                        * Referenced by: '<S1>/Dctnotch5'
+                                        */
+  real_T Dctnotch5_P4;                 /* Expression: b_den
+                                        * Referenced by: '<S1>/Dctnotch5'
+                                        */
+  real_T Dctnotch5_P5_Size[2];         /* Computed Parameter: Dctnotch5_P5_Size
+                                        * Referenced by: '<S1>/Dctnotch5'
+                                        */
+  real_T Dctnotch5_P5;                 /* Expression: 0.001
+                                        * Referenced by: '<S1>/Dctnotch5'
+                                        */
   real_T Quantizer2_Interval;          /* Expression: (2*pi)/(500*4)
                                         * Referenced by: '<Root>/Quantizer2'
                                         */
@@ -350,15 +382,15 @@ struct tag_RTM_Hardware_Performance_run_T {
   struct {
     RTWSfcnInfo sfcnInfo;
     time_T *taskTimePtrs[2];
-    SimStruct childSFunctions[7];
-    SimStruct *childSFunctionPtrs[7];
-    struct _ssBlkInfo2 blkInfo2[7];
-    struct _ssSFcnModelMethods2 methods2[7];
-    struct _ssSFcnModelMethods3 methods3[7];
-    struct _ssSFcnModelMethods4 methods4[7];
-    struct _ssStatesInfo2 statesInfo2[7];
-    ssPeriodicStatesInfo periodicStatesInfo[7];
-    struct _ssPortInfo2 inputOutputPortInfo2[7];
+    SimStruct childSFunctions[8];
+    SimStruct *childSFunctionPtrs[8];
+    struct _ssBlkInfo2 blkInfo2[8];
+    struct _ssSFcnModelMethods2 methods2[8];
+    struct _ssSFcnModelMethods3 methods3[8];
+    struct _ssSFcnModelMethods4 methods4[8];
+    struct _ssStatesInfo2 statesInfo2[8];
+    ssPeriodicStatesInfo periodicStatesInfo[8];
+    struct _ssPortInfo2 inputOutputPortInfo2[8];
     struct {
       time_T sfcnPeriod[1];
       time_T sfcnOffset[1];
@@ -467,6 +499,23 @@ struct tag_RTM_Hardware_Performance_run_T {
       struct _ssDWorkRecord dWork[1];
       struct _ssDWorkAuxRecord dWorkAux[1];
     } Sfcn6;
+
+    struct {
+      time_T sfcnPeriod[1];
+      time_T sfcnOffset[1];
+      int_T sfcnTsMap[1];
+      struct _ssPortInputs inputPortInfo[1];
+      struct _ssInPortUnit inputPortUnits[1];
+      struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
+      real_T const *UPtrs0[1];
+      struct _ssPortOutputs outputPortInfo[1];
+      struct _ssOutPortUnit outputPortUnits[1];
+      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
+      uint_T attribs[5];
+      mxArray *params[5];
+      struct _ssDWorkRecord dWork[1];
+      struct _ssDWorkAuxRecord dWorkAux[1];
+    } Sfcn7;
   } NonInlinedSFcns;
 
   boolean_T zCCacheNeedsReset;
@@ -575,7 +624,7 @@ extern volatile boolean_T runModel;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'Hardware_Performance_run'
- * '<S1>'   : 'Hardware_Performance_run/Controller_V2_R1_13p5Hz'
+ * '<S1>'   : 'Hardware_Performance_run/Controller_12p8_N_52p9_LL_LPF_N3p7_I'
  * '<S2>'   : 'Hardware_Performance_run/Fourth Order Motion System'
  * '<S3>'   : 'Hardware_Performance_run/Measurement Block'
  * '<S4>'   : 'Hardware_Performance_run/Ref power'

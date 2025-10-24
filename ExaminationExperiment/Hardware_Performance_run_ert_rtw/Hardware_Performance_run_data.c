@@ -7,9 +7,9 @@
  *
  * Code generation for model "Hardware_Performance_run".
  *
- * Model version              : 14.23
+ * Model version              : 14.24
  * Simulink Coder version : 25.1 (R2025a) 21-Nov-2024
- * C source code generated on : Fri Oct 24 16:37:13 2025
+ * C source code generated on : Fri Oct 24 16:57:23 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -186,7 +186,7 @@ P_Hardware_Performance_run_T Hardware_Performance_run_P = {
   /* Expression: f_num
    * Referenced by: '<S1>/Dctleadlag3'
    */
-  8.5,
+  8.0,
 
   /* Computed Parameter: Dctleadlag3_P2_Size
    * Referenced by: '<S1>/Dctleadlag3'
@@ -216,7 +216,7 @@ P_Hardware_Performance_run_T Hardware_Performance_run_P = {
   /* Expression: f_den
    * Referenced by: '<S1>/Dct1lowpass4'
    */
-  100.0,
+  120.0,
 
   /* Computed Parameter: Dct1lowpass4_P2_Size
    * Referenced by: '<S1>/Dct1lowpass4'
@@ -225,6 +225,56 @@ P_Hardware_Performance_run_T Hardware_Performance_run_P = {
 
   /* Expression: 0.001
    * Referenced by: '<S1>/Dct1lowpass4'
+   */
+  0.001,
+
+  /* Computed Parameter: Dctnotch5_P1_Size
+   * Referenced by: '<S1>/Dctnotch5'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_num
+   * Referenced by: '<S1>/Dctnotch5'
+   */
+  3.7,
+
+  /* Computed Parameter: Dctnotch5_P2_Size
+   * Referenced by: '<S1>/Dctnotch5'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: b_num
+   * Referenced by: '<S1>/Dctnotch5'
+   */
+  0.1,
+
+  /* Computed Parameter: Dctnotch5_P3_Size
+   * Referenced by: '<S1>/Dctnotch5'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_den
+   * Referenced by: '<S1>/Dctnotch5'
+   */
+  3.7,
+
+  /* Computed Parameter: Dctnotch5_P4_Size
+   * Referenced by: '<S1>/Dctnotch5'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: b_den
+   * Referenced by: '<S1>/Dctnotch5'
+   */
+  0.04,
+
+  /* Computed Parameter: Dctnotch5_P5_Size
+   * Referenced by: '<S1>/Dctnotch5'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: 0.001
+   * Referenced by: '<S1>/Dctnotch5'
    */
   0.001,
 

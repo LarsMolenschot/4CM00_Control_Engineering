@@ -7,9 +7,9 @@
  *
  * Code generation for model "Hardware_Performance_run".
  *
- * Model version              : 14.23
+ * Model version              : 14.24
  * Simulink Coder version : 25.1 (R2025a) 21-Nov-2024
- * C source code generated on : Fri Oct 24 16:37:13 2025
+ * C source code generated on : Fri Oct 24 16:57:23 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
