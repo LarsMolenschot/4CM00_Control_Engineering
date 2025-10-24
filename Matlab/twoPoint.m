@@ -14,5 +14,5 @@ C_resp = squeeze(freqresp(C_tf, 2*pi*f));
 
 S = (Sud./Sdd);
 H = (1./C_resp).*((1./S)-1);
-L = (1./(Sud./Sdd))-1;
+L = (1./S)-1;
 end
