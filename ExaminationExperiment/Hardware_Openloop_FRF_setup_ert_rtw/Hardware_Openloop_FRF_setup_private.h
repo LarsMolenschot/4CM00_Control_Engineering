@@ -9,7 +9,7 @@
  *
  * Model version              : 14.20
  * Simulink Coder version : 25.1 (R2025a) 21-Nov-2024
- * C source code generated on : Tue Oct 21 13:19:38 2025
+ * C source code generated on : Fri Oct 24 10:22:02 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -42,9 +42,6 @@ int_T rt_WriteMat4FileHeader(FILE *fp,
   const char_T *name);
 extern void getTiming(SimStruct *rts);
 extern void ec_Supervisor(SimStruct *rts);
-extern void dnotch(SimStruct *rts);
-extern void dleadlag(SimStruct *rts);
-extern void dlowpass1(SimStruct *rts);
 extern void ec_Ebox(SimStruct *rts);
 
 #endif                              /* Hardware_Openloop_FRF_setup_private_h_ */

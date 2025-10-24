@@ -6,17 +6,25 @@ clc
 %raw data
 Data_frf = GetMyData(1,"HardwareMeasurements/ProtoLab_setup_45_2110/fs_4000_hz/measured_signals/MeasurementOrder"); 
 Data_frf = Data_frf.Data;
-
+Data_frf.FileName
 runtime = Data_frf.settings.runtime;
 fs = Data_frf.settings.fs;
 N = Data_frf.settings.samples;
 signals = unpackSignals(Data_frf,["d","y","u","e","r"]);
 
-[nfft, noverlap, window] = setFres(1,fs);
+Data_frf2 = GetMyData(1,"HardwareMeasurements/ProtoLab_setup_45_2410/fs_4000_hz/measured_signals/MeasurementOrder"); 
+Data_frf2 = Data_frf2.Data;
+Data_frf2.FileName
+runtime2 = Data_frf2.settings.runtime;
+fs2 = Data_frf2.settings.fs;
+N2 = Data_frf2.settings.samples;
+signals2 = unpackSignals(Data_frf2,["d","y","u","e","r"]);
+
+[nfft, noverlap, window] = setFres(0.5,fs);
 [f1, H1, S1, Coh1, C_est1, L_est1] = threePoint(signals.d,signals.e,signals.u,window,noverlap,nfft,fs);
 
-[nfft, noverlap, window] = setFres(0.1,fs);
-[f2, H2, S2, Coh2, C_est2, L_est2] = threePoint(signals.d,signals.e,signals.u,window,noverlap,nfft,fs);
+[nfft, noverlap, window] = setFres(0.5,fs2);
+[f2, H2, S2, Coh2, C_est2, L_est2] = threePoint(signals2.d,signals2.e,signals2.u,window,noverlap,nfft,fs2);
 
 figHandle = mybode(f1,H1,Coh1,"FRF Non-colocated system identification");
 figHandle = mybode(f2,H2,Coh2,[],figHandle);

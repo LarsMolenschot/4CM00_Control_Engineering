@@ -7,9 +7,9 @@
  *
  * Code generation for model "Hardware_FRF_setup".
  *
- * Model version              : 14.17
+ * Model version              : 14.19
  * Simulink Coder version : 25.1 (R2025a) 21-Nov-2024
- * C source code generated on : Tue Oct 21 09:41:56 2025
+ * C source code generated on : Fri Oct 24 10:55:22 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -22,19 +22,58 @@
 
 /* Block parameters (default storage) */
 P_Hardware_FRF_setup_T Hardware_FRF_setup_P = {
-  /* Computed Parameter: SFunction_P1_Size
-   * Referenced by: '<S6>/S-Function'
+  /* Computed Parameter: Dctpd_P2_Size
+   * Referenced by: '<S1>/Dctpd'
    */
-  { 2.0, 6.0 },
+  { 1.0, 1.0 },
+
+  /* Variable: Kd
+   * Referenced by: '<S1>/Dctpd'
+   */
+  0.002,
+
+  /* Computed Parameter: Dctpd_P1_Size
+   * Referenced by: '<S1>/Dctpd'
+   */
+  { 1.0, 1.0 },
+
+  /* Variable: Kp
+   * Referenced by: '<S1>/Dctpd'
+   */
+  0.02,
+
+  /* Computed Parameter: Dct2lowpass_P2_Size
+   * Referenced by: '<S1>/Dct2lowpass'
+   */
+  { 1.0, 1.0 },
+
+  /* Variable: b_filt
+   * Referenced by: '<S1>/Dct2lowpass'
+   */
+  0.7,
+
+  /* Computed Parameter: Dct2lowpass_P1_Size
+   * Referenced by: '<S1>/Dct2lowpass'
+   */
+  { 1.0, 1.0 },
+
+  /* Variable: f_filt
+   * Referenced by: '<S1>/Dct2lowpass'
+   */
+  200.0,
+
+  /* Computed Parameter: SFunction_P1_Size
+   * Referenced by: '<S5>/S-Function'
+   */
+  { 1.0, 6.0 },
 
   /* Variable: ref_part
-   * Referenced by: '<S6>/S-Function'
+   * Referenced by: '<S5>/S-Function'
    */
-  { 0.0, 300.0, 1.0, 3.5, 300.0, 0.0, 300.0, 300.0, 0.56, 0.56, 10000.0, 10000.0
-  },
+  { 0.0, 0.0, 1.0E+10, 10.0, 0.1, 100000.0 },
 
   /* Mask Parameter: Refpower_stat
-   * Referenced by: '<S5>/Start setpoint'
+   * Referenced by: '<S4>/Start setpoint'
    */
   2.0,
 
@@ -64,72 +103,62 @@ P_Hardware_FRF_setup_T Hardware_FRF_setup_P = {
   -1.0,
 
   /* Computed Parameter: SFunction1_P1_Size
-   * Referenced by: '<S8>/S-Function1'
+   * Referenced by: '<S7>/S-Function1'
    */
   { 1.0, 1.0 },
 
   /* Expression: 1
-   * Referenced by: '<S8>/S-Function1'
+   * Referenced by: '<S7>/S-Function1'
    */
   1.0,
 
   /* Computed Parameter: SFunction_P1_Size_f
-   * Referenced by: '<S8>/S-Function'
+   * Referenced by: '<S7>/S-Function'
    */
   { 1.0, 1.0 },
 
   /* Expression: portid
-   * Referenced by: '<S8>/S-Function'
+   * Referenced by: '<S7>/S-Function'
    */
   0.0,
 
   /* Computed Parameter: SFunction_P2_Size
-   * Referenced by: '<S8>/S-Function'
+   * Referenced by: '<S7>/S-Function'
    */
   { 1.0, 1.0 },
 
   /* Expression: ectimeout
-   * Referenced by: '<S8>/S-Function'
+   * Referenced by: '<S7>/S-Function'
    */
   500.0,
 
   /* Computed Parameter: ec_Ebox_P1_Size
-   * Referenced by: '<S7>/ec_Ebox'
+   * Referenced by: '<S6>/ec_Ebox'
    */
   { 1.0, 1.0 },
 
   /* Expression: link_id
-   * Referenced by: '<S7>/ec_Ebox'
+   * Referenced by: '<S6>/ec_Ebox'
    */
   0.0,
 
   /* Expression: (2*pi)/(4*500)
-   * Referenced by: '<S1>/count2rad'
+   * Referenced by: '<S2>/count2rad'
    */
   0.0031415926535897933,
 
   /* Expression: [0,0]
-   * Referenced by: '<S1>/Constant'
+   * Referenced by: '<S2>/Constant'
    */
   { 0.0, 0.0 },
 
   /* Expression: 1/100
-   * Referenced by: '<S7>/Gain'
+   * Referenced by: '<S6>/Gain'
    */
   0.01,
 
   /* Expression: 0
-   * Referenced by: '<Root>/Noise'
-   */
-  0.0,
-
-  /* Computed Parameter: Noise_StdDev
-   * Referenced by: '<Root>/Noise'
-   */
-  0.0,
-
-  /* Expression: 0
-   * Referenced by: '<Root>/Noise'
+   * Referenced by: '<S2>/Constant2'
    */
   0.0,
 
@@ -168,58 +197,28 @@ P_Hardware_FRF_setup_T Hardware_FRF_setup_P = {
    */
   0.0031415926535897933,
 
-  /* Expression: 0.15
-   * Referenced by: '<S2>/Gain1'
+  /* Expression: 1
+   * Referenced by: '<S1>/Gain1'
    */
-  0.15,
+  1.0,
 
-  /* Computed Parameter: Dctleadlag2_P1_Size
-   * Referenced by: '<S2>/Dctleadlag2'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_num
-   * Referenced by: '<S2>/Dctleadlag2'
-   */
-  3.0,
-
-  /* Computed Parameter: Dctleadlag2_P2_Size
-   * Referenced by: '<S2>/Dctleadlag2'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_den
-   * Referenced by: '<S2>/Dctleadlag2'
-   */
-  60.0,
-
-  /* Computed Parameter: Dctleadlag2_P3_Size
-   * Referenced by: '<S2>/Dctleadlag2'
+  /* Computed Parameter: Dctpd_P3_Size
+   * Referenced by: '<S1>/Dctpd'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S2>/Dctleadlag2'
+   * Referenced by: '<S1>/Dctpd'
    */
   0.001,
 
-  /* Computed Parameter: Dct1lowpass3_P1_Size
-   * Referenced by: '<S2>/Dct1lowpass3'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_den
-   * Referenced by: '<S2>/Dct1lowpass3'
-   */
-  20.0,
-
-  /* Computed Parameter: Dct1lowpass3_P2_Size
-   * Referenced by: '<S2>/Dct1lowpass3'
+  /* Computed Parameter: Dct2lowpass_P3_Size
+   * Referenced by: '<S1>/Dct2lowpass'
    */
   { 1.0, 1.0 },
 
   /* Expression: 0.001
-   * Referenced by: '<S2>/Dct1lowpass3'
+   * Referenced by: '<S1>/Dct2lowpass'
    */
   0.001,
 
@@ -229,37 +228,42 @@ P_Hardware_FRF_setup_T Hardware_FRF_setup_P = {
   1.0,
 
   /* Expression: 0
-   * Referenced by: '<S1>/Constant2'
+   * Referenced by: '<Root>/Noise'
+   */
+  0.0,
+
+  /* Computed Parameter: Noise_StdDev
+   * Referenced by: '<Root>/Noise'
+   */
+  0.0,
+
+  /* Expression: 0
+   * Referenced by: '<Root>/Noise'
    */
   0.0,
 
   /* Expression: 2.5
-   * Referenced by: '<S1>/Saturation'
+   * Referenced by: '<S2>/Saturation'
    */
   2.5,
 
   /* Expression: -2.5
-   * Referenced by: '<S1>/Saturation'
+   * Referenced by: '<S2>/Saturation'
    */
   -2.5,
 
   /* Expression: 10
-   * Referenced by: '<S7>/Saturation'
+   * Referenced by: '<S6>/Saturation'
    */
   10.0,
 
   /* Expression: -10
-   * Referenced by: '<S7>/Saturation'
+   * Referenced by: '<S6>/Saturation'
    */
   -10.0,
 
-  /* Expression: 0.0001
-   * Referenced by: '<Root>/Gain3'
-   */
-  0.0001,
-
   /* Expression: [0,0,0,0,0,0,0,0]
-   * Referenced by: '<S1>/Constant1'
+   * Referenced by: '<S2>/Constant1'
    */
   { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
 

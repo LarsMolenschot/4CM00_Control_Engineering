@@ -9,7 +9,7 @@
  *
  * Model version              : 14.20
  * Simulink Coder version : 25.1 (R2025a) 21-Nov-2024
- * C source code generated on : Tue Oct 21 13:19:38 2025
+ * C source code generated on : Fri Oct 24 10:22:02 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -121,69 +121,60 @@
 /* Block signals (default storage) */
 typedef struct {
   real_T Constant1[8];                 /* '<S1>/Constant1' */
-  real_T SFunction1;                   /* '<S5>/S-Function1' */
-  real_T SFunction;                    /* '<S5>/S-Function' */
-  real_T Gain1;                        /* '<S2>/Gain1' */
-  real_T Dctnotch2;                    /* '<S2>/Dctnotch2' */
-  real_T Dctleadlag3;                  /* '<S2>/Dctleadlag3' */
-  real_T Dctleadlag4;                  /* '<S2>/Dctleadlag4' */
-  real_T Dct1lowpass5;                 /* '<S2>/Dct1lowpass5' */
-  real_T ec_Ebox_o1[2];                /* '<S4>/ec_Ebox' */
-  real_T ec_Ebox_o2[2];                /* '<S4>/ec_Ebox' */
-  real_T ec_Ebox_o3[8];                /* '<S4>/ec_Ebox' */
-  real_T Gain[2];                      /* '<S4>/Gain' */
-  real_T Saturation[2];                /* '<S4>/Saturation' */
+  real_T SFunction1;                   /* '<S4>/S-Function1' */
+  real_T SFunction;                    /* '<S4>/S-Function' */
+  real_T ec_Ebox_o1[2];                /* '<S3>/ec_Ebox' */
+  real_T ec_Ebox_o2[2];                /* '<S3>/ec_Ebox' */
+  real_T ec_Ebox_o3[8];                /* '<S3>/ec_Ebox' */
+  real_T Gain[2];                      /* '<S3>/Gain' */
+  real_T Saturation[2];                /* '<S3>/Saturation' */
 } B_Hardware_Openloop_FRF_setup_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   real_T NextOutput;                   /* '<Root>/Noise' */
-  real_T fileID;                       /* '<S3>/SPERTE_measurement_function' */
-  real_T SFunction1_RWORK[2];          /* '<S5>/S-Function1' */
-  real_T Dctnotch2_RWORK[4];           /* '<S2>/Dctnotch2' */
-  real_T Dctleadlag3_RWORK[2];         /* '<S2>/Dctleadlag3' */
-  real_T Dctleadlag4_RWORK[2];         /* '<S2>/Dctleadlag4' */
-  real_T Dct1lowpass5_RWORK[2];        /* '<S2>/Dct1lowpass5' */
-  void *SFunction1_PWORK;              /* '<S5>/S-Function1' */
+  real_T fileID;                       /* '<S2>/SPERTE_measurement_function' */
+  real_T SFunction1_RWORK[2];          /* '<S4>/S-Function1' */
+  void *SFunction1_PWORK;              /* '<S4>/S-Function1' */
   struct {
     void *FilePtr;
-  } ToFile_PWORK;                      /* '<S5>/To File ' */
+  } ToFile_PWORK;                      /* '<S4>/To File ' */
 
-  FILE* eml_openfiles[20];             /* '<S3>/SPERTE_measurement_function' */
-  int32_T sfEvent;                     /* '<S3>/SPERTE_measurement_function' */
+  FILE* eml_openfiles[20];             /* '<S2>/SPERTE_measurement_function' */
+  int32_T sfEvent;                     /* '<S2>/SPERTE_measurement_function' */
   uint32_T RandSeed;                   /* '<Root>/Noise' */
-  uint32_T NS;                         /* '<S3>/SPERTE_measurement_function' */
-  int_T SFunction1_IWORK;              /* '<S5>/S-Function1' */
+  uint32_T NS;                         /* '<S2>/SPERTE_measurement_function' */
+  int_T SFunction1_IWORK;              /* '<S4>/S-Function1' */
   struct {
     int_T Count;
     int_T Decimation;
-  } ToFile_IWORK;                      /* '<S5>/To File ' */
+  } ToFile_IWORK;                      /* '<S4>/To File ' */
 
-  int16_T NF;                          /* '<S3>/SPERTE_measurement_function' */
-  uint8_T busy;                        /* '<S3>/SPERTE_measurement_function' */
-  boolean_T doneDoubleBufferReInit;    /* '<S3>/SPERTE_measurement_function' */
-  boolean_T fileID_not_empty;          /* '<S3>/SPERTE_measurement_function' */
-  boolean_T NF_not_empty;              /* '<S3>/SPERTE_measurement_function' */
-  boolean_T busy_not_empty;            /* '<S3>/SPERTE_measurement_function' */
-  boolean_T NS_not_empty;              /* '<S3>/SPERTE_measurement_function' */
-  boolean_T eml_openfiles_not_empty;   /* '<S3>/SPERTE_measurement_function' */
-  boolean_T eml_autoflush[20];         /* '<S3>/SPERTE_measurement_function' */
-  boolean_T eml_autoflush_not_empty;   /* '<S3>/SPERTE_measurement_function' */
+  int16_T NF;                          /* '<S2>/SPERTE_measurement_function' */
+  uint8_T busy;                        /* '<S2>/SPERTE_measurement_function' */
+  boolean_T doneDoubleBufferReInit;    /* '<S2>/SPERTE_measurement_function' */
+  boolean_T fileID_not_empty;          /* '<S2>/SPERTE_measurement_function' */
+  boolean_T NF_not_empty;              /* '<S2>/SPERTE_measurement_function' */
+  boolean_T busy_not_empty;            /* '<S2>/SPERTE_measurement_function' */
+  boolean_T NS_not_empty;              /* '<S2>/SPERTE_measurement_function' */
+  boolean_T eml_openfiles_not_empty;   /* '<S2>/SPERTE_measurement_function' */
+  boolean_T eml_autoflush[20];         /* '<S2>/SPERTE_measurement_function' */
+  boolean_T eml_autoflush_not_empty;   /* '<S2>/SPERTE_measurement_function' */
 } DW_Hardware_Openloop_FRF_setup_T;
 
 /* Parameters (default storage) */
 struct P_Hardware_Openloop_FRF_setup_T_ {
   uint32_T MeasurementBlock_N_samples;
                                    /* Mask Parameter: MeasurementBlock_N_samples
-                                    * Referenced by: '<S3>/SPERTE_measurement_samples'
+                                    * Referenced by: '<S2>/SPERTE_measurement_samples'
                                     */
   uint8_T MeasurementBlock_trigger_comman;
                               /* Mask Parameter: MeasurementBlock_trigger_comman
-                               * Referenced by: '<S3>/SPERTE_measurement_trigger_command'
+                               * Referenced by: '<S2>/SPERTE_measurement_trigger_command'
                                */
   uint8_T MeasurementBlock_triggertype;
                                  /* Mask Parameter: MeasurementBlock_triggertype
-                                  * Referenced by: '<S3>/SPERTE_measurement_function'
+                                  * Referenced by: '<S2>/SPERTE_measurement_function'
                                   */
   real_T Gain7_Gain;                   /* Expression: 1
                                         * Referenced by: '<Root>/Gain7'
@@ -195,22 +186,40 @@ struct P_Hardware_Openloop_FRF_setup_T_ {
                                         * Referenced by: '<S1>/Constant1'
                                         */
   real_T SFunction1_P1_Size[2];        /* Computed Parameter: SFunction1_P1_Size
-                                        * Referenced by: '<S5>/S-Function1'
+                                        * Referenced by: '<S4>/S-Function1'
                                         */
   real_T SFunction1_P1;                /* Expression: 1
-                                        * Referenced by: '<S5>/S-Function1'
+                                        * Referenced by: '<S4>/S-Function1'
                                         */
   real_T SFunction_P1_Size[2];         /* Computed Parameter: SFunction_P1_Size
-                                        * Referenced by: '<S5>/S-Function'
+                                        * Referenced by: '<S4>/S-Function'
                                         */
   real_T SFunction_P1;                 /* Expression: portid
-                                        * Referenced by: '<S5>/S-Function'
+                                        * Referenced by: '<S4>/S-Function'
                                         */
   real_T SFunction_P2_Size[2];         /* Computed Parameter: SFunction_P2_Size
-                                        * Referenced by: '<S5>/S-Function'
+                                        * Referenced by: '<S4>/S-Function'
                                         */
   real_T SFunction_P2;                 /* Expression: ectimeout
-                                        * Referenced by: '<S5>/S-Function'
+                                        * Referenced by: '<S4>/S-Function'
+                                        */
+  real_T ec_Ebox_P1_Size[2];           /* Computed Parameter: ec_Ebox_P1_Size
+                                        * Referenced by: '<S3>/ec_Ebox'
+                                        */
+  real_T ec_Ebox_P1;                   /* Expression: link_id
+                                        * Referenced by: '<S3>/ec_Ebox'
+                                        */
+  real_T count2rad_Gain;               /* Expression: (2*pi)/(4*500)
+                                        * Referenced by: '<S1>/count2rad'
+                                        */
+  real_T Constant_Value[2];            /* Expression: [0,0]
+                                        * Referenced by: '<S1>/Constant'
+                                        */
+  real_T Gain_Gain;                    /* Expression: 1/100
+                                        * Referenced by: '<S3>/Gain'
+                                        */
+  real_T Constant2_Value;              /* Expression: 0
+                                        * Referenced by: '<S1>/Constant2'
                                         */
   real_T Noise_Mean;                   /* Expression: 0
                                         * Referenced by: '<Root>/Noise'
@@ -221,105 +230,6 @@ struct P_Hardware_Openloop_FRF_setup_T_ {
   real_T Noise_Seed;                   /* Expression: 0
                                         * Referenced by: '<Root>/Noise'
                                         */
-  real_T Gain1_Gain;                   /* Expression: 1
-                                        * Referenced by: '<S2>/Gain1'
-                                        */
-  real_T Dctnotch2_P1_Size[2];         /* Computed Parameter: Dctnotch2_P1_Size
-                                        * Referenced by: '<S2>/Dctnotch2'
-                                        */
-  real_T Dctnotch2_P1;                 /* Expression: f_num
-                                        * Referenced by: '<S2>/Dctnotch2'
-                                        */
-  real_T Dctnotch2_P2_Size[2];         /* Computed Parameter: Dctnotch2_P2_Size
-                                        * Referenced by: '<S2>/Dctnotch2'
-                                        */
-  real_T Dctnotch2_P2;                 /* Expression: b_num
-                                        * Referenced by: '<S2>/Dctnotch2'
-                                        */
-  real_T Dctnotch2_P3_Size[2];         /* Computed Parameter: Dctnotch2_P3_Size
-                                        * Referenced by: '<S2>/Dctnotch2'
-                                        */
-  real_T Dctnotch2_P3;                 /* Expression: f_den
-                                        * Referenced by: '<S2>/Dctnotch2'
-                                        */
-  real_T Dctnotch2_P4_Size[2];         /* Computed Parameter: Dctnotch2_P4_Size
-                                        * Referenced by: '<S2>/Dctnotch2'
-                                        */
-  real_T Dctnotch2_P4;                 /* Expression: b_den
-                                        * Referenced by: '<S2>/Dctnotch2'
-                                        */
-  real_T Dctnotch2_P5_Size[2];         /* Computed Parameter: Dctnotch2_P5_Size
-                                        * Referenced by: '<S2>/Dctnotch2'
-                                        */
-  real_T Dctnotch2_P5;                 /* Expression: 0.001
-                                        * Referenced by: '<S2>/Dctnotch2'
-                                        */
-  real_T Dctleadlag3_P1_Size[2];      /* Computed Parameter: Dctleadlag3_P1_Size
-                                       * Referenced by: '<S2>/Dctleadlag3'
-                                       */
-  real_T Dctleadlag3_P1;               /* Expression: f_num
-                                        * Referenced by: '<S2>/Dctleadlag3'
-                                        */
-  real_T Dctleadlag3_P2_Size[2];      /* Computed Parameter: Dctleadlag3_P2_Size
-                                       * Referenced by: '<S2>/Dctleadlag3'
-                                       */
-  real_T Dctleadlag3_P2;               /* Expression: f_den
-                                        * Referenced by: '<S2>/Dctleadlag3'
-                                        */
-  real_T Dctleadlag3_P3_Size[2];      /* Computed Parameter: Dctleadlag3_P3_Size
-                                       * Referenced by: '<S2>/Dctleadlag3'
-                                       */
-  real_T Dctleadlag3_P3;               /* Expression: 0.001
-                                        * Referenced by: '<S2>/Dctleadlag3'
-                                        */
-  real_T Dctleadlag4_P1_Size[2];      /* Computed Parameter: Dctleadlag4_P1_Size
-                                       * Referenced by: '<S2>/Dctleadlag4'
-                                       */
-  real_T Dctleadlag4_P1;               /* Expression: f_num
-                                        * Referenced by: '<S2>/Dctleadlag4'
-                                        */
-  real_T Dctleadlag4_P2_Size[2];      /* Computed Parameter: Dctleadlag4_P2_Size
-                                       * Referenced by: '<S2>/Dctleadlag4'
-                                       */
-  real_T Dctleadlag4_P2;               /* Expression: f_den
-                                        * Referenced by: '<S2>/Dctleadlag4'
-                                        */
-  real_T Dctleadlag4_P3_Size[2];      /* Computed Parameter: Dctleadlag4_P3_Size
-                                       * Referenced by: '<S2>/Dctleadlag4'
-                                       */
-  real_T Dctleadlag4_P3;               /* Expression: 0.001
-                                        * Referenced by: '<S2>/Dctleadlag4'
-                                        */
-  real_T Dct1lowpass5_P1_Size[2];    /* Computed Parameter: Dct1lowpass5_P1_Size
-                                      * Referenced by: '<S2>/Dct1lowpass5'
-                                      */
-  real_T Dct1lowpass5_P1;              /* Expression: f_den
-                                        * Referenced by: '<S2>/Dct1lowpass5'
-                                        */
-  real_T Dct1lowpass5_P2_Size[2];    /* Computed Parameter: Dct1lowpass5_P2_Size
-                                      * Referenced by: '<S2>/Dct1lowpass5'
-                                      */
-  real_T Dct1lowpass5_P2;              /* Expression: 0.001
-                                        * Referenced by: '<S2>/Dct1lowpass5'
-                                        */
-  real_T ec_Ebox_P1_Size[2];           /* Computed Parameter: ec_Ebox_P1_Size
-                                        * Referenced by: '<S4>/ec_Ebox'
-                                        */
-  real_T ec_Ebox_P1;                   /* Expression: link_id
-                                        * Referenced by: '<S4>/ec_Ebox'
-                                        */
-  real_T count2rad_Gain;               /* Expression: (2*pi)/(4*500)
-                                        * Referenced by: '<S1>/count2rad'
-                                        */
-  real_T Constant_Value[2];            /* Expression: [0,0]
-                                        * Referenced by: '<S1>/Constant'
-                                        */
-  real_T Gain_Gain;                    /* Expression: 1/100
-                                        * Referenced by: '<S4>/Gain'
-                                        */
-  real_T Constant2_Value;              /* Expression: 0
-                                        * Referenced by: '<S1>/Constant2'
-                                        */
   real_T Saturation_UpperSat;          /* Expression: 2.5
                                         * Referenced by: '<S1>/Saturation'
                                         */
@@ -327,10 +237,10 @@ struct P_Hardware_Openloop_FRF_setup_T_ {
                                         * Referenced by: '<S1>/Saturation'
                                         */
   real_T Saturation_UpperSat_d;        /* Expression: 10
-                                        * Referenced by: '<S4>/Saturation'
+                                        * Referenced by: '<S3>/Saturation'
                                         */
   real_T Saturation_LowerSat_e;        /* Expression: -10
-                                        * Referenced by: '<S4>/Saturation'
+                                        * Referenced by: '<S3>/Saturation'
                                         */
   real_T Constant_Value_n;             /* Expression: 0
                                         * Referenced by: '<Root>/Constant'
@@ -359,15 +269,15 @@ struct tag_RTM_Hardware_Openloop_FRF_setup_T {
   struct {
     RTWSfcnInfo sfcnInfo;
     time_T *taskTimePtrs[1];
-    SimStruct childSFunctions[7];
-    SimStruct *childSFunctionPtrs[7];
-    struct _ssBlkInfo2 blkInfo2[7];
-    struct _ssSFcnModelMethods2 methods2[7];
-    struct _ssSFcnModelMethods3 methods3[7];
-    struct _ssSFcnModelMethods4 methods4[7];
-    struct _ssStatesInfo2 statesInfo2[7];
-    ssPeriodicStatesInfo periodicStatesInfo[7];
-    struct _ssPortInfo2 inputOutputPortInfo2[7];
+    SimStruct childSFunctions[3];
+    SimStruct *childSFunctionPtrs[3];
+    struct _ssBlkInfo2 blkInfo2[3];
+    struct _ssSFcnModelMethods2 methods2[3];
+    struct _ssSFcnModelMethods3 methods3[3];
+    struct _ssSFcnModelMethods4 methods4[3];
+    struct _ssStatesInfo2 statesInfo2[3];
+    ssPeriodicStatesInfo periodicStatesInfo[3];
+    struct _ssPortInfo2 inputOutputPortInfo2[3];
     struct {
       time_T sfcnPeriod[1];
       time_T sfcnOffset[1];
@@ -396,74 +306,6 @@ struct tag_RTM_Hardware_Openloop_FRF_setup_T {
       time_T sfcnPeriod[1];
       time_T sfcnOffset[1];
       int_T sfcnTsMap[1];
-      struct _ssPortInputs inputPortInfo[1];
-      struct _ssInPortUnit inputPortUnits[1];
-      struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
-      real_T const *UPtrs0[1];
-      struct _ssPortOutputs outputPortInfo[1];
-      struct _ssOutPortUnit outputPortUnits[1];
-      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[5];
-      mxArray *params[5];
-      struct _ssDWorkRecord dWork[1];
-      struct _ssDWorkAuxRecord dWorkAux[1];
-    } Sfcn2;
-
-    struct {
-      time_T sfcnPeriod[1];
-      time_T sfcnOffset[1];
-      int_T sfcnTsMap[1];
-      struct _ssPortInputs inputPortInfo[1];
-      struct _ssInPortUnit inputPortUnits[1];
-      struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
-      real_T const *UPtrs0[1];
-      struct _ssPortOutputs outputPortInfo[1];
-      struct _ssOutPortUnit outputPortUnits[1];
-      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[3];
-      mxArray *params[3];
-      struct _ssDWorkRecord dWork[1];
-      struct _ssDWorkAuxRecord dWorkAux[1];
-    } Sfcn3;
-
-    struct {
-      time_T sfcnPeriod[1];
-      time_T sfcnOffset[1];
-      int_T sfcnTsMap[1];
-      struct _ssPortInputs inputPortInfo[1];
-      struct _ssInPortUnit inputPortUnits[1];
-      struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
-      real_T const *UPtrs0[1];
-      struct _ssPortOutputs outputPortInfo[1];
-      struct _ssOutPortUnit outputPortUnits[1];
-      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[3];
-      mxArray *params[3];
-      struct _ssDWorkRecord dWork[1];
-      struct _ssDWorkAuxRecord dWorkAux[1];
-    } Sfcn4;
-
-    struct {
-      time_T sfcnPeriod[1];
-      time_T sfcnOffset[1];
-      int_T sfcnTsMap[1];
-      struct _ssPortInputs inputPortInfo[1];
-      struct _ssInPortUnit inputPortUnits[1];
-      struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
-      real_T const *UPtrs0[1];
-      struct _ssPortOutputs outputPortInfo[1];
-      struct _ssOutPortUnit outputPortUnits[1];
-      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[2];
-      mxArray *params[2];
-      struct _ssDWorkRecord dWork[1];
-      struct _ssDWorkAuxRecord dWorkAux[1];
-    } Sfcn5;
-
-    struct {
-      time_T sfcnPeriod[1];
-      time_T sfcnOffset[1];
-      int_T sfcnTsMap[1];
       struct _ssPortInputs inputPortInfo[3];
       struct _ssInPortUnit inputPortUnits[3];
       struct _ssInPortCoSimAttribute inputPortCoSimAttribute[3];
@@ -475,7 +317,7 @@ struct tag_RTM_Hardware_Openloop_FRF_setup_T {
       struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[3];
       uint_T attribs[1];
       mxArray *params[1];
-    } Sfcn6;
+    } Sfcn2;
   } NonInlinedSFcns;
 
   boolean_T zCCacheNeedsReset;
@@ -582,10 +424,9 @@ extern volatile boolean_T runModel;
  *
  * '<Root>' : 'Hardware_Openloop_FRF_setup'
  * '<S1>'   : 'Hardware_Openloop_FRF_setup/Fourth Order Motion System'
- * '<S2>'   : 'Hardware_Openloop_FRF_setup/Load_Controller_V2_lowpass_13_5Hz_noI'
- * '<S3>'   : 'Hardware_Openloop_FRF_setup/Measurement Block'
- * '<S4>'   : 'Hardware_Openloop_FRF_setup/Fourth Order Motion System/Ethercat E-box'
- * '<S5>'   : 'Hardware_Openloop_FRF_setup/Fourth Order Motion System/Ethercat Supervisor'
- * '<S6>'   : 'Hardware_Openloop_FRF_setup/Measurement Block/SPERTE_measurement_function'
+ * '<S2>'   : 'Hardware_Openloop_FRF_setup/Measurement Block'
+ * '<S3>'   : 'Hardware_Openloop_FRF_setup/Fourth Order Motion System/Ethercat E-box'
+ * '<S4>'   : 'Hardware_Openloop_FRF_setup/Fourth Order Motion System/Ethercat Supervisor'
+ * '<S5>'   : 'Hardware_Openloop_FRF_setup/Measurement Block/SPERTE_measurement_function'
  */
 #endif                                 /* Hardware_Openloop_FRF_setup_h_ */

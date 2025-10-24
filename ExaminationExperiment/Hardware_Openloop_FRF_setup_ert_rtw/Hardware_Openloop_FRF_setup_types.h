@@ -9,7 +9,7 @@
  *
  * Model version              : 14.20
  * Simulink Coder version : 25.1 (R2025a) 21-Nov-2024
- * C source code generated on : Tue Oct 21 13:19:38 2025
+ * C source code generated on : Fri Oct 24 10:22:02 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -22,7 +22,7 @@
 #define Hardware_Openloop_FRF_setup_types_h_
 #include "rtwtypes.h"
 
-/* Custom Type definition for MATLAB Function: '<S3>/SPERTE_measurement_function' */
+/* Custom Type definition for MATLAB Function: '<S2>/SPERTE_measurement_function' */
 #include <stdio.h>
 #ifndef struct_emxArray_char_T
 #define struct_emxArray_char_T

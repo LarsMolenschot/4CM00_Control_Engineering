@@ -2,7 +2,7 @@
 ## Makefile generated for component 'Hardware_Performance_run'. 
 ## 
 ## Makefile     : Hardware_Performance_run.mk
-## Generated on : Fri Oct 24 08:58:20 2025
+## Generated on : Fri Oct 24 11:19:06 2025
 ## Final product: $(RELATIVE_PATH_TO_ANCHOR)/Hardware_Performance_run.elf
 ## Product type : executable
 ## 
@@ -367,18 +367,6 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS) $(LIBS) $(MAIN_OBJ)
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.c.o : $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/%.c
-	$(CC) $(CFLAGS) -o "$@" "$<"
-
-
-%.s.o : $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/%.s
-	$(AS) $(ASFLAGS) -o "$@" "$<"
-
-
-%.cpp.o : $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/%.cpp
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
 %.c.o : $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/ref3ma/%.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
@@ -388,6 +376,18 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS) $(LIBS) $(MAIN_OBJ)
 
 
 %.cpp.o : $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/ref3ma/%.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
+%.c.o : $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/%.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+%.s.o : $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/%.s
+	$(AS) $(ASFLAGS) -o "$@" "$<"
+
+
+%.cpp.o : $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/%.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 

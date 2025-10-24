@@ -9,7 +9,7 @@
  *
  * Model version              : 14.20
  * Simulink Coder version : 25.1 (R2025a) 21-Nov-2024
- * C source code generated on : Tue Oct 21 13:19:38 2025
+ * C source code generated on : Fri Oct 24 10:22:02 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -29,7 +29,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Named constants for MATLAB Function: '<S3>/SPERTE_measurement_function' */
+/* Named constants for MATLAB Function: '<S2>/SPERTE_measurement_function' */
 #define Hardware_Openloop_FR_CALL_EVENT (-1)
 
 /* Block signals (default storage) */
@@ -201,7 +201,7 @@ static void Hardware_Openloo_emxFree_char_T(emxArray_char_T_Hardware_Open_T
   }
 }
 
-/* Function for MATLAB Function: '<S3>/SPERTE_measurement_function' */
+/* Function for MATLAB Function: '<S2>/SPERTE_measurement_function' */
 static int8_T Hardware_Openloop_FRF__filedata(void)
 {
   int32_T k;
@@ -222,7 +222,7 @@ static int8_T Hardware_Openloop_FRF__filedata(void)
   return f;
 }
 
-/* Function for MATLAB Function: '<S3>/SPERTE_measurement_function' */
+/* Function for MATLAB Function: '<S2>/SPERTE_measurement_function' */
 static int8_T Hardware_Openloop_FRF_se_cfopen(const
   emxArray_char_T_Hardware_Open_T *cfilename, const char_T *cpermission)
 {
@@ -263,7 +263,7 @@ static int8_T Hardware_Openloop_FRF_se_cfopen(const
   return fileid;
 }
 
-/* Function for MATLAB Function: '<S3>/SPERTE_measurement_function' */
+/* Function for MATLAB Function: '<S2>/SPERTE_measurement_function' */
 static int32_T Hardware_Openloop_FRF_s_cfclose(real_T fid)
 {
   FILE *f;
@@ -324,15 +324,15 @@ void Hardware_Openloop_FRF_setup_step(void)
   memcpy(&Hardware_Openloop_FRF_setup_B.Constant1[0],
          &Hardware_Openloop_FRF_setup_P.Constant1_Value[0], sizeof(real_T) << 3U);
 
-  /* S-Function (getTiming): '<S5>/S-Function1' */
+  /* S-Function (getTiming): '<S4>/S-Function1' */
 
-  /* Level2 S-Function Block: '<S5>/S-Function1' (getTiming) */
+  /* Level2 S-Function Block: '<S4>/S-Function1' (getTiming) */
   {
     SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[0];
     sfcnOutputs(rts,0);
   }
 
-  /* ToFile: '<S5>/To File ' */
+  /* ToFile: '<S4>/To File ' */
   {
     if (!(++Hardware_Openloop_FRF_setup_DW.ToFile_IWORK.Decimation % 1) &&
         (Hardware_Openloop_FRF_setup_DW.ToFile_IWORK.Count * (1 + 1)) + 1 <
@@ -361,61 +361,23 @@ void Hardware_Openloop_FRF_setup_step(void)
     }
   }
 
-  /* S-Function (ec_Supervisor): '<S5>/S-Function' */
+  /* S-Function (ec_Supervisor): '<S4>/S-Function' */
 
-  /* Level2 S-Function Block: '<S5>/S-Function' (ec_Supervisor) */
+  /* Level2 S-Function Block: '<S4>/S-Function' (ec_Supervisor) */
   {
     SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[1];
     sfcnOutputs(rts,0);
   }
 
-  /* Gain: '<S2>/Gain1' incorporates:
-   *  RandomNumber: '<Root>/Noise'
-   */
-  Hardware_Openloop_FRF_setup_B.Gain1 = Hardware_Openloop_FRF_setup_P.Gain1_Gain
-    * Hardware_Openloop_FRF_setup_DW.NextOutput;
+  /* S-Function (ec_Ebox): '<S3>/ec_Ebox' */
 
-  /* S-Function (dnotch): '<S2>/Dctnotch2' */
-
-  /* Level2 S-Function Block: '<S2>/Dctnotch2' (dnotch) */
+  /* Level2 S-Function Block: '<S3>/ec_Ebox' (ec_Ebox) */
   {
     SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[2];
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (dleadlag): '<S2>/Dctleadlag3' */
-
-  /* Level2 S-Function Block: '<S2>/Dctleadlag3' (dleadlag) */
-  {
-    SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[3];
-    sfcnOutputs(rts,0);
-  }
-
-  /* S-Function (dleadlag): '<S2>/Dctleadlag4' */
-
-  /* Level2 S-Function Block: '<S2>/Dctleadlag4' (dleadlag) */
-  {
-    SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[4];
-    sfcnOutputs(rts,0);
-  }
-
-  /* S-Function (dlowpass1): '<S2>/Dct1lowpass5' */
-
-  /* Level2 S-Function Block: '<S2>/Dct1lowpass5' (dlowpass1) */
-  {
-    SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[5];
-    sfcnOutputs(rts,0);
-  }
-
-  /* S-Function (ec_Ebox): '<S4>/ec_Ebox' */
-
-  /* Level2 S-Function Block: '<S4>/ec_Ebox' (ec_Ebox) */
-  {
-    SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[6];
-    sfcnOutputs(rts,0);
-  }
-
-  /* Gain: '<S4>/Gain' incorporates:
+  /* Gain: '<S3>/Gain' incorporates:
    *  Constant: '<S1>/Constant'
    */
   Hardware_Openloop_FRF_setup_B.Gain[0] =
@@ -426,29 +388,29 @@ void Hardware_Openloop_FRF_setup_step(void)
     Hardware_Openloop_FRF_setup_P.Constant_Value[1];
 
   /* Saturate: '<S1>/Saturation' incorporates:
-   *  Sum: '<Root>/Sum1'
+   *  RandomNumber: '<Root>/Noise'
    */
-  if (Hardware_Openloop_FRF_setup_B.Dct1lowpass5 >
+  if (Hardware_Openloop_FRF_setup_DW.NextOutput >
       Hardware_Openloop_FRF_setup_P.Saturation_UpperSat) {
     y = Hardware_Openloop_FRF_setup_P.Saturation_UpperSat;
-  } else if (Hardware_Openloop_FRF_setup_B.Dct1lowpass5 <
+  } else if (Hardware_Openloop_FRF_setup_DW.NextOutput <
              Hardware_Openloop_FRF_setup_P.Saturation_LowerSat) {
     y = Hardware_Openloop_FRF_setup_P.Saturation_LowerSat;
   } else {
-    y = Hardware_Openloop_FRF_setup_B.Dct1lowpass5;
+    y = Hardware_Openloop_FRF_setup_DW.NextOutput;
   }
 
-  /* Saturate: '<S4>/Saturation' */
+  /* Saturate: '<S3>/Saturation' */
   if (y > Hardware_Openloop_FRF_setup_P.Saturation_UpperSat_d) {
-    /* Saturate: '<S4>/Saturation' */
+    /* Saturate: '<S3>/Saturation' */
     Hardware_Openloop_FRF_setup_B.Saturation[0] =
       Hardware_Openloop_FRF_setup_P.Saturation_UpperSat_d;
   } else if (y < Hardware_Openloop_FRF_setup_P.Saturation_LowerSat_e) {
-    /* Saturate: '<S4>/Saturation' */
+    /* Saturate: '<S3>/Saturation' */
     Hardware_Openloop_FRF_setup_B.Saturation[0] =
       Hardware_Openloop_FRF_setup_P.Saturation_LowerSat_e;
   } else {
-    /* Saturate: '<S4>/Saturation' */
+    /* Saturate: '<S3>/Saturation' */
     Hardware_Openloop_FRF_setup_B.Saturation[0] = y;
   }
 
@@ -465,26 +427,25 @@ void Hardware_Openloop_FRF_setup_step(void)
     y = Hardware_Openloop_FRF_setup_P.Constant2_Value;
   }
 
-  /* Saturate: '<S4>/Saturation' */
+  /* Saturate: '<S3>/Saturation' */
   if (y > Hardware_Openloop_FRF_setup_P.Saturation_UpperSat_d) {
-    /* Saturate: '<S4>/Saturation' */
+    /* Saturate: '<S3>/Saturation' */
     Hardware_Openloop_FRF_setup_B.Saturation[1] =
       Hardware_Openloop_FRF_setup_P.Saturation_UpperSat_d;
   } else if (y < Hardware_Openloop_FRF_setup_P.Saturation_LowerSat_e) {
-    /* Saturate: '<S4>/Saturation' */
+    /* Saturate: '<S3>/Saturation' */
     Hardware_Openloop_FRF_setup_B.Saturation[1] =
       Hardware_Openloop_FRF_setup_P.Saturation_LowerSat_e;
   } else {
-    /* Saturate: '<S4>/Saturation' */
+    /* Saturate: '<S3>/Saturation' */
     Hardware_Openloop_FRF_setup_B.Saturation[1] = y;
   }
 
-  /* MATLAB Function: '<S3>/SPERTE_measurement_function' incorporates:
+  /* MATLAB Function: '<S2>/SPERTE_measurement_function' incorporates:
    *  Constant: '<Root>/Constant'
-   *  Constant: '<S3>/SPERTE_measurement_samples'
-   *  Constant: '<S3>/SPERTE_measurement_trigger_command'
+   *  Constant: '<S2>/SPERTE_measurement_samples'
+   *  Constant: '<S2>/SPERTE_measurement_trigger_command'
    *  RandomNumber: '<Root>/Noise'
-   *  Sum: '<Root>/Sum1'
    */
   Hardware_Openloop_FRF_setup_DW.sfEvent = Hardware_Openloop_FR_CALL_EVENT;
   if ((((Hardware_Openloop_FRF_setup_P.MeasurementBlock_triggertype == 1) &&
@@ -581,7 +542,7 @@ void Hardware_Openloop_FRF_setup_step(void)
         }
 
         /* End of ManualSwitch: '<Root>/Select encoder' */
-        xout[2] = (real32_T)Hardware_Openloop_FRF_setup_B.Dct1lowpass5;
+        xout[2] = (real32_T)Hardware_Openloop_FRF_setup_DW.NextOutput;
         xout[3] = (real32_T)Hardware_Openloop_FRF_setup_P.Constant_Value_n;
         xout[4] = (real32_T)Hardware_Openloop_FRF_setup_P.Constant_Value_n;
         bytesOutSizet = fwrite(&xout[0], sizeof(real32_T), (size_t)5, f);
@@ -598,7 +559,7 @@ void Hardware_Openloop_FRF_setup_step(void)
     }
   }
 
-  /* End of MATLAB Function: '<S3>/SPERTE_measurement_function' */
+  /* End of MATLAB Function: '<S2>/SPERTE_measurement_function' */
 
   /* Update for RandomNumber: '<Root>/Noise' */
   Hardware_Openloop_FRF_setup_DW.NextOutput = rt_nrand_Upu32_Yd_f_pw_snf
@@ -673,10 +634,10 @@ void Hardware_Openloop_FRF_setup_initialize(void)
   Hardware_Openloop_FRF_setup_M->Timing.stepSize0 = 0.00025;
 
   /* External mode info */
-  Hardware_Openloop_FRF_setup_M->Sizes.checksums[0] = (1417179012U);
-  Hardware_Openloop_FRF_setup_M->Sizes.checksums[1] = (2208739487U);
-  Hardware_Openloop_FRF_setup_M->Sizes.checksums[2] = (3530425936U);
-  Hardware_Openloop_FRF_setup_M->Sizes.checksums[3] = (2616421866U);
+  Hardware_Openloop_FRF_setup_M->Sizes.checksums[0] = (756214956U);
+  Hardware_Openloop_FRF_setup_M->Sizes.checksums[1] = (668072367U);
+  Hardware_Openloop_FRF_setup_M->Sizes.checksums[2] = (3184300248U);
+  Hardware_Openloop_FRF_setup_M->Sizes.checksums[3] = (1204904493U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
@@ -746,26 +707,24 @@ void Hardware_Openloop_FRF_setup_initialize(void)
     rtssSetSolverInfoPtr(sfcnInfo, &Hardware_Openloop_FRF_setup_M->solverInfoPtr);
   }
 
-  Hardware_Openloop_FRF_setup_M->Sizes.numSFcns = (7);
+  Hardware_Openloop_FRF_setup_M->Sizes.numSFcns = (3);
 
   /* register each child */
   {
     (void) memset((void *)
                   &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.childSFunctions
                   [0], 0,
-                  7*sizeof(SimStruct));
+                  3*sizeof(SimStruct));
     Hardware_Openloop_FRF_setup_M->childSfunctions =
       (&Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.childSFunctionPtrs[0]);
+    Hardware_Openloop_FRF_setup_M->childSfunctions[0] =
+      (&Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.childSFunctions[0]);
+    Hardware_Openloop_FRF_setup_M->childSfunctions[1] =
+      (&Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.childSFunctions[1]);
+    Hardware_Openloop_FRF_setup_M->childSfunctions[2] =
+      (&Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.childSFunctions[2]);
 
-    {
-      int_T i;
-      for (i = 0; i < 7; i++) {
-        Hardware_Openloop_FRF_setup_M->childSfunctions[i] =
-          (&Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.childSFunctions[i]);
-      }
-    }
-
-    /* Level2 S-Function Block: Hardware_Openloop_FRF_setup/<S5>/S-Function1 (getTiming) */
+    /* Level2 S-Function Block: Hardware_Openloop_FRF_setup/<S4>/S-Function1 (getTiming) */
     {
       SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[0];
 
@@ -924,7 +883,7 @@ void Hardware_Openloop_FRF_setup_initialize(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: Hardware_Openloop_FRF_setup/<S5>/S-Function (ec_Supervisor) */
+    /* Level2 S-Function Block: Hardware_Openloop_FRF_setup/<S4>/S-Function (ec_Supervisor) */
     {
       SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[1];
 
@@ -1051,7 +1010,7 @@ void Hardware_Openloop_FRF_setup_initialize(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: Hardware_Openloop_FRF_setup/<S2>/Dctnotch2 (dnotch) */
+    /* Level2 S-Function Block: Hardware_Openloop_FRF_setup/<S3>/ec_Ebox (ec_Ebox) */
     {
       SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[2];
 
@@ -1114,7 +1073,7 @@ void Hardware_Openloop_FRF_setup_initialize(void)
 
       /* inputs */
       {
-        _ssSetNumInputPorts(rts, 1);
+        _ssSetNumInputPorts(rts, 3);
         ssSetPortInfoForInputs(rts,
           &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn2.inputPortInfo[0]);
         ssSetPortInfoForInputs(rts,
@@ -1122,720 +1081,10 @@ void Hardware_Openloop_FRF_setup_initialize(void)
         _ssSetPortInfo2ForInputUnits(rts,
           &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn2.inputPortUnits[0]);
         ssSetInputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForInputCoSimAttribute(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn2.inputPortCoSimAttribute
-          [0]);
-        ssSetInputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          real_T const **sfcnUPtrs = (real_T const **)
-            &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn2.UPtrs0;
-          sfcnUPtrs[0] = &Hardware_Openloop_FRF_setup_B.Gain1;
-          ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
-          _ssSetInputPortNumDimensions(rts, 0, 1);
-          ssSetInputPortWidthAsInt(rts, 0, 1);
-        }
-      }
-
-      /* outputs */
-      {
-        ssSetPortInfoForOutputs(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn2.outputPortInfo[0]);
-        ssSetPortInfoForOutputs(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn2.outputPortInfo[0]);
-        _ssSetNumOutputPorts(rts, 1);
-        _ssSetPortInfo2ForOutputUnits(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn2.outputPortUnits
-          [0]);
-        ssSetOutputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForOutputCoSimAttribute(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn2.outputPortCoSimAttribute
-          [0]);
-        ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidthAsInt(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &Hardware_Openloop_FRF_setup_B.Dctnotch2));
-        }
-      }
-
-      /* path info */
-      ssSetModelName(rts, "Dctnotch2");
-      ssSetPath(rts,
-                "Hardware_Openloop_FRF_setup/Load_Controller_V2_lowpass_13_5Hz_noI/Dctnotch2");
-      ssSetRTModel(rts,Hardware_Openloop_FRF_setup_M);
-      ssSetParentSS(rts, (NULL));
-      ssSetRootSS(rts, rts);
-      ssSetVersion(rts, SIMSTRUCT_VERSION_LEVEL2);
-
-      /* parameters */
-      {
-        mxArray **sfcnParams = (mxArray **)
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn2.params;
-        ssSetSFcnParamsCount(rts, 5);
-        ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)
-                       Hardware_Openloop_FRF_setup_P.Dctnotch2_P1_Size);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       Hardware_Openloop_FRF_setup_P.Dctnotch2_P2_Size);
-        ssSetSFcnParam(rts, 2, (mxArray*)
-                       Hardware_Openloop_FRF_setup_P.Dctnotch2_P3_Size);
-        ssSetSFcnParam(rts, 3, (mxArray*)
-                       Hardware_Openloop_FRF_setup_P.Dctnotch2_P4_Size);
-        ssSetSFcnParam(rts, 4, (mxArray*)
-                       Hardware_Openloop_FRF_setup_P.Dctnotch2_P5_Size);
-      }
-
-      /* work vectors */
-      ssSetRWork(rts, (real_T *)
-                 &Hardware_Openloop_FRF_setup_DW.Dctnotch2_RWORK[0]);
-
-      {
-        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn2.dWork;
-        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn2.dWorkAux;
-        ssSetSFcnDWork(rts, dWorkRecord);
-        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
-        ssSetNumDWorkAsInt(rts, 1);
-
-        /* RWORK */
-        ssSetDWorkWidthAsInt(rts, 0, 4);
-        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
-        ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &Hardware_Openloop_FRF_setup_DW.Dctnotch2_RWORK[0]);
-      }
-
-      /* registration */
-      dnotch(rts);
-      sfcnInitializeSizes(rts);
-      sfcnInitializeSampleTimes(rts);
-
-      /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.00025);
-      ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 0;
-
-      /* set compiled values of dynamic vector attributes */
-      ssSetNumNonsampledZCsAsInt(rts, 0);
-
-      /* Update connectivity flags for each port */
-      _ssSetInputPortConnected(rts, 0, 1);
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
-
-      /* Update the BufferDstPort flags for each input port */
-      ssSetInputPortBufferDstPort(rts, 0, -1);
-    }
-
-    /* Level2 S-Function Block: Hardware_Openloop_FRF_setup/<S2>/Dctleadlag3 (dleadlag) */
-    {
-      SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[3];
-
-      /* timing info */
-      time_T *sfcnPeriod =
-        Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn3.sfcnPeriod;
-      time_T *sfcnOffset =
-        Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn3.sfcnOffset;
-      int_T *sfcnTsMap =
-        Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn3.sfcnTsMap;
-      (void) memset((void*)sfcnPeriod, 0,
-                    sizeof(time_T)*1);
-      (void) memset((void*)sfcnOffset, 0,
-                    sizeof(time_T)*1);
-      ssSetSampleTimePtr(rts, &sfcnPeriod[0]);
-      ssSetOffsetTimePtr(rts, &sfcnOffset[0]);
-      ssSetSampleTimeTaskIDPtr(rts, sfcnTsMap);
-
-      {
-        ssSetBlkInfo2Ptr(rts,
-                         &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.blkInfo2
-                         [3]);
-      }
-
-      _ssSetBlkInfo2PortInfo2Ptr(rts,
-        &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.inputOutputPortInfo2[3]);
-
-      /* Set up the mdlInfo pointer */
-      ssSetRTWSfcnInfo(rts, Hardware_Openloop_FRF_setup_M->sfcnInfo);
-
-      /* Allocate memory of model methods 2 */
-      {
-        ssSetModelMethods2(rts,
-                           &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.methods2
-                           [3]);
-      }
-
-      /* Allocate memory of model methods 3 */
-      {
-        ssSetModelMethods3(rts,
-                           &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.methods3
-                           [3]);
-      }
-
-      /* Allocate memory of model methods 4 */
-      {
-        ssSetModelMethods4(rts,
-                           &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.methods4
-                           [3]);
-      }
-
-      /* Allocate memory for states auxilliary information */
-      {
-        ssSetStatesInfo2(rts,
-                         &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.statesInfo2
-                         [3]);
-        ssSetPeriodicStatesInfo(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.periodicStatesInfo[3]);
-      }
-
-      /* inputs */
-      {
-        _ssSetNumInputPorts(rts, 1);
-        ssSetPortInfoForInputs(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn3.inputPortInfo[0]);
-        ssSetPortInfoForInputs(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn3.inputPortInfo[0]);
-        _ssSetPortInfo2ForInputUnits(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn3.inputPortUnits[0]);
-        ssSetInputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForInputCoSimAttribute(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn3.inputPortCoSimAttribute
-          [0]);
-        ssSetInputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          real_T const **sfcnUPtrs = (real_T const **)
-            &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn3.UPtrs0;
-          sfcnUPtrs[0] = &Hardware_Openloop_FRF_setup_B.Dctnotch2;
-          ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
-          _ssSetInputPortNumDimensions(rts, 0, 1);
-          ssSetInputPortWidthAsInt(rts, 0, 1);
-        }
-      }
-
-      /* outputs */
-      {
-        ssSetPortInfoForOutputs(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn3.outputPortInfo[0]);
-        ssSetPortInfoForOutputs(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn3.outputPortInfo[0]);
-        _ssSetNumOutputPorts(rts, 1);
-        _ssSetPortInfo2ForOutputUnits(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn3.outputPortUnits
-          [0]);
-        ssSetOutputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForOutputCoSimAttribute(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn3.outputPortCoSimAttribute
-          [0]);
-        ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidthAsInt(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &Hardware_Openloop_FRF_setup_B.Dctleadlag3));
-        }
-      }
-
-      /* path info */
-      ssSetModelName(rts, "Dctleadlag3");
-      ssSetPath(rts,
-                "Hardware_Openloop_FRF_setup/Load_Controller_V2_lowpass_13_5Hz_noI/Dctleadlag3");
-      ssSetRTModel(rts,Hardware_Openloop_FRF_setup_M);
-      ssSetParentSS(rts, (NULL));
-      ssSetRootSS(rts, rts);
-      ssSetVersion(rts, SIMSTRUCT_VERSION_LEVEL2);
-
-      /* parameters */
-      {
-        mxArray **sfcnParams = (mxArray **)
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn3.params;
-        ssSetSFcnParamsCount(rts, 3);
-        ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)
-                       Hardware_Openloop_FRF_setup_P.Dctleadlag3_P1_Size);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       Hardware_Openloop_FRF_setup_P.Dctleadlag3_P2_Size);
-        ssSetSFcnParam(rts, 2, (mxArray*)
-                       Hardware_Openloop_FRF_setup_P.Dctleadlag3_P3_Size);
-      }
-
-      /* work vectors */
-      ssSetRWork(rts, (real_T *)
-                 &Hardware_Openloop_FRF_setup_DW.Dctleadlag3_RWORK[0]);
-
-      {
-        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn3.dWork;
-        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn3.dWorkAux;
-        ssSetSFcnDWork(rts, dWorkRecord);
-        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
-        ssSetNumDWorkAsInt(rts, 1);
-
-        /* RWORK */
-        ssSetDWorkWidthAsInt(rts, 0, 2);
-        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
-        ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &Hardware_Openloop_FRF_setup_DW.Dctleadlag3_RWORK[0]);
-      }
-
-      /* registration */
-      dleadlag(rts);
-      sfcnInitializeSizes(rts);
-      sfcnInitializeSampleTimes(rts);
-
-      /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.00025);
-      ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 0;
-
-      /* set compiled values of dynamic vector attributes */
-      ssSetNumNonsampledZCsAsInt(rts, 0);
-
-      /* Update connectivity flags for each port */
-      _ssSetInputPortConnected(rts, 0, 1);
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
-
-      /* Update the BufferDstPort flags for each input port */
-      ssSetInputPortBufferDstPort(rts, 0, -1);
-    }
-
-    /* Level2 S-Function Block: Hardware_Openloop_FRF_setup/<S2>/Dctleadlag4 (dleadlag) */
-    {
-      SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[4];
-
-      /* timing info */
-      time_T *sfcnPeriod =
-        Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn4.sfcnPeriod;
-      time_T *sfcnOffset =
-        Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn4.sfcnOffset;
-      int_T *sfcnTsMap =
-        Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn4.sfcnTsMap;
-      (void) memset((void*)sfcnPeriod, 0,
-                    sizeof(time_T)*1);
-      (void) memset((void*)sfcnOffset, 0,
-                    sizeof(time_T)*1);
-      ssSetSampleTimePtr(rts, &sfcnPeriod[0]);
-      ssSetOffsetTimePtr(rts, &sfcnOffset[0]);
-      ssSetSampleTimeTaskIDPtr(rts, sfcnTsMap);
-
-      {
-        ssSetBlkInfo2Ptr(rts,
-                         &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.blkInfo2
-                         [4]);
-      }
-
-      _ssSetBlkInfo2PortInfo2Ptr(rts,
-        &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.inputOutputPortInfo2[4]);
-
-      /* Set up the mdlInfo pointer */
-      ssSetRTWSfcnInfo(rts, Hardware_Openloop_FRF_setup_M->sfcnInfo);
-
-      /* Allocate memory of model methods 2 */
-      {
-        ssSetModelMethods2(rts,
-                           &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.methods2
-                           [4]);
-      }
-
-      /* Allocate memory of model methods 3 */
-      {
-        ssSetModelMethods3(rts,
-                           &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.methods3
-                           [4]);
-      }
-
-      /* Allocate memory of model methods 4 */
-      {
-        ssSetModelMethods4(rts,
-                           &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.methods4
-                           [4]);
-      }
-
-      /* Allocate memory for states auxilliary information */
-      {
-        ssSetStatesInfo2(rts,
-                         &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.statesInfo2
-                         [4]);
-        ssSetPeriodicStatesInfo(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.periodicStatesInfo[4]);
-      }
-
-      /* inputs */
-      {
-        _ssSetNumInputPorts(rts, 1);
-        ssSetPortInfoForInputs(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn4.inputPortInfo[0]);
-        ssSetPortInfoForInputs(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn4.inputPortInfo[0]);
-        _ssSetPortInfo2ForInputUnits(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn4.inputPortUnits[0]);
-        ssSetInputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForInputCoSimAttribute(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn4.inputPortCoSimAttribute
-          [0]);
-        ssSetInputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          real_T const **sfcnUPtrs = (real_T const **)
-            &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn4.UPtrs0;
-          sfcnUPtrs[0] = &Hardware_Openloop_FRF_setup_B.Dctleadlag3;
-          ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
-          _ssSetInputPortNumDimensions(rts, 0, 1);
-          ssSetInputPortWidthAsInt(rts, 0, 1);
-        }
-      }
-
-      /* outputs */
-      {
-        ssSetPortInfoForOutputs(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn4.outputPortInfo[0]);
-        ssSetPortInfoForOutputs(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn4.outputPortInfo[0]);
-        _ssSetNumOutputPorts(rts, 1);
-        _ssSetPortInfo2ForOutputUnits(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn4.outputPortUnits
-          [0]);
-        ssSetOutputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForOutputCoSimAttribute(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn4.outputPortCoSimAttribute
-          [0]);
-        ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidthAsInt(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &Hardware_Openloop_FRF_setup_B.Dctleadlag4));
-        }
-      }
-
-      /* path info */
-      ssSetModelName(rts, "Dctleadlag4");
-      ssSetPath(rts,
-                "Hardware_Openloop_FRF_setup/Load_Controller_V2_lowpass_13_5Hz_noI/Dctleadlag4");
-      ssSetRTModel(rts,Hardware_Openloop_FRF_setup_M);
-      ssSetParentSS(rts, (NULL));
-      ssSetRootSS(rts, rts);
-      ssSetVersion(rts, SIMSTRUCT_VERSION_LEVEL2);
-
-      /* parameters */
-      {
-        mxArray **sfcnParams = (mxArray **)
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn4.params;
-        ssSetSFcnParamsCount(rts, 3);
-        ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)
-                       Hardware_Openloop_FRF_setup_P.Dctleadlag4_P1_Size);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       Hardware_Openloop_FRF_setup_P.Dctleadlag4_P2_Size);
-        ssSetSFcnParam(rts, 2, (mxArray*)
-                       Hardware_Openloop_FRF_setup_P.Dctleadlag4_P3_Size);
-      }
-
-      /* work vectors */
-      ssSetRWork(rts, (real_T *)
-                 &Hardware_Openloop_FRF_setup_DW.Dctleadlag4_RWORK[0]);
-
-      {
-        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn4.dWork;
-        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn4.dWorkAux;
-        ssSetSFcnDWork(rts, dWorkRecord);
-        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
-        ssSetNumDWorkAsInt(rts, 1);
-
-        /* RWORK */
-        ssSetDWorkWidthAsInt(rts, 0, 2);
-        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
-        ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &Hardware_Openloop_FRF_setup_DW.Dctleadlag4_RWORK[0]);
-      }
-
-      /* registration */
-      dleadlag(rts);
-      sfcnInitializeSizes(rts);
-      sfcnInitializeSampleTimes(rts);
-
-      /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.00025);
-      ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 0;
-
-      /* set compiled values of dynamic vector attributes */
-      ssSetNumNonsampledZCsAsInt(rts, 0);
-
-      /* Update connectivity flags for each port */
-      _ssSetInputPortConnected(rts, 0, 1);
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
-
-      /* Update the BufferDstPort flags for each input port */
-      ssSetInputPortBufferDstPort(rts, 0, -1);
-    }
-
-    /* Level2 S-Function Block: Hardware_Openloop_FRF_setup/<S2>/Dct1lowpass5 (dlowpass1) */
-    {
-      SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[5];
-
-      /* timing info */
-      time_T *sfcnPeriod =
-        Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn5.sfcnPeriod;
-      time_T *sfcnOffset =
-        Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn5.sfcnOffset;
-      int_T *sfcnTsMap =
-        Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn5.sfcnTsMap;
-      (void) memset((void*)sfcnPeriod, 0,
-                    sizeof(time_T)*1);
-      (void) memset((void*)sfcnOffset, 0,
-                    sizeof(time_T)*1);
-      ssSetSampleTimePtr(rts, &sfcnPeriod[0]);
-      ssSetOffsetTimePtr(rts, &sfcnOffset[0]);
-      ssSetSampleTimeTaskIDPtr(rts, sfcnTsMap);
-
-      {
-        ssSetBlkInfo2Ptr(rts,
-                         &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.blkInfo2
-                         [5]);
-      }
-
-      _ssSetBlkInfo2PortInfo2Ptr(rts,
-        &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.inputOutputPortInfo2[5]);
-
-      /* Set up the mdlInfo pointer */
-      ssSetRTWSfcnInfo(rts, Hardware_Openloop_FRF_setup_M->sfcnInfo);
-
-      /* Allocate memory of model methods 2 */
-      {
-        ssSetModelMethods2(rts,
-                           &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.methods2
-                           [5]);
-      }
-
-      /* Allocate memory of model methods 3 */
-      {
-        ssSetModelMethods3(rts,
-                           &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.methods3
-                           [5]);
-      }
-
-      /* Allocate memory of model methods 4 */
-      {
-        ssSetModelMethods4(rts,
-                           &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.methods4
-                           [5]);
-      }
-
-      /* Allocate memory for states auxilliary information */
-      {
-        ssSetStatesInfo2(rts,
-                         &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.statesInfo2
-                         [5]);
-        ssSetPeriodicStatesInfo(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.periodicStatesInfo[5]);
-      }
-
-      /* inputs */
-      {
-        _ssSetNumInputPorts(rts, 1);
-        ssSetPortInfoForInputs(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn5.inputPortInfo[0]);
-        ssSetPortInfoForInputs(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn5.inputPortInfo[0]);
-        _ssSetPortInfo2ForInputUnits(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn5.inputPortUnits[0]);
-        ssSetInputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForInputCoSimAttribute(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn5.inputPortCoSimAttribute
-          [0]);
-        ssSetInputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          real_T const **sfcnUPtrs = (real_T const **)
-            &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn5.UPtrs0;
-          sfcnUPtrs[0] = &Hardware_Openloop_FRF_setup_B.Dctleadlag4;
-          ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
-          _ssSetInputPortNumDimensions(rts, 0, 1);
-          ssSetInputPortWidthAsInt(rts, 0, 1);
-        }
-      }
-
-      /* outputs */
-      {
-        ssSetPortInfoForOutputs(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn5.outputPortInfo[0]);
-        ssSetPortInfoForOutputs(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn5.outputPortInfo[0]);
-        _ssSetNumOutputPorts(rts, 1);
-        _ssSetPortInfo2ForOutputUnits(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn5.outputPortUnits
-          [0]);
-        ssSetOutputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForOutputCoSimAttribute(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn5.outputPortCoSimAttribute
-          [0]);
-        ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidthAsInt(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &Hardware_Openloop_FRF_setup_B.Dct1lowpass5));
-        }
-      }
-
-      /* path info */
-      ssSetModelName(rts, "Dct1lowpass5");
-      ssSetPath(rts,
-                "Hardware_Openloop_FRF_setup/Load_Controller_V2_lowpass_13_5Hz_noI/Dct1lowpass5");
-      ssSetRTModel(rts,Hardware_Openloop_FRF_setup_M);
-      ssSetParentSS(rts, (NULL));
-      ssSetRootSS(rts, rts);
-      ssSetVersion(rts, SIMSTRUCT_VERSION_LEVEL2);
-
-      /* parameters */
-      {
-        mxArray **sfcnParams = (mxArray **)
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn5.params;
-        ssSetSFcnParamsCount(rts, 2);
-        ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)
-                       Hardware_Openloop_FRF_setup_P.Dct1lowpass5_P1_Size);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       Hardware_Openloop_FRF_setup_P.Dct1lowpass5_P2_Size);
-      }
-
-      /* work vectors */
-      ssSetRWork(rts, (real_T *)
-                 &Hardware_Openloop_FRF_setup_DW.Dct1lowpass5_RWORK[0]);
-
-      {
-        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn5.dWork;
-        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn5.dWorkAux;
-        ssSetSFcnDWork(rts, dWorkRecord);
-        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
-        ssSetNumDWorkAsInt(rts, 1);
-
-        /* RWORK */
-        ssSetDWorkWidthAsInt(rts, 0, 2);
-        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
-        ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &Hardware_Openloop_FRF_setup_DW.Dct1lowpass5_RWORK[0]);
-      }
-
-      /* registration */
-      dlowpass1(rts);
-      sfcnInitializeSizes(rts);
-      sfcnInitializeSampleTimes(rts);
-
-      /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.00025);
-      ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 0;
-
-      /* set compiled values of dynamic vector attributes */
-      ssSetNumNonsampledZCsAsInt(rts, 0);
-
-      /* Update connectivity flags for each port */
-      _ssSetInputPortConnected(rts, 0, 1);
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
-
-      /* Update the BufferDstPort flags for each input port */
-      ssSetInputPortBufferDstPort(rts, 0, -1);
-    }
-
-    /* Level2 S-Function Block: Hardware_Openloop_FRF_setup/<S4>/ec_Ebox (ec_Ebox) */
-    {
-      SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[6];
-
-      /* timing info */
-      time_T *sfcnPeriod =
-        Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn6.sfcnPeriod;
-      time_T *sfcnOffset =
-        Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn6.sfcnOffset;
-      int_T *sfcnTsMap =
-        Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn6.sfcnTsMap;
-      (void) memset((void*)sfcnPeriod, 0,
-                    sizeof(time_T)*1);
-      (void) memset((void*)sfcnOffset, 0,
-                    sizeof(time_T)*1);
-      ssSetSampleTimePtr(rts, &sfcnPeriod[0]);
-      ssSetOffsetTimePtr(rts, &sfcnOffset[0]);
-      ssSetSampleTimeTaskIDPtr(rts, sfcnTsMap);
-
-      {
-        ssSetBlkInfo2Ptr(rts,
-                         &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.blkInfo2
-                         [6]);
-      }
-
-      _ssSetBlkInfo2PortInfo2Ptr(rts,
-        &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.inputOutputPortInfo2[6]);
-
-      /* Set up the mdlInfo pointer */
-      ssSetRTWSfcnInfo(rts, Hardware_Openloop_FRF_setup_M->sfcnInfo);
-
-      /* Allocate memory of model methods 2 */
-      {
-        ssSetModelMethods2(rts,
-                           &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.methods2
-                           [6]);
-      }
-
-      /* Allocate memory of model methods 3 */
-      {
-        ssSetModelMethods3(rts,
-                           &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.methods3
-                           [6]);
-      }
-
-      /* Allocate memory of model methods 4 */
-      {
-        ssSetModelMethods4(rts,
-                           &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.methods4
-                           [6]);
-      }
-
-      /* Allocate memory for states auxilliary information */
-      {
-        ssSetStatesInfo2(rts,
-                         &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.statesInfo2
-                         [6]);
-        ssSetPeriodicStatesInfo(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.periodicStatesInfo[6]);
-      }
-
-      /* inputs */
-      {
-        _ssSetNumInputPorts(rts, 3);
-        ssSetPortInfoForInputs(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn6.inputPortInfo[0]);
-        ssSetPortInfoForInputs(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn6.inputPortInfo[0]);
-        _ssSetPortInfo2ForInputUnits(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn6.inputPortUnits[0]);
-        ssSetInputPortUnit(rts, 0, 0);
         ssSetInputPortUnit(rts, 1, 0);
         ssSetInputPortUnit(rts, 2, 0);
         _ssSetPortInfo2ForInputCoSimAttribute(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn6.inputPortCoSimAttribute
+          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn2.inputPortCoSimAttribute
           [0]);
         ssSetInputPortIsContinuousQuantity(rts, 0, 0);
         ssSetInputPortIsContinuousQuantity(rts, 1, 0);
@@ -1844,7 +1093,7 @@ void Hardware_Openloop_FRF_setup_initialize(void)
         /* port 0 */
         {
           real_T const **sfcnUPtrs = (real_T const **)
-            &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn6.UPtrs0;
+            &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn2.UPtrs0;
           sfcnUPtrs[0] = Hardware_Openloop_FRF_setup_B.Saturation;
           sfcnUPtrs[1] = &Hardware_Openloop_FRF_setup_B.Saturation[1];
           ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
@@ -1855,7 +1104,7 @@ void Hardware_Openloop_FRF_setup_initialize(void)
         /* port 1 */
         {
           real_T const **sfcnUPtrs = (real_T const **)
-            &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn6.UPtrs1;
+            &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn2.UPtrs1;
           sfcnUPtrs[0] = Hardware_Openloop_FRF_setup_B.Gain;
           sfcnUPtrs[1] = &Hardware_Openloop_FRF_setup_B.Gain[1];
           ssSetInputPortSignalPtrs(rts, 1, (InputPtrsType)&sfcnUPtrs[0]);
@@ -1866,7 +1115,7 @@ void Hardware_Openloop_FRF_setup_initialize(void)
         /* port 2 */
         {
           real_T const **sfcnUPtrs = (real_T const **)
-            &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn6.UPtrs2;
+            &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn2.UPtrs2;
 
           {
             int_T i1;
@@ -1885,18 +1134,18 @@ void Hardware_Openloop_FRF_setup_initialize(void)
       /* outputs */
       {
         ssSetPortInfoForOutputs(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn6.outputPortInfo[0]);
+          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn2.outputPortInfo[0]);
         ssSetPortInfoForOutputs(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn6.outputPortInfo[0]);
+          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn2.outputPortInfo[0]);
         _ssSetNumOutputPorts(rts, 3);
         _ssSetPortInfo2ForOutputUnits(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn6.outputPortUnits
+          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn2.outputPortUnits
           [0]);
         ssSetOutputPortUnit(rts, 0, 0);
         ssSetOutputPortUnit(rts, 1, 0);
         ssSetOutputPortUnit(rts, 2, 0);
         _ssSetPortInfo2ForOutputCoSimAttribute(rts,
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn6.outputPortCoSimAttribute
+          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn2.outputPortCoSimAttribute
           [0]);
         ssSetOutputPortIsContinuousQuantity(rts, 0, 0);
         ssSetOutputPortIsContinuousQuantity(rts, 1, 0);
@@ -1939,7 +1188,7 @@ void Hardware_Openloop_FRF_setup_initialize(void)
       /* parameters */
       {
         mxArray **sfcnParams = (mxArray **)
-          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn6.params;
+          &Hardware_Openloop_FRF_setup_M->NonInlinedSFcns.Sfcn2.params;
         ssSetSFcnParamsCount(rts, 1);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
@@ -1981,8 +1230,8 @@ void Hardware_Openloop_FRF_setup_initialize(void)
   memcpy(&Hardware_Openloop_FRF_setup_B.Constant1[0],
          &Hardware_Openloop_FRF_setup_P.Constant1_Value[0], sizeof(real_T) << 3U);
 
-  /* Start for S-Function (getTiming): '<S5>/S-Function1' */
-  /* Level2 S-Function Block: '<S5>/S-Function1' (getTiming) */
+  /* Start for S-Function (getTiming): '<S4>/S-Function1' */
+  /* Level2 S-Function Block: '<S4>/S-Function1' (getTiming) */
   {
     SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[0];
     sfcnStart(rts);
@@ -1990,7 +1239,7 @@ void Hardware_Openloop_FRF_setup_initialize(void)
       return;
   }
 
-  /* Start for ToFile: '<S5>/To File ' */
+  /* Start for ToFile: '<S4>/To File ' */
   {
     FILE *fp = (NULL);
     char fileName[509] = "Ts_meas.mat";
@@ -2012,46 +1261,10 @@ void Hardware_Openloop_FRF_setup_initialize(void)
     Hardware_Openloop_FRF_setup_DW.ToFile_PWORK.FilePtr = fp;
   }
 
-  /* Start for S-Function (ec_Supervisor): '<S5>/S-Function' */
-  /* Level2 S-Function Block: '<S5>/S-Function' (ec_Supervisor) */
+  /* Start for S-Function (ec_Supervisor): '<S4>/S-Function' */
+  /* Level2 S-Function Block: '<S4>/S-Function' (ec_Supervisor) */
   {
     SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[1];
-    sfcnStart(rts);
-    if (ssGetErrorStatus(rts) != (NULL))
-      return;
-  }
-
-  /* Start for S-Function (dnotch): '<S2>/Dctnotch2' */
-  /* Level2 S-Function Block: '<S2>/Dctnotch2' (dnotch) */
-  {
-    SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[2];
-    sfcnStart(rts);
-    if (ssGetErrorStatus(rts) != (NULL))
-      return;
-  }
-
-  /* Start for S-Function (dleadlag): '<S2>/Dctleadlag3' */
-  /* Level2 S-Function Block: '<S2>/Dctleadlag3' (dleadlag) */
-  {
-    SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[3];
-    sfcnStart(rts);
-    if (ssGetErrorStatus(rts) != (NULL))
-      return;
-  }
-
-  /* Start for S-Function (dleadlag): '<S2>/Dctleadlag4' */
-  /* Level2 S-Function Block: '<S2>/Dctleadlag4' (dleadlag) */
-  {
-    SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[4];
-    sfcnStart(rts);
-    if (ssGetErrorStatus(rts) != (NULL))
-      return;
-  }
-
-  /* Start for S-Function (dlowpass1): '<S2>/Dct1lowpass5' */
-  /* Level2 S-Function Block: '<S2>/Dct1lowpass5' (dlowpass1) */
-  {
-    SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[5];
     sfcnStart(rts);
     if (ssGetErrorStatus(rts) != (NULL))
       return;
@@ -2090,7 +1303,7 @@ void Hardware_Openloop_FRF_setup_initialize(void)
 
     /* End of InitializeConditions for RandomNumber: '<Root>/Noise' */
 
-    /* SystemInitialize for MATLAB Function: '<S3>/SPERTE_measurement_function' */
+    /* SystemInitialize for MATLAB Function: '<S2>/SPERTE_measurement_function' */
     for (i = 0; i < 20; i++) {
       Hardware_Openloop_FRF_setup_DW.eml_autoflush[i] = false;
     }
@@ -2111,21 +1324,21 @@ void Hardware_Openloop_FRF_setup_initialize(void)
     Hardware_Openloop_FRF_setup_DW.busy_not_empty = true;
     Hardware_Openloop_FRF_setup_DW.sfEvent = Hardware_Openloop_FR_CALL_EVENT;
 
-    /* End of SystemInitialize for MATLAB Function: '<S3>/SPERTE_measurement_function' */
+    /* End of SystemInitialize for MATLAB Function: '<S2>/SPERTE_measurement_function' */
   }
 }
 
 /* Model terminate function */
 void Hardware_Openloop_FRF_setup_terminate(void)
 {
-  /* Terminate for S-Function (getTiming): '<S5>/S-Function1' */
-  /* Level2 S-Function Block: '<S5>/S-Function1' (getTiming) */
+  /* Terminate for S-Function (getTiming): '<S4>/S-Function1' */
+  /* Level2 S-Function Block: '<S4>/S-Function1' (getTiming) */
   {
     SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[0];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for ToFile: '<S5>/To File ' */
+  /* Terminate for ToFile: '<S4>/To File ' */
   {
     FILE *fp = (FILE *) Hardware_Openloop_FRF_setup_DW.ToFile_PWORK.FilePtr;
     if (fp != (NULL)) {
@@ -2158,45 +1371,17 @@ void Hardware_Openloop_FRF_setup_terminate(void)
     }
   }
 
-  /* Terminate for S-Function (ec_Supervisor): '<S5>/S-Function' */
-  /* Level2 S-Function Block: '<S5>/S-Function' (ec_Supervisor) */
+  /* Terminate for S-Function (ec_Supervisor): '<S4>/S-Function' */
+  /* Level2 S-Function Block: '<S4>/S-Function' (ec_Supervisor) */
   {
     SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[1];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dnotch): '<S2>/Dctnotch2' */
-  /* Level2 S-Function Block: '<S2>/Dctnotch2' (dnotch) */
+  /* Terminate for S-Function (ec_Ebox): '<S3>/ec_Ebox' */
+  /* Level2 S-Function Block: '<S3>/ec_Ebox' (ec_Ebox) */
   {
     SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[2];
-    sfcnTerminate(rts);
-  }
-
-  /* Terminate for S-Function (dleadlag): '<S2>/Dctleadlag3' */
-  /* Level2 S-Function Block: '<S2>/Dctleadlag3' (dleadlag) */
-  {
-    SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[3];
-    sfcnTerminate(rts);
-  }
-
-  /* Terminate for S-Function (dleadlag): '<S2>/Dctleadlag4' */
-  /* Level2 S-Function Block: '<S2>/Dctleadlag4' (dleadlag) */
-  {
-    SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[4];
-    sfcnTerminate(rts);
-  }
-
-  /* Terminate for S-Function (dlowpass1): '<S2>/Dct1lowpass5' */
-  /* Level2 S-Function Block: '<S2>/Dct1lowpass5' (dlowpass1) */
-  {
-    SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[5];
-    sfcnTerminate(rts);
-  }
-
-  /* Terminate for S-Function (ec_Ebox): '<S4>/ec_Ebox' */
-  /* Level2 S-Function Block: '<S4>/ec_Ebox' (ec_Ebox) */
-  {
-    SimStruct *rts = Hardware_Openloop_FRF_setup_M->childSfunctions[6];
     sfcnTerminate(rts);
   }
 }

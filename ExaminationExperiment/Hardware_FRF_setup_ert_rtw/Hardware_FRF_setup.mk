@@ -2,7 +2,7 @@
 ## Makefile generated for component 'Hardware_FRF_setup'. 
 ## 
 ## Makefile     : Hardware_FRF_setup.mk
-## Generated on : Tue Oct 21 09:42:01 2025
+## Generated on : Fri Oct 24 10:19:58 2025
 ## Final product: $(RELATIVE_PATH_TO_ANCHOR)/Hardware_FRF_setup.elf
 ## Product type : executable
 ## 
@@ -170,11 +170,11 @@ INCLUDES = $(INCLUDES_BUILDINFO)
 ###########################################################################
 
 DEFINES_ = -DXCP_ADDRESS_GRANULARITY=XCP_ADDRESS_GRANULARITY_BYTE -DCODERTARGET_XCP_DAQ_PACKED_MODE -DCODERTARGET_XCP_MAX_CONTIGUOUS_SAMPLES=2 -D__MW_TARGET_USE_HARDWARE_RESOURCES_H__ -DMW_RASPI_DETECTOVERRUN
-DEFINES_BUILD_ARGS = -DCLASSIC_INTERFACE=0 -DALLOCATIONFCN=0 -DEXT_MODE=1 -DONESTEPFCN=1 -DTERMFCN=1 -DMULTI_INSTANCE_CODE=0 -DINTEGER_CODE=0 -DMT=1
+DEFINES_BUILD_ARGS = -DCLASSIC_INTERFACE=0 -DALLOCATIONFCN=0 -DEXT_MODE=1 -DONESTEPFCN=1 -DTERMFCN=1 -DMULTI_INSTANCE_CODE=0 -DINTEGER_CODE=0 -DMT=0
 DEFINES_CUSTOM = -DCOREAFFINITYREQUIRED
-DEFINES_OPTS = -DXCP_DAQ_SUPPORT -DXCP_CALIBRATION_SUPPORT -DXCP_TIMESTAMP_SUPPORT -DXCP_TIMESTAMP_BASED_ON_SIMULATION_TIME -DXCP_SET_MTA_SUPPORT -DEXTMODE_XCP_TRIGGER_SUPPORT -DXCP_MEM_BLOCK_1_SIZE=32 -DXCP_MEM_BLOCK_1_NUMBER=1 -DXCP_MEM_BLOCK_2_SIZE=56 -DXCP_MEM_BLOCK_2_NUMBER=1 -DXCP_MEM_BLOCK_3_SIZE=8 -DXCP_MEM_BLOCK_3_NUMBER=1 -DXCP_MEM_RESERVED_POOLS_TOTAL_SIZE=1000130 -DXCP_MEM_RESERVED_POOLS_NUMBER=2 -DXCP_MEM_DAQ_RESERVED_POOL_BLOCKS_NUMBER=3 -DXCP_MEM_DAQ_RESERVED_POOLS_NUMBER=1 -DXCP_MIN_EVENT_NO_RESERVED_POOL=3 -DXCP_MAX_CTO_SIZE=32 -DXCP_MAX_DTO_SIZE=65532 -DXCP_MAX_ODT_ENTRY_SIZE=255 -DEXTMODE_STATIC -DEXTMODE_STATIC_SIZE=1000000 -DON_TARGET_WAIT_FOR_START=1 -DRT -DUSE_RTMODEL -DERT -DTID01EQ=1
+DEFINES_OPTS = -DXCP_DAQ_SUPPORT -DXCP_CALIBRATION_SUPPORT -DXCP_TIMESTAMP_SUPPORT -DXCP_TIMESTAMP_BASED_ON_SIMULATION_TIME -DXCP_SET_MTA_SUPPORT -DEXTMODE_XCP_TRIGGER_SUPPORT -DXCP_MEM_BLOCK_1_SIZE=0 -DXCP_MEM_BLOCK_1_NUMBER=1 -DXCP_MEM_BLOCK_2_SIZE=0 -DXCP_MEM_BLOCK_2_NUMBER=0 -DXCP_MEM_BLOCK_3_SIZE=0 -DXCP_MEM_BLOCK_3_NUMBER=0 -DXCP_MEM_RESERVED_POOLS_TOTAL_SIZE=1000130 -DXCP_MEM_RESERVED_POOLS_NUMBER=1 -DXCP_MEM_DAQ_RESERVED_POOL_BLOCKS_NUMBER=3 -DXCP_MEM_DAQ_RESERVED_POOLS_NUMBER=1 -DXCP_MIN_EVENT_NO_RESERVED_POOL=2 -DXCP_MAX_CTO_SIZE=32 -DXCP_MAX_DTO_SIZE=65532 -DXCP_MAX_ODT_ENTRY_SIZE=255 -DEXTMODE_STATIC -DEXTMODE_STATIC_SIZE=1000000 -DON_TARGET_WAIT_FOR_START=1 -DRT -DUSE_RTMODEL -DERT -DTID01EQ=1
 DEFINES_SKIPFORSIL = -D__linux__ -DARM_PROJECT -D_USE_TARGET_UDP_ -D_RUNONTARGETHARDWARE_BUILD_ -DSTACK_SIZE=200000
-DEFINES_STANDARD = -DMODEL=Hardware_FRF_setup -DNUMST=3 -DNCSTATES=0 -DHAVESTDIO -DMODEL_HAS_DYNAMICALLY_LOADED_SFCNS=0
+DEFINES_STANDARD = -DMODEL=Hardware_FRF_setup -DNUMST=2 -DNCSTATES=0 -DHAVESTDIO -DMODEL_HAS_DYNAMICALLY_LOADED_SFCNS=0
 
 DEFINES = $(DEFINES_) $(DEFINES_BUILD_ARGS) $(DEFINES_CUSTOM) $(DEFINES_OPTS) $(DEFINES_SKIPFORSIL) $(DEFINES_STANDARD)
 
@@ -182,7 +182,7 @@ DEFINES = $(DEFINES_) $(DEFINES_BUILD_ARGS) $(DEFINES_CUSTOM) $(DEFINES_OPTS) $(
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_mode.c $(MATLAB_ROOT)/rtw/c/src/rt_matrx.c $(MATLAB_ROOT)/rtw/c/src/rt_printf.c $(START_DIR)/Hardware_FRF_setup_ert_rtw/Hardware_FRF_setup.c $(START_DIR)/Hardware_FRF_setup_ert_rtw/Hardware_FRF_setup_data.c $(START_DIR)/Hardware_FRF_setup_ert_rtw/rtGetInf.c $(START_DIR)/Hardware_FRF_setup_ert_rtw/rtGetNaN.c $(START_DIR)/Hardware_FRF_setup_ert_rtw/rt_nonfinite.c $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/target/MW_custom_RTOS.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_common.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_classic_trigger.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src/xcp.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src/xcp_standard.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src/xcp_daq.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src/xcp_calibration.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/transport/src/xcp_fifo.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/transport/src/xcp_transport.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/platform/default/xcp_mem_default.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/platform/default/xcp_drv_rtiostream.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/common/xcp_utils.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/transport/src/xcp_frame_tcp.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_param_default_tcp.c $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/dleadlag.c $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/dlowpass1.c $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/ec_Ebox.c $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/ec_Supervisor.c $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/getTiming.c $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/ref3ma/ref3b.c $(MATLAB_WORKSPACE)/C/ProgramData/MATLAB/SupportPackages/R2025a/toolbox/realtime/targets/raspi/src/MW_raspi_init.c $(MATLAB_WORKSPACE)/C/ProgramData/MATLAB/SupportPackages/R2025a/toolbox/realtime/targets/raspi/src/periphs/MW_Pyserver_control.c $(MATLAB_WORKSPACE)/C/ProgramData/MATLAB/SupportPackages/R2025a/toolbox/realtime/targets/raspi/src/linuxtimelogger/linuxTimeLogger.c $(MATLAB_ROOT)/toolbox/target/codertarget/rtos/src/linuxinitialize.c $(MATLAB_ROOT)/rtw/c/src/ext_mode/common/rtiostream_interface.c $(MATLAB_ROOT)/toolbox/coder/rtiostream/src/rtiostreamtcpip/rtiostream_tcpip.c $(MATLAB_ROOT)/toolbox/coder/rtiostream/src/utils/rtiostream_utils.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/platform/default/xcp_platform_default.c
+SRCS = $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_mode.c $(MATLAB_ROOT)/rtw/c/src/rt_matrx.c $(MATLAB_ROOT)/rtw/c/src/rt_printf.c $(START_DIR)/Hardware_FRF_setup_ert_rtw/Hardware_FRF_setup.c $(START_DIR)/Hardware_FRF_setup_ert_rtw/Hardware_FRF_setup_data.c $(START_DIR)/Hardware_FRF_setup_ert_rtw/rtGetInf.c $(START_DIR)/Hardware_FRF_setup_ert_rtw/rtGetNaN.c $(START_DIR)/Hardware_FRF_setup_ert_rtw/rt_nonfinite.c $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/target/MW_custom_RTOS.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_common.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_classic_trigger.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src/xcp.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src/xcp_standard.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src/xcp_daq.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/protocol/src/xcp_calibration.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/transport/src/xcp_fifo.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/transport/src/xcp_transport.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/platform/default/xcp_mem_default.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/platform/default/xcp_drv_rtiostream.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/common/xcp_utils.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/transport/src/xcp_frame_tcp.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_mode/src/xcp_ext_param_default_tcp.c $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/dlowpass2.c $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/dpd.c $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/ec_Ebox.c $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/ec_Supervisor.c $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/getTiming.c $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/ref3ma/ref3b.c $(MATLAB_WORKSPACE)/C/ProgramData/MATLAB/SupportPackages/R2025a/toolbox/realtime/targets/raspi/src/MW_raspi_init.c $(MATLAB_WORKSPACE)/C/ProgramData/MATLAB/SupportPackages/R2025a/toolbox/realtime/targets/raspi/src/periphs/MW_Pyserver_control.c $(MATLAB_WORKSPACE)/C/ProgramData/MATLAB/SupportPackages/R2025a/toolbox/realtime/targets/raspi/src/linuxtimelogger/linuxTimeLogger.c $(MATLAB_ROOT)/toolbox/target/codertarget/rtos/src/linuxinitialize.c $(MATLAB_ROOT)/rtw/c/src/ext_mode/common/rtiostream_interface.c $(MATLAB_ROOT)/toolbox/coder/rtiostream/src/rtiostreamtcpip/rtiostream_tcpip.c $(MATLAB_ROOT)/toolbox/coder/rtiostream/src/utils/rtiostream_utils.c $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/server/platform/default/xcp_platform_default.c
 
 MAIN_SRC = $(START_DIR)/Hardware_FRF_setup_ert_rtw/ert_main.c
 
@@ -192,7 +192,7 @@ ALL_SRCS = $(SRCS) $(MAIN_SRC)
 ## OBJECTS
 ###########################################################################
 
-OBJS = xcp_ext_mode.c.o rt_matrx.c.o rt_printf.c.o Hardware_FRF_setup.c.o Hardware_FRF_setup_data.c.o rtGetInf.c.o rtGetNaN.c.o rt_nonfinite.c.o MW_custom_RTOS.c.o xcp_ext_common.c.o xcp_ext_classic_trigger.c.o xcp.c.o xcp_standard.c.o xcp_daq.c.o xcp_calibration.c.o xcp_fifo.c.o xcp_transport.c.o xcp_mem_default.c.o xcp_drv_rtiostream.c.o xcp_utils.c.o xcp_frame_tcp.c.o xcp_ext_param_default_tcp.c.o dleadlag.c.o dlowpass1.c.o ec_Ebox.c.o ec_Supervisor.c.o getTiming.c.o ref3b.c.o MW_raspi_init.c.o MW_Pyserver_control.c.o linuxTimeLogger.c.o linuxinitialize.c.o rtiostream_interface.c.o rtiostream_tcpip.c.o rtiostream_utils.c.o xcp_platform_default.c.o
+OBJS = xcp_ext_mode.c.o rt_matrx.c.o rt_printf.c.o Hardware_FRF_setup.c.o Hardware_FRF_setup_data.c.o rtGetInf.c.o rtGetNaN.c.o rt_nonfinite.c.o MW_custom_RTOS.c.o xcp_ext_common.c.o xcp_ext_classic_trigger.c.o xcp.c.o xcp_standard.c.o xcp_daq.c.o xcp_calibration.c.o xcp_fifo.c.o xcp_transport.c.o xcp_mem_default.c.o xcp_drv_rtiostream.c.o xcp_utils.c.o xcp_frame_tcp.c.o xcp_ext_param_default_tcp.c.o dlowpass2.c.o dpd.c.o ec_Ebox.c.o ec_Supervisor.c.o getTiming.c.o ref3b.c.o MW_raspi_init.c.o MW_Pyserver_control.c.o linuxTimeLogger.c.o linuxinitialize.c.o rtiostream_interface.c.o rtiostream_tcpip.c.o rtiostream_utils.c.o xcp_platform_default.c.o
 
 MAIN_OBJ = ert_main.c.o
 
@@ -367,18 +367,6 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS) $(LIBS) $(MAIN_OBJ)
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.c.o : $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/%.c
-	$(CC) $(CFLAGS) -o "$@" "$<"
-
-
-%.s.o : $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/%.s
-	$(AS) $(ASFLAGS) -o "$@" "$<"
-
-
-%.cpp.o : $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/%.cpp
-	$(CPP) $(CPPFLAGS) -o "$@" "$<"
-
-
 %.c.o : $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/ref3ma/%.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
@@ -388,6 +376,18 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS) $(LIBS) $(MAIN_OBJ)
 
 
 %.cpp.o : $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/ref3ma/%.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
+%.c.o : $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/%.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+%.s.o : $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/%.s
+	$(AS) $(ASFLAGS) -o "$@" "$<"
+
+
+%.cpp.o : $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/%.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
@@ -615,11 +615,11 @@ xcp_ext_param_default_tcp.c.o : $(MATLAB_ROOT)/toolbox/coder/xcp/src/target/ext_
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-dleadlag.c.o : $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/dleadlag.c
+dlowpass2.c.o : $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/dlowpass2.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-dlowpass1.c.o : $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/dlowpass1.c
+dpd.c.o : $(MATLAB_WORKSPACE)/C/MATLAB/Toolbox/SPERTE_Installation_20250915/Tooling/Simulink_Lib/SPERTE_Blocks/sfunctions/dpd.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 

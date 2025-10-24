@@ -7,9 +7,9 @@
  *
  * Code generation for model "Hardware_Performance_run".
  *
- * Model version              : 14.22
+ * Model version              : 14.24
  * Simulink Coder version : 25.1 (R2025a) 21-Nov-2024
- * C source code generated on : Fri Oct 24 08:58:16 2025
+ * C source code generated on : Fri Oct 24 12:08:27 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -47,9 +47,9 @@ int_T rt_WriteMat4FileHeader(FILE *fp,
   int32_T m,
   int32_T n,
   const char_T *name);
+extern void ref3b(SimStruct *rts);
 extern void getTiming(SimStruct *rts);
 extern void ec_Supervisor(SimStruct *rts);
-extern void ref3b(SimStruct *rts);
 extern void ec_Ebox(SimStruct *rts);
 extern void dnotch(SimStruct *rts);
 extern void dleadlag(SimStruct *rts);

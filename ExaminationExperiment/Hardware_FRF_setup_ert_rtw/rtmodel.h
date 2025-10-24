@@ -4,7 +4,7 @@
  * Code generation for Simulink model "Hardware_FRF_setup".
  *
  * Simulink Coder version                : 25.1 (R2025a) 21-Nov-2024
- * C source code generated on : Tue Oct 21 09:41:56 2025
+ * C source code generated on : Fri Oct 24 10:55:22 2025
  *
  * Note that the generated code is not dependent on this header file.
  * The file is used in cojuction with the automatic build procedure.

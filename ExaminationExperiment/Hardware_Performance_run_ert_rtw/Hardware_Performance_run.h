@@ -7,9 +7,9 @@
  *
  * Code generation for model "Hardware_Performance_run".
  *
- * Model version              : 14.22
+ * Model version              : 14.24
  * Simulink Coder version : 25.1 (R2025a) 21-Nov-2024
- * C source code generated on : Fri Oct 24 08:58:16 2025
+ * C source code generated on : Fri Oct 24 12:08:27 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -122,32 +122,32 @@
 
 /* Block signals (default storage) */
 typedef struct {
-  real_T Constant1[8];                 /* '<S1>/Constant1' */
-  real_T SFunction1;                   /* '<S7>/S-Function1' */
-  real_T SFunction;                    /* '<S7>/S-Function' */
   real_T Startsetpoint;                /* '<S4>/Start setpoint' */
-  real_T SFunction_c[3];               /* '<S5>/S-Function' */
+  real_T SFunction[3];                 /* '<S5>/S-Function' */
+  real_T SFunction1;                   /* '<S7>/S-Function1' */
+  real_T SFunction_o;                  /* '<S7>/S-Function' */
   real_T ec_Ebox_o1[2];                /* '<S6>/ec_Ebox' */
   real_T ec_Ebox_o2[2];                /* '<S6>/ec_Ebox' */
   real_T ec_Ebox_o3[8];                /* '<S6>/ec_Ebox' */
   real_T Gain[2];                      /* '<S6>/Gain' */
-  real_T Gain1;                        /* '<S2>/Gain1' */
-  real_T Dctnotch2;                    /* '<S2>/Dctnotch2' */
-  real_T Dctleadlag3;                  /* '<S2>/Dctleadlag3' */
-  real_T Dctleadlag4;                  /* '<S2>/Dctleadlag4' */
-  real_T Dct1lowpass5;                 /* '<S2>/Dct1lowpass5' */
+  real_T Gain1;                        /* '<S1>/Gain1' */
+  real_T Dctnotch2;                    /* '<S1>/Dctnotch2' */
+  real_T Dctleadlag3;                  /* '<S1>/Dctleadlag3' */
+  real_T Dctleadlag4;                  /* '<S1>/Dctleadlag4' */
+  real_T Dct1lowpass5;                 /* '<S1>/Dct1lowpass5' */
   real_T Saturation[2];                /* '<S6>/Saturation' */
+  real_T Constant1[8];                 /* '<S2>/Constant1' */
 } B_Hardware_Performance_run_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   real_T fileID;                       /* '<S3>/SPERTE_measurement_function' */
-  real_T SFunction1_RWORK[2];          /* '<S7>/S-Function1' */
   real_T SFunction_RWORK[50];          /* '<S5>/S-Function' */
-  real_T Dctnotch2_RWORK[4];           /* '<S2>/Dctnotch2' */
-  real_T Dctleadlag3_RWORK[2];         /* '<S2>/Dctleadlag3' */
-  real_T Dctleadlag4_RWORK[2];         /* '<S2>/Dctleadlag4' */
-  real_T Dct1lowpass5_RWORK[2];        /* '<S2>/Dct1lowpass5' */
+  real_T SFunction1_RWORK[2];          /* '<S7>/S-Function1' */
+  real_T Dctnotch2_RWORK[4];           /* '<S1>/Dctnotch2' */
+  real_T Dctleadlag3_RWORK[2];         /* '<S1>/Dctleadlag3' */
+  real_T Dctleadlag4_RWORK[2];         /* '<S1>/Dctleadlag4' */
+  real_T Dct1lowpass5_RWORK[2];        /* '<S1>/Dct1lowpass5' */
   void *SFunction1_PWORK;              /* '<S7>/S-Function1' */
   struct {
     void *FilePtr;
@@ -197,9 +197,6 @@ struct P_Hardware_Performance_run_T_ {
                                  /* Mask Parameter: MeasurementBlock_triggertype
                                   * Referenced by: '<S3>/SPERTE_measurement_function'
                                   */
-  real_T Constant1_Value[8];           /* Expression: [0,0,0,0,0,0,0,0]
-                                        * Referenced by: '<S1>/Constant1'
-                                        */
   real_T SFunction1_P1_Size[2];        /* Computed Parameter: SFunction1_P1_Size
                                         * Referenced by: '<S7>/S-Function1'
                                         */
@@ -225,16 +222,103 @@ struct P_Hardware_Performance_run_T_ {
                                         * Referenced by: '<S6>/ec_Ebox'
                                         */
   real_T count2rad_Gain;               /* Expression: (2*pi)/(4*500)
-                                        * Referenced by: '<S1>/count2rad'
+                                        * Referenced by: '<S2>/count2rad'
                                         */
   real_T Constant_Value[2];            /* Expression: [0,0]
-                                        * Referenced by: '<S1>/Constant'
+                                        * Referenced by: '<S2>/Constant'
                                         */
   real_T Gain_Gain;                    /* Expression: 1/100
                                         * Referenced by: '<S6>/Gain'
                                         */
   real_T Constant2_Value;              /* Expression: 0
-                                        * Referenced by: '<S1>/Constant2'
+                                        * Referenced by: '<S2>/Constant2'
+                                        */
+  real_T Quantizer1_Interval;          /* Expression: (2*pi)/(500*4)
+                                        * Referenced by: '<Root>/Quantizer1'
+                                        */
+  real_T Gain6_Gain;                   /* Expression: -1
+                                        * Referenced by: '<Root>/Gain6'
+                                        */
+  real_T Gain1_Gain;                   /* Expression: 1
+                                        * Referenced by: '<S1>/Gain1'
+                                        */
+  real_T Dctnotch2_P1_Size[2];         /* Computed Parameter: Dctnotch2_P1_Size
+                                        * Referenced by: '<S1>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P1;                 /* Expression: f_num
+                                        * Referenced by: '<S1>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P2_Size[2];         /* Computed Parameter: Dctnotch2_P2_Size
+                                        * Referenced by: '<S1>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P2;                 /* Expression: b_num
+                                        * Referenced by: '<S1>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P3_Size[2];         /* Computed Parameter: Dctnotch2_P3_Size
+                                        * Referenced by: '<S1>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P3;                 /* Expression: f_den
+                                        * Referenced by: '<S1>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P4_Size[2];         /* Computed Parameter: Dctnotch2_P4_Size
+                                        * Referenced by: '<S1>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P4;                 /* Expression: b_den
+                                        * Referenced by: '<S1>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P5_Size[2];         /* Computed Parameter: Dctnotch2_P5_Size
+                                        * Referenced by: '<S1>/Dctnotch2'
+                                        */
+  real_T Dctnotch2_P5;                 /* Expression: 0.001
+                                        * Referenced by: '<S1>/Dctnotch2'
+                                        */
+  real_T Dctleadlag3_P1_Size[2];      /* Computed Parameter: Dctleadlag3_P1_Size
+                                       * Referenced by: '<S1>/Dctleadlag3'
+                                       */
+  real_T Dctleadlag3_P1;               /* Expression: f_num
+                                        * Referenced by: '<S1>/Dctleadlag3'
+                                        */
+  real_T Dctleadlag3_P2_Size[2];      /* Computed Parameter: Dctleadlag3_P2_Size
+                                       * Referenced by: '<S1>/Dctleadlag3'
+                                       */
+  real_T Dctleadlag3_P2;               /* Expression: f_den
+                                        * Referenced by: '<S1>/Dctleadlag3'
+                                        */
+  real_T Dctleadlag3_P3_Size[2];      /* Computed Parameter: Dctleadlag3_P3_Size
+                                       * Referenced by: '<S1>/Dctleadlag3'
+                                       */
+  real_T Dctleadlag3_P3;               /* Expression: 0.001
+                                        * Referenced by: '<S1>/Dctleadlag3'
+                                        */
+  real_T Dctleadlag4_P1_Size[2];      /* Computed Parameter: Dctleadlag4_P1_Size
+                                       * Referenced by: '<S1>/Dctleadlag4'
+                                       */
+  real_T Dctleadlag4_P1;               /* Expression: f_num
+                                        * Referenced by: '<S1>/Dctleadlag4'
+                                        */
+  real_T Dctleadlag4_P2_Size[2];      /* Computed Parameter: Dctleadlag4_P2_Size
+                                       * Referenced by: '<S1>/Dctleadlag4'
+                                       */
+  real_T Dctleadlag4_P2;               /* Expression: f_den
+                                        * Referenced by: '<S1>/Dctleadlag4'
+                                        */
+  real_T Dctleadlag4_P3_Size[2];      /* Computed Parameter: Dctleadlag4_P3_Size
+                                       * Referenced by: '<S1>/Dctleadlag4'
+                                       */
+  real_T Dctleadlag4_P3;               /* Expression: 0.001
+                                        * Referenced by: '<S1>/Dctleadlag4'
+                                        */
+  real_T Dct1lowpass5_P1_Size[2];    /* Computed Parameter: Dct1lowpass5_P1_Size
+                                      * Referenced by: '<S1>/Dct1lowpass5'
+                                      */
+  real_T Dct1lowpass5_P1;              /* Expression: f_den
+                                        * Referenced by: '<S1>/Dct1lowpass5'
+                                        */
+  real_T Dct1lowpass5_P2_Size[2];    /* Computed Parameter: Dct1lowpass5_P2_Size
+                                      * Referenced by: '<S1>/Dct1lowpass5'
+                                      */
+  real_T Dct1lowpass5_P2;              /* Expression: 0.001
+                                        * Referenced by: '<S1>/Dct1lowpass5'
                                         */
   real_T Quantizer2_Interval;          /* Expression: (2*pi)/(500*4)
                                         * Referenced by: '<Root>/Quantizer2'
@@ -242,7 +326,7 @@ struct P_Hardware_Performance_run_T_ {
   real_T Gain_Gain_h;                  /* Expression: 0.0052
                                         * Referenced by: '<Root>/Gain'
                                         */
-  real_T Gain1_Gain;                   /* Expression: 0.000024
+  real_T Gain1_Gain_j;                 /* Expression: 0.000024
                                         * Referenced by: '<Root>/Gain1'
                                         */
   real_T Quantizer3_Interval;          /* Expression: (2*pi)/(500*4)
@@ -251,104 +335,20 @@ struct P_Hardware_Performance_run_T_ {
   real_T Gain2_Gain;                   /* Expression: 0.000271
                                         * Referenced by: '<Root>/Gain2'
                                         */
-  real_T Quantizer1_Interval;          /* Expression: (2*pi)/(500*4)
-                                        * Referenced by: '<Root>/Quantizer1'
-                                        */
-  real_T Gain6_Gain;                   /* Expression: -1
-                                        * Referenced by: '<Root>/Gain6'
-                                        */
-  real_T Gain1_Gain_n;                 /* Expression: 1
-                                        * Referenced by: '<S2>/Gain1'
-                                        */
-  real_T Dctnotch2_P1_Size[2];         /* Computed Parameter: Dctnotch2_P1_Size
-                                        * Referenced by: '<S2>/Dctnotch2'
-                                        */
-  real_T Dctnotch2_P1;                 /* Expression: f_num
-                                        * Referenced by: '<S2>/Dctnotch2'
-                                        */
-  real_T Dctnotch2_P2_Size[2];         /* Computed Parameter: Dctnotch2_P2_Size
-                                        * Referenced by: '<S2>/Dctnotch2'
-                                        */
-  real_T Dctnotch2_P2;                 /* Expression: b_num
-                                        * Referenced by: '<S2>/Dctnotch2'
-                                        */
-  real_T Dctnotch2_P3_Size[2];         /* Computed Parameter: Dctnotch2_P3_Size
-                                        * Referenced by: '<S2>/Dctnotch2'
-                                        */
-  real_T Dctnotch2_P3;                 /* Expression: f_den
-                                        * Referenced by: '<S2>/Dctnotch2'
-                                        */
-  real_T Dctnotch2_P4_Size[2];         /* Computed Parameter: Dctnotch2_P4_Size
-                                        * Referenced by: '<S2>/Dctnotch2'
-                                        */
-  real_T Dctnotch2_P4;                 /* Expression: b_den
-                                        * Referenced by: '<S2>/Dctnotch2'
-                                        */
-  real_T Dctnotch2_P5_Size[2];         /* Computed Parameter: Dctnotch2_P5_Size
-                                        * Referenced by: '<S2>/Dctnotch2'
-                                        */
-  real_T Dctnotch2_P5;                 /* Expression: 0.001
-                                        * Referenced by: '<S2>/Dctnotch2'
-                                        */
-  real_T Dctleadlag3_P1_Size[2];      /* Computed Parameter: Dctleadlag3_P1_Size
-                                       * Referenced by: '<S2>/Dctleadlag3'
-                                       */
-  real_T Dctleadlag3_P1;               /* Expression: f_num
-                                        * Referenced by: '<S2>/Dctleadlag3'
-                                        */
-  real_T Dctleadlag3_P2_Size[2];      /* Computed Parameter: Dctleadlag3_P2_Size
-                                       * Referenced by: '<S2>/Dctleadlag3'
-                                       */
-  real_T Dctleadlag3_P2;               /* Expression: f_den
-                                        * Referenced by: '<S2>/Dctleadlag3'
-                                        */
-  real_T Dctleadlag3_P3_Size[2];      /* Computed Parameter: Dctleadlag3_P3_Size
-                                       * Referenced by: '<S2>/Dctleadlag3'
-                                       */
-  real_T Dctleadlag3_P3;               /* Expression: 0.001
-                                        * Referenced by: '<S2>/Dctleadlag3'
-                                        */
-  real_T Dctleadlag4_P1_Size[2];      /* Computed Parameter: Dctleadlag4_P1_Size
-                                       * Referenced by: '<S2>/Dctleadlag4'
-                                       */
-  real_T Dctleadlag4_P1;               /* Expression: f_num
-                                        * Referenced by: '<S2>/Dctleadlag4'
-                                        */
-  real_T Dctleadlag4_P2_Size[2];      /* Computed Parameter: Dctleadlag4_P2_Size
-                                       * Referenced by: '<S2>/Dctleadlag4'
-                                       */
-  real_T Dctleadlag4_P2;               /* Expression: f_den
-                                        * Referenced by: '<S2>/Dctleadlag4'
-                                        */
-  real_T Dctleadlag4_P3_Size[2];      /* Computed Parameter: Dctleadlag4_P3_Size
-                                       * Referenced by: '<S2>/Dctleadlag4'
-                                       */
-  real_T Dctleadlag4_P3;               /* Expression: 0.001
-                                        * Referenced by: '<S2>/Dctleadlag4'
-                                        */
-  real_T Dct1lowpass5_P1_Size[2];    /* Computed Parameter: Dct1lowpass5_P1_Size
-                                      * Referenced by: '<S2>/Dct1lowpass5'
-                                      */
-  real_T Dct1lowpass5_P1;              /* Expression: f_den
-                                        * Referenced by: '<S2>/Dct1lowpass5'
-                                        */
-  real_T Dct1lowpass5_P2_Size[2];    /* Computed Parameter: Dct1lowpass5_P2_Size
-                                      * Referenced by: '<S2>/Dct1lowpass5'
-                                      */
-  real_T Dct1lowpass5_P2;              /* Expression: 0.001
-                                        * Referenced by: '<S2>/Dct1lowpass5'
-                                        */
   real_T Saturation_UpperSat;          /* Expression: 2.5
-                                        * Referenced by: '<S1>/Saturation'
+                                        * Referenced by: '<S2>/Saturation'
                                         */
   real_T Saturation_LowerSat;          /* Expression: -2.5
-                                        * Referenced by: '<S1>/Saturation'
+                                        * Referenced by: '<S2>/Saturation'
                                         */
   real_T Saturation_UpperSat_d;        /* Expression: 10
                                         * Referenced by: '<S6>/Saturation'
                                         */
   real_T Saturation_LowerSat_e;        /* Expression: -10
                                         * Referenced by: '<S6>/Saturation'
+                                        */
+  real_T Constant1_Value[8];           /* Expression: [0,0,0,0,0,0,0,0]
+                                        * Referenced by: '<S2>/Constant1'
                                         */
 };
 
@@ -383,30 +383,6 @@ struct tag_RTM_Hardware_Performance_run_T {
       time_T sfcnPeriod[1];
       time_T sfcnOffset[1];
       int_T sfcnTsMap[1];
-      struct _ssPortOutputs outputPortInfo[1];
-      struct _ssOutPortUnit outputPortUnits[1];
-      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[1];
-      mxArray *params[1];
-      struct _ssDWorkRecord dWork[3];
-      struct _ssDWorkAuxRecord dWorkAux[3];
-    } Sfcn0;
-
-    struct {
-      time_T sfcnPeriod[1];
-      time_T sfcnOffset[1];
-      int_T sfcnTsMap[1];
-      struct _ssPortOutputs outputPortInfo[1];
-      struct _ssOutPortUnit outputPortUnits[1];
-      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
-      uint_T attribs[2];
-      mxArray *params[2];
-    } Sfcn1;
-
-    struct {
-      time_T sfcnPeriod[1];
-      time_T sfcnOffset[1];
-      int_T sfcnTsMap[1];
       struct _ssPortInputs inputPortInfo[1];
       struct _ssInPortUnit inputPortUnits[1];
       struct _ssInPortCoSimAttribute inputPortCoSimAttribute[1];
@@ -418,6 +394,30 @@ struct tag_RTM_Hardware_Performance_run_T {
       mxArray *params[1];
       struct _ssDWorkRecord dWork[1];
       struct _ssDWorkAuxRecord dWorkAux[1];
+    } Sfcn0;
+
+    struct {
+      time_T sfcnPeriod[1];
+      time_T sfcnOffset[1];
+      int_T sfcnTsMap[1];
+      struct _ssPortOutputs outputPortInfo[1];
+      struct _ssOutPortUnit outputPortUnits[1];
+      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
+      uint_T attribs[1];
+      mxArray *params[1];
+      struct _ssDWorkRecord dWork[3];
+      struct _ssDWorkAuxRecord dWorkAux[3];
+    } Sfcn1;
+
+    struct {
+      time_T sfcnPeriod[1];
+      time_T sfcnOffset[1];
+      int_T sfcnTsMap[1];
+      struct _ssPortOutputs outputPortInfo[1];
+      struct _ssOutPortUnit outputPortUnits[1];
+      struct _ssOutPortCoSimAttribute outputPortCoSimAttribute[1];
+      uint_T attribs[2];
+      mxArray *params[2];
     } Sfcn2;
 
     struct {
@@ -612,8 +612,8 @@ extern volatile boolean_T runModel;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'Hardware_Performance_run'
- * '<S1>'   : 'Hardware_Performance_run/Fourth Order Motion System'
- * '<S2>'   : 'Hardware_Performance_run/Load_Controller_V2_lowpass_13_5Hz_noI'
+ * '<S1>'   : 'Hardware_Performance_run/Controller_13p5Hz_N52p9_LL_LL_LPF'
+ * '<S2>'   : 'Hardware_Performance_run/Fourth Order Motion System'
  * '<S3>'   : 'Hardware_Performance_run/Measurement Block'
  * '<S4>'   : 'Hardware_Performance_run/Ref power'
  * '<S5>'   : 'Hardware_Performance_run/Subsystem'
