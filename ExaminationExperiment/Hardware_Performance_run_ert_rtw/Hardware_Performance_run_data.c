@@ -7,9 +7,9 @@
  *
  * Code generation for model "Hardware_Performance_run".
  *
- * Model version              : 14.22
+ * Model version              : 14.23
  * Simulink Coder version : 25.1 (R2025a) 21-Nov-2024
- * C source code generated on : Fri Oct 24 08:58:16 2025
+ * C source code generated on : Fri Oct 24 16:37:13 2025
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -36,7 +36,7 @@ P_Hardware_Performance_run_T Hardware_Performance_run_P = {
   /* Mask Parameter: Refpower_stat
    * Referenced by: '<S4>/Start setpoint'
    */
-  2.0,
+  1.0,
 
   /* Mask Parameter: MeasurementBlock_N_samples
    * Referenced by: '<S3>/SPERTE_measurement_samples'
@@ -52,11 +52,6 @@ P_Hardware_Performance_run_T Hardware_Performance_run_P = {
    * Referenced by: '<S3>/SPERTE_measurement_function'
    */
   2U,
-
-  /* Expression: [0,0,0,0,0,0,0,0]
-   * Referenced by: '<S1>/Constant1'
-   */
-  { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 },
 
   /* Computed Parameter: SFunction1_P1_Size
    * Referenced by: '<S7>/S-Function1'
@@ -99,12 +94,12 @@ P_Hardware_Performance_run_T Hardware_Performance_run_P = {
   0.0,
 
   /* Expression: (2*pi)/(4*500)
-   * Referenced by: '<S1>/count2rad'
+   * Referenced by: '<S2>/count2rad'
    */
   0.0031415926535897933,
 
   /* Expression: [0,0]
-   * Referenced by: '<S1>/Constant'
+   * Referenced by: '<S2>/Constant'
    */
   { 0.0, 0.0 },
 
@@ -114,9 +109,124 @@ P_Hardware_Performance_run_T Hardware_Performance_run_P = {
   0.01,
 
   /* Expression: 0
-   * Referenced by: '<S1>/Constant2'
+   * Referenced by: '<S2>/Constant2'
    */
   0.0,
+
+  /* Expression: (2*pi)/(500*4)
+   * Referenced by: '<Root>/Quantizer1'
+   */
+  0.0031415926535897933,
+
+  /* Expression: -1
+   * Referenced by: '<Root>/Gain6'
+   */
+  -1.0,
+
+  /* Expression: 0.9755
+   * Referenced by: '<S1>/Gain1'
+   */
+  0.9755,
+
+  /* Computed Parameter: Dctnotch2_P1_Size
+   * Referenced by: '<S1>/Dctnotch2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_num
+   * Referenced by: '<S1>/Dctnotch2'
+   */
+  53.3,
+
+  /* Computed Parameter: Dctnotch2_P2_Size
+   * Referenced by: '<S1>/Dctnotch2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: b_num
+   * Referenced by: '<S1>/Dctnotch2'
+   */
+  0.01,
+
+  /* Computed Parameter: Dctnotch2_P3_Size
+   * Referenced by: '<S1>/Dctnotch2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_den
+   * Referenced by: '<S1>/Dctnotch2'
+   */
+  53.3,
+
+  /* Computed Parameter: Dctnotch2_P4_Size
+   * Referenced by: '<S1>/Dctnotch2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: b_den
+   * Referenced by: '<S1>/Dctnotch2'
+   */
+  0.34,
+
+  /* Computed Parameter: Dctnotch2_P5_Size
+   * Referenced by: '<S1>/Dctnotch2'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: 0.001
+   * Referenced by: '<S1>/Dctnotch2'
+   */
+  0.001,
+
+  /* Computed Parameter: Dctleadlag3_P1_Size
+   * Referenced by: '<S1>/Dctleadlag3'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_num
+   * Referenced by: '<S1>/Dctleadlag3'
+   */
+  8.5,
+
+  /* Computed Parameter: Dctleadlag3_P2_Size
+   * Referenced by: '<S1>/Dctleadlag3'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_den
+   * Referenced by: '<S1>/Dctleadlag3'
+   */
+  160.0,
+
+  /* Computed Parameter: Dctleadlag3_P3_Size
+   * Referenced by: '<S1>/Dctleadlag3'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: 0.001
+   * Referenced by: '<S1>/Dctleadlag3'
+   */
+  0.001,
+
+  /* Computed Parameter: Dct1lowpass4_P1_Size
+   * Referenced by: '<S1>/Dct1lowpass4'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: f_den
+   * Referenced by: '<S1>/Dct1lowpass4'
+   */
+  100.0,
+
+  /* Computed Parameter: Dct1lowpass4_P2_Size
+   * Referenced by: '<S1>/Dct1lowpass4'
+   */
+  { 1.0, 1.0 },
+
+  /* Expression: 0.001
+   * Referenced by: '<S1>/Dct1lowpass4'
+   */
+  0.001,
 
   /* Expression: (2*pi)/(500*4)
    * Referenced by: '<Root>/Quantizer2'
@@ -143,158 +253,13 @@ P_Hardware_Performance_run_T Hardware_Performance_run_P = {
    */
   0.000271,
 
-  /* Expression: (2*pi)/(500*4)
-   * Referenced by: '<Root>/Quantizer1'
-   */
-  0.0031415926535897933,
-
-  /* Expression: -1
-   * Referenced by: '<Root>/Gain6'
-   */
-  -1.0,
-
-  /* Expression: 1
-   * Referenced by: '<S2>/Gain1'
-   */
-  1.0,
-
-  /* Computed Parameter: Dctnotch2_P1_Size
-   * Referenced by: '<S2>/Dctnotch2'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_num
-   * Referenced by: '<S2>/Dctnotch2'
-   */
-  55.0,
-
-  /* Computed Parameter: Dctnotch2_P2_Size
-   * Referenced by: '<S2>/Dctnotch2'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: b_num
-   * Referenced by: '<S2>/Dctnotch2'
-   */
-  0.03,
-
-  /* Computed Parameter: Dctnotch2_P3_Size
-   * Referenced by: '<S2>/Dctnotch2'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_den
-   * Referenced by: '<S2>/Dctnotch2'
-   */
-  55.0,
-
-  /* Computed Parameter: Dctnotch2_P4_Size
-   * Referenced by: '<S2>/Dctnotch2'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: b_den
-   * Referenced by: '<S2>/Dctnotch2'
-   */
-  0.3,
-
-  /* Computed Parameter: Dctnotch2_P5_Size
-   * Referenced by: '<S2>/Dctnotch2'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: 0.001
-   * Referenced by: '<S2>/Dctnotch2'
-   */
-  0.001,
-
-  /* Computed Parameter: Dctleadlag3_P1_Size
-   * Referenced by: '<S2>/Dctleadlag3'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_num
-   * Referenced by: '<S2>/Dctleadlag3'
-   */
-  10.0,
-
-  /* Computed Parameter: Dctleadlag3_P2_Size
-   * Referenced by: '<S2>/Dctleadlag3'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_den
-   * Referenced by: '<S2>/Dctleadlag3'
-   */
-  60.0,
-
-  /* Computed Parameter: Dctleadlag3_P3_Size
-   * Referenced by: '<S2>/Dctleadlag3'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: 0.001
-   * Referenced by: '<S2>/Dctleadlag3'
-   */
-  0.001,
-
-  /* Computed Parameter: Dctleadlag4_P1_Size
-   * Referenced by: '<S2>/Dctleadlag4'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_num
-   * Referenced by: '<S2>/Dctleadlag4'
-   */
-  18.0,
-
-  /* Computed Parameter: Dctleadlag4_P2_Size
-   * Referenced by: '<S2>/Dctleadlag4'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_den
-   * Referenced by: '<S2>/Dctleadlag4'
-   */
-  30.0,
-
-  /* Computed Parameter: Dctleadlag4_P3_Size
-   * Referenced by: '<S2>/Dctleadlag4'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: 0.001
-   * Referenced by: '<S2>/Dctleadlag4'
-   */
-  0.001,
-
-  /* Computed Parameter: Dct1lowpass5_P1_Size
-   * Referenced by: '<S2>/Dct1lowpass5'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: f_den
-   * Referenced by: '<S2>/Dct1lowpass5'
-   */
-  200.0,
-
-  /* Computed Parameter: Dct1lowpass5_P2_Size
-   * Referenced by: '<S2>/Dct1lowpass5'
-   */
-  { 1.0, 1.0 },
-
-  /* Expression: 0.001
-   * Referenced by: '<S2>/Dct1lowpass5'
-   */
-  0.001,
-
   /* Expression: 2.5
-   * Referenced by: '<S1>/Saturation'
+   * Referenced by: '<S2>/Saturation'
    */
   2.5,
 
   /* Expression: -2.5
-   * Referenced by: '<S1>/Saturation'
+   * Referenced by: '<S2>/Saturation'
    */
   -2.5,
 
@@ -306,5 +271,10 @@ P_Hardware_Performance_run_T Hardware_Performance_run_P = {
   /* Expression: -10
    * Referenced by: '<S6>/Saturation'
    */
-  -10.0
+  -10.0,
+
+  /* Expression: [0,0,0,0,0,0,0,0]
+   * Referenced by: '<S2>/Constant1'
+   */
+  { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 }
 };
