@@ -3,7 +3,7 @@ function [f, H, S, L, Coh, C_resp] = twoPoint(d,u,r,C_tf,window,noverlap,nfft,fs
 %controller response over the desired frequency range f.
 
 [Sud,f]  = cpsd(u, d, window, noverlap, nfft, fs);
-[Sdd,f] = cpsd(d, d, window, noverlap, nfft, fs);
+[Sdd,~] = cpsd(d, d, window, noverlap, nfft, fs);
 
 [Crd, ~] = mscohere(r,d,window,noverlap,nfft,fs);
 [Cud, ~] = mscohere(u,d,window,noverlap,nfft,fs);
