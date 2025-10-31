@@ -1,4 +1,5 @@
 e = Data.signals.e;
+<<<<<<< Updated upstream
 a = Data.signals.a;
 y = Data.signals.y;
 e_max = max(abs(e))
@@ -15,6 +16,17 @@ stairs(t,e,'Color','k');
  
 %stairs(e);
 % plot(0.01*(1-sign(abs(a))));
+=======
+% a = Data.signals.a;
+y = Data.signals.y;
+e_max = max(abs(e))
+e_rms = rms_error(e)
+scale = 0.0001;
+
+figure; stairs(e);
+hold on;
+plot(0.01*(1-sign(abs(a))));
+>>>>>>> Stashed changes
 %hold on; stairs(a.*scale);
 % figure; stairs(y); 
 % hold on; stairs(a);
@@ -32,14 +44,22 @@ grid on;
 
 
 %%
+<<<<<<< Updated upstream
 Trun = 11
+=======
+Trun = 120
+>>>>>>> Stashed changes
 N_samples = Trun*Fs; %measurement size per duration(samples)
 T_terminate = 5;
 Fres = 0.1
 
 
 Exercise = "ProtoLab_setup_45_2410";
+<<<<<<< Updated upstream
 Measurement = "Setpoint_11s_13p5Hz_N52p9";
+=======
+Measurement = "Setpoint_11s_13p5Hz";
+>>>>>>> Stashed changes
 SampleFreq = "fs_" + Fs + "_Hz";
 
 ModelName = "Hardware_Performance_run";
@@ -53,7 +73,7 @@ e_rms = rms_error(e)
 nfft = Fs/Fres;
 window = hanning(nfft);
 noverlap = floor(nfft/2);
-[PSD, f] = pwelch(e,window,noverlap,nfft,Fs,"onesided"); %PSD
+[PSD, f] = pwelch(e,window,noverlap,nfft,fs,"onesided"); %PSD
 figure; plot(f,PSD);
 yscale log;
 xscale log;
@@ -73,9 +93,15 @@ Path + '/PerformanceData/'+ measurementName);
 figure; hold on; grid on;
 n = (1:length(e));
 accel_region = (abs(sign(a))).*e_max;
+<<<<<<< Updated upstream
 area(n,accel_region,'FaceColor',"r",'FaceAlpha',0.4,'EdgeColor','none')
 area(n,-accel_region,'FaceColor',"r",'FaceAlpha',0.4,'EdgeColor','none')
 stairs(n,e,'Color','k');
+=======
+area(n,accel_region*1000 ,'FaceColor',"r",'FaceAlpha',0.4,'EdgeColor','none')
+area(n,-accel_region*1000 ,'FaceColor',"r",'FaceAlpha',0.4,'EdgeColor','none')
+stairs(e);
+>>>>>>> Stashed changes
 
 figure; stairs(y); 
 hold on; stairs(a);

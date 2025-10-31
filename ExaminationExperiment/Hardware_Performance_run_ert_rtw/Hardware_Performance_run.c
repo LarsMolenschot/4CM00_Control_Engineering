@@ -7,9 +7,13 @@
  *
  * Code generation for model "Hardware_Performance_run".
  *
- * Model version              : 14.24
+ * Model version              : 14.22
  * Simulink Coder version : 25.1 (R2025a) 21-Nov-2024
+<<<<<<< Updated upstream
  * C source code generated on : Fri Oct 24 12:08:27 2025
+=======
+ * C source code generated on : Fri Oct 24 08:58:16 2025
+>>>>>>> Stashed changes
  *
  * Target selection: ert.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -292,29 +296,21 @@ void Hardware_Performance_run_step(void)
   real_T rtb_Sum;
   real_T rtb_Sum2;
   real_T tmp;
-  int32_T nbytes;
+  int32_T i;
   int32_T tmp_0;
   real32_T xout[3];
   int8_T b_fileid;
   boolean_T autoflush;
 
-  /* Constant: '<S4>/Start setpoint' */
-  Hardware_Performance_run_B.Startsetpoint =
-    Hardware_Performance_run_P.Refpower_stat;
-
-  /* S-Function (ref3b): '<S5>/S-Function' */
-
-  /* Level2 S-Function Block: '<S5>/S-Function' (ref3b) */
-  {
-    SimStruct *rts = Hardware_Performance_run_M->childSfunctions[0];
-    sfcnOutputs(rts,0);
-  }
+  /* Constant: '<S1>/Constant1' */
+  memcpy(&Hardware_Performance_run_B.Constant1[0],
+         &Hardware_Performance_run_P.Constant1_Value[0], sizeof(real_T) << 3U);
 
   /* S-Function (getTiming): '<S7>/S-Function1' */
 
   /* Level2 S-Function Block: '<S7>/S-Function1' (getTiming) */
   {
-    SimStruct *rts = Hardware_Performance_run_M->childSfunctions[1];
+    SimStruct *rts = Hardware_Performance_run_M->childSfunctions[0];
     sfcnOutputs(rts,0);
   }
 
@@ -351,6 +347,18 @@ void Hardware_Performance_run_step(void)
 
   /* Level2 S-Function Block: '<S7>/S-Function' (ec_Supervisor) */
   {
+    SimStruct *rts = Hardware_Performance_run_M->childSfunctions[1];
+    sfcnOutputs(rts,0);
+  }
+
+  /* Constant: '<S4>/Start setpoint' */
+  Hardware_Performance_run_B.Startsetpoint =
+    Hardware_Performance_run_P.Refpower_stat;
+
+  /* S-Function (ref3b): '<S5>/S-Function' */
+
+  /* Level2 S-Function Block: '<S5>/S-Function' (ref3b) */
+  {
     SimStruct *rts = Hardware_Performance_run_M->childSfunctions[2];
     sfcnOutputs(rts,0);
   }
@@ -364,15 +372,25 @@ void Hardware_Performance_run_step(void)
   }
 
   /* Gain: '<S6>/Gain' incorporates:
-   *  Constant: '<S2>/Constant'
+   *  Constant: '<S1>/Constant'
    */
   Hardware_Performance_run_B.Gain[0] = Hardware_Performance_run_P.Gain_Gain *
     Hardware_Performance_run_P.Constant_Value[0];
   Hardware_Performance_run_B.Gain[1] = Hardware_Performance_run_P.Gain_Gain *
     Hardware_Performance_run_P.Constant_Value[1];
 
+  /* Quantizer: '<Root>/Quantizer2' */
+  rtb_Sum2 = rt_roundd_snf(Hardware_Performance_run_B.SFunction_c[1] /
+    Hardware_Performance_run_P.Quantizer2_Interval) *
+    Hardware_Performance_run_P.Quantizer2_Interval;
+
+  /* Quantizer: '<Root>/Quantizer3' */
+  rtb_Quantizer3 = rt_roundd_snf(Hardware_Performance_run_B.SFunction_c[0] /
+    Hardware_Performance_run_P.Quantizer3_Interval) *
+    Hardware_Performance_run_P.Quantizer3_Interval;
+
   /* Gain: '<Root>/Gain6' incorporates:
-   *  Gain: '<S2>/count2rad'
+   *  Gain: '<S1>/count2rad'
    */
   rtb_Gain6 = Hardware_Performance_run_P.count2rad_Gain *
     Hardware_Performance_run_B.ec_Ebox_o2[1] *
@@ -381,55 +399,57 @@ void Hardware_Performance_run_step(void)
   /* Sum: '<Root>/Sum' incorporates:
    *  Quantizer: '<Root>/Quantizer1'
    */
-  rtb_Sum = rt_roundd_snf(Hardware_Performance_run_B.SFunction[2] /
+  rtb_Sum = rt_roundd_snf(Hardware_Performance_run_B.SFunction_c[2] /
     Hardware_Performance_run_P.Quantizer1_Interval) *
     Hardware_Performance_run_P.Quantizer1_Interval - rtb_Gain6;
 
-  /* Gain: '<S1>/Gain1' */
-  Hardware_Performance_run_B.Gain1 = Hardware_Performance_run_P.Gain1_Gain *
+  /* Gain: '<S2>/Gain1' */
+  Hardware_Performance_run_B.Gain1 = Hardware_Performance_run_P.Gain1_Gain_n *
     rtb_Sum;
 
-  /* S-Function (dnotch): '<S1>/Dctnotch2' */
+  /* S-Function (dnotch): '<S2>/Dctnotch2' */
 
-  /* Level2 S-Function Block: '<S1>/Dctnotch2' (dnotch) */
+  /* Level2 S-Function Block: '<S2>/Dctnotch2' (dnotch) */
   {
     SimStruct *rts = Hardware_Performance_run_M->childSfunctions[4];
     sfcnOutputs(rts,0);
   }
 
-  /* S-Function (dleadlag): '<S1>/Dctleadlag3' */
+  /* S-Function (dleadlag): '<S2>/Dctleadlag3' */
 
-  /* Level2 S-Function Block: '<S1>/Dctleadlag3' (dleadlag) */
+  /* Level2 S-Function Block: '<S2>/Dctleadlag3' (dleadlag) */
   {
     SimStruct *rts = Hardware_Performance_run_M->childSfunctions[5];
     sfcnOutputs(rts,0);
   }
 
+<<<<<<< Updated upstream
   /* S-Function (dleadlag): '<S1>/Dctleadlag4' */
 
   /* Level2 S-Function Block: '<S1>/Dctleadlag4' (dleadlag) */
+=======
+  /* S-Function (dleadlag): '<S2>/Dctleadlag4' */
+
+  /* Level2 S-Function Block: '<S2>/Dctleadlag4' (dleadlag) */
+>>>>>>> Stashed changes
   {
     SimStruct *rts = Hardware_Performance_run_M->childSfunctions[6];
     sfcnOutputs(rts,0);
   }
 
+<<<<<<< Updated upstream
   /* S-Function (dlowpass1): '<S1>/Dct1lowpass5' */
 
   /* Level2 S-Function Block: '<S1>/Dct1lowpass5' (dlowpass1) */
+=======
+  /* S-Function (dlowpass1): '<S2>/Dct1lowpass5' */
+
+  /* Level2 S-Function Block: '<S2>/Dct1lowpass5' (dlowpass1) */
+>>>>>>> Stashed changes
   {
     SimStruct *rts = Hardware_Performance_run_M->childSfunctions[7];
     sfcnOutputs(rts,0);
   }
-
-  /* Quantizer: '<Root>/Quantizer2' */
-  rtb_Sum2 = rt_roundd_snf(Hardware_Performance_run_B.SFunction[1] /
-    Hardware_Performance_run_P.Quantizer2_Interval) *
-    Hardware_Performance_run_P.Quantizer2_Interval;
-
-  /* Quantizer: '<Root>/Quantizer3' */
-  rtb_Quantizer3 = rt_roundd_snf(Hardware_Performance_run_B.SFunction[0] /
-    Hardware_Performance_run_P.Quantizer3_Interval) *
-    Hardware_Performance_run_P.Quantizer3_Interval;
 
   /* Signum: '<Root>/Sign' */
   if (rtIsNaN(rtb_Sum2)) {
@@ -448,12 +468,12 @@ void Hardware_Performance_run_step(void)
    *  Sum: '<Root>/Sum3'
    *  Sum: '<Root>/Sum4'
    */
-  rtb_Sum2 = ((Hardware_Performance_run_P.Gain1_Gain_j * rtb_Sum2 +
+  rtb_Sum2 = ((Hardware_Performance_run_P.Gain1_Gain * rtb_Sum2 +
                Hardware_Performance_run_P.Gain2_Gain * rtb_Quantizer3) +
               Hardware_Performance_run_P.Gain_Gain_h * tmp) +
     Hardware_Performance_run_B.Dct1lowpass5;
 
-  /* Saturate: '<S2>/Saturation' */
+  /* Saturate: '<S1>/Saturation' */
   if (rtb_Sum2 > Hardware_Performance_run_P.Saturation_UpperSat) {
     rtb_Sum2 = Hardware_Performance_run_P.Saturation_UpperSat;
   } else if (rtb_Sum2 < Hardware_Performance_run_P.Saturation_LowerSat) {
@@ -474,8 +494,8 @@ void Hardware_Performance_run_step(void)
     Hardware_Performance_run_B.Saturation[0] = rtb_Sum2;
   }
 
-  /* Saturate: '<S2>/Saturation' incorporates:
-   *  Constant: '<S2>/Constant2'
+  /* Saturate: '<S1>/Saturation' incorporates:
+   *  Constant: '<S1>/Constant2'
    */
   if (Hardware_Performance_run_P.Constant2_Value >
       Hardware_Performance_run_P.Saturation_UpperSat) {
@@ -512,41 +532,40 @@ void Hardware_Performance_run_step(void)
        ((Hardware_Performance_run_P.MeasurementBlock_triggertype == 2) &&
         (Hardware_Performance_run_P.MeasurementBlock_trigger_comman == 1))) &&
       (Hardware_Performance_run_DW.busy != 1)) {
-    nbytes = (int32_T)snprintf(NULL, 0, "measurement_%d.bin",
-      Hardware_Performance_run_DW.NF) + 1;
+    i = (int32_T)snprintf(NULL, 0, "measurement_%d.bin",
+                          Hardware_Performance_run_DW.NF) + 1;
     Hardware_Perform_emxInit_char_T(&str, 2);
     tmp_0 = str->size[0] * str->size[1];
     str->size[0] = 1;
-    str->size[1] = nbytes;
+    str->size[1] = i;
     Hardwa_emxEnsureCapacity_char_T(str, tmp_0);
-    snprintf(&str->data[0], (size_t)nbytes, "measurement_%d.bin",
+    snprintf(&str->data[0], (size_t)i, "measurement_%d.bin",
              Hardware_Performance_run_DW.NF);
-    if (nbytes - 1 < 1) {
-      nbytes = -1;
+    if (i - 1 < 1) {
+      i = -1;
     } else {
-      nbytes -= 2;
+      i -= 2;
     }
 
     Hardware_Perform_emxInit_char_T(&str_0, 2);
     tmp_0 = str_0->size[0] * str_0->size[1];
     str_0->size[0] = 1;
-    str_0->size[1] = nbytes + 1;
+    str_0->size[1] = i + 1;
     Hardwa_emxEnsureCapacity_char_T(str_0, tmp_0);
-    if (nbytes >= 0) {
-      memcpy(&str_0->data[0], &str->data[0], (uint32_T)(nbytes + 1) * sizeof
-             (char_T));
+    if (i >= 0) {
+      memcpy(&str_0->data[0], &str->data[0], (uint32_T)(i + 1) * sizeof(char_T));
     }
 
     Hardware_Perform_emxFree_char_T(&str);
     b_fileid = Hardware_Performance_run_cfopen(str_0, "wb");
     Hardware_Perform_emxFree_char_T(&str_0);
     Hardware_Performance_run_DW.fileID = b_fileid;
-    nbytes = Hardware_Performance_run_DW.NF + 1;
+    i = Hardware_Performance_run_DW.NF + 1;
     if (Hardware_Performance_run_DW.NF + 1 > 32767) {
-      nbytes = 32767;
+      i = 32767;
     }
 
-    Hardware_Performance_run_DW.NF = (int16_T)nbytes;
+    Hardware_Performance_run_DW.NF = (int16_T)i;
     Hardware_Performance_run_DW.busy = 1U;
     Hardware_Performance_run_DW.NS = 0U;
   }
@@ -601,11 +620,6 @@ void Hardware_Performance_run_step(void)
   }
 
   /* End of MATLAB Function: '<S3>/SPERTE_measurement_function' */
-
-  /* Constant: '<S2>/Constant1' */
-  memcpy(&Hardware_Performance_run_B.Constant1[0],
-         &Hardware_Performance_run_P.Constant1_Value[0], sizeof(real_T) << 3U);
-
   {                                    /* Sample time: [0.00025s, 0.0s] */
     extmodeErrorCode_T errorCode = EXTMODE_SUCCESS;
     extmodeSimulationTime_T extmodeTime = (extmodeSimulationTime_T)
@@ -729,10 +743,17 @@ void Hardware_Performance_run_initialize(void)
   Hardware_Performance_run_M->Timing.stepSize1 = 0.00025;
 
   /* External mode info */
+<<<<<<< Updated upstream
   Hardware_Performance_run_M->Sizes.checksums[0] = (1820334391U);
   Hardware_Performance_run_M->Sizes.checksums[1] = (2927086933U);
   Hardware_Performance_run_M->Sizes.checksums[2] = (1489597508U);
   Hardware_Performance_run_M->Sizes.checksums[3] = (4171978753U);
+=======
+  Hardware_Performance_run_M->Sizes.checksums[0] = (650792294U);
+  Hardware_Performance_run_M->Sizes.checksums[1] = (170401062U);
+  Hardware_Performance_run_M->Sizes.checksums[2] = (1451289843U);
+  Hardware_Performance_run_M->Sizes.checksums[3] = (2109100933U);
+>>>>>>> Stashed changes
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
@@ -821,7 +842,7 @@ void Hardware_Performance_run_initialize(void)
       }
     }
 
-    /* Level2 S-Function Block: Hardware_Performance_run/<S5>/S-Function (ref3b) */
+    /* Level2 S-Function Block: Hardware_Performance_run/<S7>/S-Function1 (getTiming) */
     {
       SimStruct *rts = Hardware_Performance_run_M->childSfunctions[0];
 
@@ -881,32 +902,6 @@ void Hardware_Performance_run_initialize(void)
           &Hardware_Performance_run_M->NonInlinedSFcns.periodicStatesInfo[0]);
       }
 
-      /* inputs */
-      {
-        _ssSetNumInputPorts(rts, 1);
-        ssSetPortInfoForInputs(rts,
-          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn0.inputPortInfo[0]);
-        ssSetPortInfoForInputs(rts,
-          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn0.inputPortInfo[0]);
-        _ssSetPortInfo2ForInputUnits(rts,
-          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn0.inputPortUnits[0]);
-        ssSetInputPortUnit(rts, 0, 0);
-        _ssSetPortInfo2ForInputCoSimAttribute(rts,
-          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn0.inputPortCoSimAttribute
-          [0]);
-        ssSetInputPortIsContinuousQuantity(rts, 0, 0);
-
-        /* port 0 */
-        {
-          real_T const **sfcnUPtrs = (real_T const **)
-            &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn0.UPtrs0;
-          sfcnUPtrs[0] = &Hardware_Performance_run_B.Startsetpoint;
-          ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
-          _ssSetInputPortNumDimensions(rts, 0, 1);
-          ssSetInputPortWidthAsInt(rts, 0, 1);
-        }
-      }
-
       /* outputs */
       {
         ssSetPortInfoForOutputs(rts,
@@ -925,15 +920,16 @@ void Hardware_Performance_run_initialize(void)
         /* port 0 */
         {
           _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidthAsInt(rts, 0, 3);
+          ssSetOutputPortWidthAsInt(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            Hardware_Performance_run_B.SFunction));
+            &Hardware_Performance_run_B.SFunction1));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "S-Function");
-      ssSetPath(rts, "Hardware_Performance_run/Subsystem/S-Function");
+      ssSetModelName(rts, "S-Function1");
+      ssSetPath(rts,
+                "Hardware_Performance_run/Fourth Order Motion System/Ethercat Supervisor/S-Function1");
       ssSetRTModel(rts,Hardware_Performance_run_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -946,11 +942,13 @@ void Hardware_Performance_run_initialize(void)
         ssSetSFcnParamsCount(rts, 1);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       Hardware_Performance_run_P.SFunction_P1_Size);
+                       Hardware_Performance_run_P.SFunction1_P1_Size);
       }
 
       /* work vectors */
-      ssSetRWork(rts, (real_T *) &Hardware_Performance_run_DW.SFunction_RWORK[0]);
+      ssSetRWork(rts, (real_T *) &Hardware_Performance_run_DW.SFunction1_RWORK[0]);
+      ssSetIWork(rts, (int_T *) &Hardware_Performance_run_DW.SFunction1_IWORK);
+      ssSetPWork(rts, (void **) &Hardware_Performance_run_DW.SFunction1_PWORK);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -959,38 +957,48 @@ void Hardware_Performance_run_initialize(void)
           &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn0.dWorkAux;
         ssSetSFcnDWork(rts, dWorkRecord);
         ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
-        ssSetNumDWorkAsInt(rts, 1);
+        ssSetNumDWorkAsInt(rts, 3);
 
         /* RWORK */
-        ssSetDWorkWidthAsInt(rts, 0, 50);
+        ssSetDWorkWidthAsInt(rts, 0, 2);
         ssSetDWorkDataType(rts, 0,SS_DOUBLE);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &Hardware_Performance_run_DW.SFunction_RWORK[0]);
+        ssSetDWork(rts, 0, &Hardware_Performance_run_DW.SFunction1_RWORK[0]);
+
+        /* IWORK */
+        ssSetDWorkWidthAsInt(rts, 1, 1);
+        ssSetDWorkDataType(rts, 1,SS_INTEGER);
+        ssSetDWorkComplexSignal(rts, 1, 0);
+        ssSetDWork(rts, 1, &Hardware_Performance_run_DW.SFunction1_IWORK);
+
+        /* PWORK */
+        ssSetDWorkWidthAsInt(rts, 2, 1);
+        ssSetDWorkDataType(rts, 2,SS_POINTER);
+        ssSetDWorkComplexSignal(rts, 2, 0);
+        ssSetDWork(rts, 2, &Hardware_Performance_run_DW.SFunction1_PWORK);
       }
 
       /* registration */
-      ref3b(rts);
+      getTiming(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
       /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.0);
+      ssSetSampleTime(rts, 0, 0.00025);
       ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 0;
+      sfcnTsMap[0] = 1;
 
       /* set compiled values of dynamic vector attributes */
       ssSetNumNonsampledZCsAsInt(rts, 0);
 
       /* Update connectivity flags for each port */
-      _ssSetInputPortConnected(rts, 0, 1);
       _ssSetOutputPortConnected(rts, 0, 1);
       _ssSetOutputPortBeingMerged(rts, 0, 0);
 
       /* Update the BufferDstPort flags for each input port */
-      ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Hardware_Performance_run/<S7>/S-Function1 (getTiming) */
+    /* Level2 S-Function Block: Hardware_Performance_run/<S7>/S-Function (ec_Supervisor) */
     {
       SimStruct *rts = Hardware_Performance_run_M->childSfunctions[1];
 
@@ -1070,14 +1078,14 @@ void Hardware_Performance_run_initialize(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidthAsInt(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &Hardware_Performance_run_B.SFunction1));
+            &Hardware_Performance_run_B.SFunction));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "S-Function1");
+      ssSetModelName(rts, "S-Function");
       ssSetPath(rts,
-                "Hardware_Performance_run/Fourth Order Motion System/Ethercat Supervisor/S-Function1");
+                "Hardware_Performance_run/Fourth Order Motion System/Ethercat Supervisor/S-Function");
       ssSetRTModel(rts,Hardware_Performance_run_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -1087,47 +1095,16 @@ void Hardware_Performance_run_initialize(void)
       {
         mxArray **sfcnParams = (mxArray **)
           &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn1.params;
-        ssSetSFcnParamsCount(rts, 1);
+        ssSetSFcnParamsCount(rts, 2);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       Hardware_Performance_run_P.SFunction1_P1_Size);
-      }
-
-      /* work vectors */
-      ssSetRWork(rts, (real_T *) &Hardware_Performance_run_DW.SFunction1_RWORK[0]);
-      ssSetIWork(rts, (int_T *) &Hardware_Performance_run_DW.SFunction1_IWORK);
-      ssSetPWork(rts, (void **) &Hardware_Performance_run_DW.SFunction1_PWORK);
-
-      {
-        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn1.dWork;
-        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn1.dWorkAux;
-        ssSetSFcnDWork(rts, dWorkRecord);
-        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
-        ssSetNumDWorkAsInt(rts, 3);
-
-        /* RWORK */
-        ssSetDWorkWidthAsInt(rts, 0, 2);
-        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
-        ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &Hardware_Performance_run_DW.SFunction1_RWORK[0]);
-
-        /* IWORK */
-        ssSetDWorkWidthAsInt(rts, 1, 1);
-        ssSetDWorkDataType(rts, 1,SS_INTEGER);
-        ssSetDWorkComplexSignal(rts, 1, 0);
-        ssSetDWork(rts, 1, &Hardware_Performance_run_DW.SFunction1_IWORK);
-
-        /* PWORK */
-        ssSetDWorkWidthAsInt(rts, 2, 1);
-        ssSetDWorkDataType(rts, 2,SS_POINTER);
-        ssSetDWorkComplexSignal(rts, 2, 0);
-        ssSetDWork(rts, 2, &Hardware_Performance_run_DW.SFunction1_PWORK);
+                       Hardware_Performance_run_P.SFunction_P1_Size_f);
+        ssSetSFcnParam(rts, 1, (mxArray*)
+                       Hardware_Performance_run_P.SFunction_P2_Size);
       }
 
       /* registration */
-      getTiming(rts);
+      ec_Supervisor(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -1146,7 +1123,7 @@ void Hardware_Performance_run_initialize(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: Hardware_Performance_run/<S7>/S-Function (ec_Supervisor) */
+    /* Level2 S-Function Block: Hardware_Performance_run/<S5>/S-Function (ref3b) */
     {
       SimStruct *rts = Hardware_Performance_run_M->childSfunctions[2];
 
@@ -1206,6 +1183,32 @@ void Hardware_Performance_run_initialize(void)
           &Hardware_Performance_run_M->NonInlinedSFcns.periodicStatesInfo[2]);
       }
 
+      /* inputs */
+      {
+        _ssSetNumInputPorts(rts, 1);
+        ssSetPortInfoForInputs(rts,
+          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn2.inputPortInfo[0]);
+        ssSetPortInfoForInputs(rts,
+          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn2.inputPortInfo[0]);
+        _ssSetPortInfo2ForInputUnits(rts,
+          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn2.inputPortUnits[0]);
+        ssSetInputPortUnit(rts, 0, 0);
+        _ssSetPortInfo2ForInputCoSimAttribute(rts,
+          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn2.inputPortCoSimAttribute
+          [0]);
+        ssSetInputPortIsContinuousQuantity(rts, 0, 0);
+
+        /* port 0 */
+        {
+          real_T const **sfcnUPtrs = (real_T const **)
+            &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn2.UPtrs0;
+          sfcnUPtrs[0] = &Hardware_Performance_run_B.Startsetpoint;
+          ssSetInputPortSignalPtrs(rts, 0, (InputPtrsType)&sfcnUPtrs[0]);
+          _ssSetInputPortNumDimensions(rts, 0, 1);
+          ssSetInputPortWidthAsInt(rts, 0, 1);
+        }
+      }
+
       /* outputs */
       {
         ssSetPortInfoForOutputs(rts,
@@ -1224,16 +1227,15 @@ void Hardware_Performance_run_initialize(void)
         /* port 0 */
         {
           _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidthAsInt(rts, 0, 1);
+          ssSetOutputPortWidthAsInt(rts, 0, 3);
           ssSetOutputPortSignal(rts, 0, ((real_T *)
-            &Hardware_Performance_run_B.SFunction_o));
+            Hardware_Performance_run_B.SFunction_c));
         }
       }
 
       /* path info */
       ssSetModelName(rts, "S-Function");
-      ssSetPath(rts,
-                "Hardware_Performance_run/Fourth Order Motion System/Ethercat Supervisor/S-Function");
+      ssSetPath(rts, "Hardware_Performance_run/Subsystem/S-Function");
       ssSetRTModel(rts,Hardware_Performance_run_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -1243,32 +1245,51 @@ void Hardware_Performance_run_initialize(void)
       {
         mxArray **sfcnParams = (mxArray **)
           &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn2.params;
-        ssSetSFcnParamsCount(rts, 2);
+        ssSetSFcnParamsCount(rts, 1);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       Hardware_Performance_run_P.SFunction_P1_Size_f);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       Hardware_Performance_run_P.SFunction_P2_Size);
+                       Hardware_Performance_run_P.SFunction_P1_Size);
+      }
+
+      /* work vectors */
+      ssSetRWork(rts, (real_T *) &Hardware_Performance_run_DW.SFunction_RWORK[0]);
+
+      {
+        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
+          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn2.dWork;
+        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
+          &Hardware_Performance_run_M->NonInlinedSFcns.Sfcn2.dWorkAux;
+        ssSetSFcnDWork(rts, dWorkRecord);
+        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
+        ssSetNumDWorkAsInt(rts, 1);
+
+        /* RWORK */
+        ssSetDWorkWidthAsInt(rts, 0, 50);
+        ssSetDWorkDataType(rts, 0,SS_DOUBLE);
+        ssSetDWorkComplexSignal(rts, 0, 0);
+        ssSetDWork(rts, 0, &Hardware_Performance_run_DW.SFunction_RWORK[0]);
       }
 
       /* registration */
-      ec_Supervisor(rts);
+      ref3b(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
       /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.00025);
+      ssSetSampleTime(rts, 0, 0.0);
       ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 1;
+      sfcnTsMap[0] = 0;
 
       /* set compiled values of dynamic vector attributes */
       ssSetNumNonsampledZCsAsInt(rts, 0);
 
       /* Update connectivity flags for each port */
+      _ssSetInputPortConnected(rts, 0, 1);
       _ssSetOutputPortConnected(rts, 0, 1);
       _ssSetOutputPortBeingMerged(rts, 0, 0);
 
       /* Update the BufferDstPort flags for each input port */
+      ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
     /* Level2 S-Function Block: Hardware_Performance_run/<S6>/ec_Ebox (ec_Ebox) */
@@ -1484,7 +1505,7 @@ void Hardware_Performance_run_initialize(void)
       ssSetInputPortBufferDstPort(rts, 2, -1);
     }
 
-    /* Level2 S-Function Block: Hardware_Performance_run/<S1>/Dctnotch2 (dnotch) */
+    /* Level2 S-Function Block: Hardware_Performance_run/<S2>/Dctnotch2 (dnotch) */
     {
       SimStruct *rts = Hardware_Performance_run_M->childSfunctions[4];
 
@@ -1597,7 +1618,11 @@ void Hardware_Performance_run_initialize(void)
       /* path info */
       ssSetModelName(rts, "Dctnotch2");
       ssSetPath(rts,
+<<<<<<< Updated upstream
                 "Hardware_Performance_run/Controller_13p5Hz_N52p9_LL_LL_LPF/Dctnotch2");
+=======
+                "Hardware_Performance_run/Load_Controller_V2_lowpass_13_5Hz_noI/Dctnotch2");
+>>>>>>> Stashed changes
       ssSetRTModel(rts,Hardware_Performance_run_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -1662,7 +1687,7 @@ void Hardware_Performance_run_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: Hardware_Performance_run/<S1>/Dctleadlag3 (dleadlag) */
+    /* Level2 S-Function Block: Hardware_Performance_run/<S2>/Dctleadlag3 (dleadlag) */
     {
       SimStruct *rts = Hardware_Performance_run_M->childSfunctions[5];
 
@@ -1775,7 +1800,11 @@ void Hardware_Performance_run_initialize(void)
       /* path info */
       ssSetModelName(rts, "Dctleadlag3");
       ssSetPath(rts,
+<<<<<<< Updated upstream
                 "Hardware_Performance_run/Controller_13p5Hz_N52p9_LL_LL_LPF/Dctleadlag3");
+=======
+                "Hardware_Performance_run/Load_Controller_V2_lowpass_13_5Hz_noI/Dctleadlag3");
+>>>>>>> Stashed changes
       ssSetRTModel(rts,Hardware_Performance_run_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -1837,7 +1866,11 @@ void Hardware_Performance_run_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
+<<<<<<< Updated upstream
     /* Level2 S-Function Block: Hardware_Performance_run/<S1>/Dctleadlag4 (dleadlag) */
+=======
+    /* Level2 S-Function Block: Hardware_Performance_run/<S2>/Dctleadlag4 (dleadlag) */
+>>>>>>> Stashed changes
     {
       SimStruct *rts = Hardware_Performance_run_M->childSfunctions[6];
 
@@ -1950,7 +1983,11 @@ void Hardware_Performance_run_initialize(void)
       /* path info */
       ssSetModelName(rts, "Dctleadlag4");
       ssSetPath(rts,
+<<<<<<< Updated upstream
                 "Hardware_Performance_run/Controller_13p5Hz_N52p9_LL_LL_LPF/Dctleadlag4");
+=======
+                "Hardware_Performance_run/Load_Controller_V2_lowpass_13_5Hz_noI/Dctleadlag4");
+>>>>>>> Stashed changes
       ssSetRTModel(rts,Hardware_Performance_run_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -2012,7 +2049,11 @@ void Hardware_Performance_run_initialize(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
+<<<<<<< Updated upstream
     /* Level2 S-Function Block: Hardware_Performance_run/<S1>/Dct1lowpass5 (dlowpass1) */
+=======
+    /* Level2 S-Function Block: Hardware_Performance_run/<S2>/Dct1lowpass5 (dlowpass1) */
+>>>>>>> Stashed changes
     {
       SimStruct *rts = Hardware_Performance_run_M->childSfunctions[7];
 
@@ -2125,7 +2166,11 @@ void Hardware_Performance_run_initialize(void)
       /* path info */
       ssSetModelName(rts, "Dct1lowpass5");
       ssSetPath(rts,
+<<<<<<< Updated upstream
                 "Hardware_Performance_run/Controller_13p5Hz_N52p9_LL_LL_LPF/Dct1lowpass5");
+=======
+                "Hardware_Performance_run/Load_Controller_V2_lowpass_13_5Hz_noI/Dct1lowpass5");
+>>>>>>> Stashed changes
       ssSetRTModel(rts,Hardware_Performance_run_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -2186,14 +2231,14 @@ void Hardware_Performance_run_initialize(void)
     }
   }
 
-  /* Start for Constant: '<S4>/Start setpoint' */
-  Hardware_Performance_run_B.Startsetpoint =
-    Hardware_Performance_run_P.Refpower_stat;
+  /* Start for Constant: '<S1>/Constant1' */
+  memcpy(&Hardware_Performance_run_B.Constant1[0],
+         &Hardware_Performance_run_P.Constant1_Value[0], sizeof(real_T) << 3U);
 
   /* Start for S-Function (getTiming): '<S7>/S-Function1' */
   /* Level2 S-Function Block: '<S7>/S-Function1' (getTiming) */
   {
-    SimStruct *rts = Hardware_Performance_run_M->childSfunctions[1];
+    SimStruct *rts = Hardware_Performance_run_M->childSfunctions[0];
     sfcnStart(rts);
     if (ssGetErrorStatus(rts) != (NULL))
       return;
@@ -2224,14 +2269,18 @@ void Hardware_Performance_run_initialize(void)
   /* Start for S-Function (ec_Supervisor): '<S7>/S-Function' */
   /* Level2 S-Function Block: '<S7>/S-Function' (ec_Supervisor) */
   {
-    SimStruct *rts = Hardware_Performance_run_M->childSfunctions[2];
+    SimStruct *rts = Hardware_Performance_run_M->childSfunctions[1];
     sfcnStart(rts);
     if (ssGetErrorStatus(rts) != (NULL))
       return;
   }
 
-  /* Start for S-Function (dnotch): '<S1>/Dctnotch2' */
-  /* Level2 S-Function Block: '<S1>/Dctnotch2' (dnotch) */
+  /* Start for Constant: '<S4>/Start setpoint' */
+  Hardware_Performance_run_B.Startsetpoint =
+    Hardware_Performance_run_P.Refpower_stat;
+
+  /* Start for S-Function (dnotch): '<S2>/Dctnotch2' */
+  /* Level2 S-Function Block: '<S2>/Dctnotch2' (dnotch) */
   {
     SimStruct *rts = Hardware_Performance_run_M->childSfunctions[4];
     sfcnStart(rts);
@@ -2239,8 +2288,8 @@ void Hardware_Performance_run_initialize(void)
       return;
   }
 
-  /* Start for S-Function (dleadlag): '<S1>/Dctleadlag3' */
-  /* Level2 S-Function Block: '<S1>/Dctleadlag3' (dleadlag) */
+  /* Start for S-Function (dleadlag): '<S2>/Dctleadlag3' */
+  /* Level2 S-Function Block: '<S2>/Dctleadlag3' (dleadlag) */
   {
     SimStruct *rts = Hardware_Performance_run_M->childSfunctions[5];
     sfcnStart(rts);
@@ -2248,8 +2297,13 @@ void Hardware_Performance_run_initialize(void)
       return;
   }
 
+<<<<<<< Updated upstream
   /* Start for S-Function (dleadlag): '<S1>/Dctleadlag4' */
   /* Level2 S-Function Block: '<S1>/Dctleadlag4' (dleadlag) */
+=======
+  /* Start for S-Function (dleadlag): '<S2>/Dctleadlag4' */
+  /* Level2 S-Function Block: '<S2>/Dctleadlag4' (dleadlag) */
+>>>>>>> Stashed changes
   {
     SimStruct *rts = Hardware_Performance_run_M->childSfunctions[6];
     sfcnStart(rts);
@@ -2257,8 +2311,13 @@ void Hardware_Performance_run_initialize(void)
       return;
   }
 
+<<<<<<< Updated upstream
   /* Start for S-Function (dlowpass1): '<S1>/Dct1lowpass5' */
   /* Level2 S-Function Block: '<S1>/Dct1lowpass5' (dlowpass1) */
+=======
+  /* Start for S-Function (dlowpass1): '<S2>/Dct1lowpass5' */
+  /* Level2 S-Function Block: '<S2>/Dct1lowpass5' (dlowpass1) */
+>>>>>>> Stashed changes
   {
     SimStruct *rts = Hardware_Performance_run_M->childSfunctions[7];
     sfcnStart(rts);
@@ -2266,17 +2325,13 @@ void Hardware_Performance_run_initialize(void)
       return;
   }
 
-  /* Start for Constant: '<S2>/Constant1' */
-  memcpy(&Hardware_Performance_run_B.Constant1[0],
-         &Hardware_Performance_run_P.Constant1_Value[0], sizeof(real_T) << 3U);
-
   {
     int32_T i;
 
     /* InitializeConditions for S-Function (ref3b): '<S5>/S-Function' */
     /* Level2 S-Function Block: '<S5>/S-Function' (ref3b) */
     {
-      SimStruct *rts = Hardware_Performance_run_M->childSfunctions[0];
+      SimStruct *rts = Hardware_Performance_run_M->childSfunctions[2];
       sfcnInitializeConditions(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -2310,17 +2365,10 @@ void Hardware_Performance_run_initialize(void)
 /* Model terminate function */
 void Hardware_Performance_run_terminate(void)
 {
-  /* Terminate for S-Function (ref3b): '<S5>/S-Function' */
-  /* Level2 S-Function Block: '<S5>/S-Function' (ref3b) */
-  {
-    SimStruct *rts = Hardware_Performance_run_M->childSfunctions[0];
-    sfcnTerminate(rts);
-  }
-
   /* Terminate for S-Function (getTiming): '<S7>/S-Function1' */
   /* Level2 S-Function Block: '<S7>/S-Function1' (getTiming) */
   {
-    SimStruct *rts = Hardware_Performance_run_M->childSfunctions[1];
+    SimStruct *rts = Hardware_Performance_run_M->childSfunctions[0];
     sfcnTerminate(rts);
   }
 
@@ -2360,6 +2408,13 @@ void Hardware_Performance_run_terminate(void)
   /* Terminate for S-Function (ec_Supervisor): '<S7>/S-Function' */
   /* Level2 S-Function Block: '<S7>/S-Function' (ec_Supervisor) */
   {
+    SimStruct *rts = Hardware_Performance_run_M->childSfunctions[1];
+    sfcnTerminate(rts);
+  }
+
+  /* Terminate for S-Function (ref3b): '<S5>/S-Function' */
+  /* Level2 S-Function Block: '<S5>/S-Function' (ref3b) */
+  {
     SimStruct *rts = Hardware_Performance_run_M->childSfunctions[2];
     sfcnTerminate(rts);
   }
@@ -2371,29 +2426,39 @@ void Hardware_Performance_run_terminate(void)
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dnotch): '<S1>/Dctnotch2' */
-  /* Level2 S-Function Block: '<S1>/Dctnotch2' (dnotch) */
+  /* Terminate for S-Function (dnotch): '<S2>/Dctnotch2' */
+  /* Level2 S-Function Block: '<S2>/Dctnotch2' (dnotch) */
   {
     SimStruct *rts = Hardware_Performance_run_M->childSfunctions[4];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (dleadlag): '<S1>/Dctleadlag3' */
-  /* Level2 S-Function Block: '<S1>/Dctleadlag3' (dleadlag) */
+  /* Terminate for S-Function (dleadlag): '<S2>/Dctleadlag3' */
+  /* Level2 S-Function Block: '<S2>/Dctleadlag3' (dleadlag) */
   {
     SimStruct *rts = Hardware_Performance_run_M->childSfunctions[5];
     sfcnTerminate(rts);
   }
 
+<<<<<<< Updated upstream
   /* Terminate for S-Function (dleadlag): '<S1>/Dctleadlag4' */
   /* Level2 S-Function Block: '<S1>/Dctleadlag4' (dleadlag) */
+=======
+  /* Terminate for S-Function (dleadlag): '<S2>/Dctleadlag4' */
+  /* Level2 S-Function Block: '<S2>/Dctleadlag4' (dleadlag) */
+>>>>>>> Stashed changes
   {
     SimStruct *rts = Hardware_Performance_run_M->childSfunctions[6];
     sfcnTerminate(rts);
   }
 
+<<<<<<< Updated upstream
   /* Terminate for S-Function (dlowpass1): '<S1>/Dct1lowpass5' */
   /* Level2 S-Function Block: '<S1>/Dct1lowpass5' (dlowpass1) */
+=======
+  /* Terminate for S-Function (dlowpass1): '<S2>/Dct1lowpass5' */
+  /* Level2 S-Function Block: '<S2>/Dct1lowpass5' (dlowpass1) */
+>>>>>>> Stashed changes
   {
     SimStruct *rts = Hardware_Performance_run_M->childSfunctions[7];
     sfcnTerminate(rts);

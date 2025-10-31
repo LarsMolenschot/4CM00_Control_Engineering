@@ -4,7 +4,11 @@
  * Code generation for Simulink model "Hardware_Performance_run".
  *
  * Simulink Coder version                : 25.1 (R2025a) 21-Nov-2024
+<<<<<<< Updated upstream
  * C source code generated on : Fri Oct 24 12:08:27 2025
+=======
+ * C source code generated on : Fri Oct 24 08:58:16 2025
+>>>>>>> Stashed changes
  *
  * Note that the generated code is not dependent on this header file.
  * The file is used in cojuction with the automatic build procedure.

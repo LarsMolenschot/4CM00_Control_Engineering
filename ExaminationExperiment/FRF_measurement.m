@@ -29,6 +29,7 @@ mybode(f,[H,L],c,"H vs L")
     
      ], ...
      "Protolab")
+<<<<<<< Updated upstream
 %% 
 L = Data.calculatedData.L;
 H = Data.calculatedData.H;
@@ -36,6 +37,8 @@ f = Data.calculatedData.f;
 Coh = Data.calculatedData.Coh;  
 
 mybode(f,H,Coh,replace(Data.FileName,'_',''))
+=======
+>>>>>>> Stashed changes
 %%
 % ------------------- Controller (Run before simulink) ----------------------------%
 s = tf('s');
